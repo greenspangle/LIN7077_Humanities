@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+ <head> 
+  <title>IntelliJ Markdown Preview</title>               
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,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) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; } </style>
+  <style>body { background-color: rgba(255, 255, 255, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(8, 8, 8, 255.0); } a { color: rgba(36, 112, 179, 255.0); } table td, table th { border: 1px solid rgba(209, 209, 209, 255.0); } hr { background-color: rgba(209, 209, 209, 255.0); } kbd, tr { border: 1px solid rgba(209, 209, 209, 255.0); } h6 { color: rgba(153, 153, 153, 255.0); } blockquote { border-left: 2px solid rgba(36, 112, 179, 0.4); } ::-webkit-scrollbar-thumb { background-color: rgba(115, 115, 115, 0.2); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.24705882352941178); }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; } </style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head> 
+ <body>
+  <div md-src-pos="0..3661">
+   <h1 md-src-pos="0..13">Regression</h1>
+   <p md-src-pos="15..136"><span md-src-pos="15..34">Finding the line of</span> '<span md-src-pos="36..44">best fit</span>' <span md-src-pos="46..70">through your data ponts.</span> <span md-src-pos="71..136">You might have done this at school on two-dimensional X-Y graphs.</span></p>
+   <p md-src-pos="138..473"><span md-src-pos="138..238">Using the mathematics of linear algebra the same problem can be solved for any number of dimensions,</span> <span md-src-pos="239..245">dozens</span> <span md-src-pos="246..271">or hundreds or thousands.</span> <span md-src-pos="272..378">Fortunately for us the linear algebra to do this is wrapped up in python libraries so all we have to do is</span> <span md-src-pos="379..461">prepare the data and pass it into the appropriate library functions and the answer</span> '<span md-src-pos="463..471">pops out</span>'<span md-src-pos="472..473">.</span></p>
+   <p md-src-pos="475..585"><span md-src-pos="475..491">Once we have the</span> '<span md-src-pos="493..501">best fit</span>' <span md-src-pos="503..577">line through our data we can use it to approximate values for missing data</span> <span md-src-pos="578..585">points.</span></p>
+   <h2 md-src-pos="587..625">Regression using the SciKit library</h2>
+   <p md-src-pos="626..818"><span md-src-pos="626..652">The required libraries are</span> <strong md-src-pos="653..662">numpy</strong> <span md-src-pos="663..694">for the numerical calculations,</span> <strong md-src-pos="695..709">matplotlib</strong> <span md-src-pos="710..748">for the plotting of charts and graphs,</span> <span md-src-pos="749..752">and</span> <strong md-src-pos="753..769">Scikit-Learn</strong> <span md-src-pos="770..817">for the linear algebra and regression analysis.</span></p>
+   <p md-src-pos="820..950"><span md-src-pos="820..877">All of these libraries are already installed in Anaconda,</span> <span md-src-pos="878..949">which means they can be imported into your code whenever you need them.</span></p>
+   <pre class="code-fence" md-src-pos="952..1097">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBpbXBvcnQgbGlicmFyaWVzIC8gbW9kdWxlcwppbXBvcnQgbnVtcHkgYXMgbnAKaW1wb3J0IG1hdHBsb3RsaWIucHlwbG90IGFzIHBsdApmcm9tIHNrbGVhcm4ubGluZWFyX21vZGVsIGltcG9ydCBMaW5lYXJSZWdyZXNzaW9u">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="952..1097"><span md-src-pos="952..962"></span><span md-src-pos="962..963"></span>
+<span md-src-pos="963..992"><span style="color: rgb(140, 140, 140);"># import libraries / modules</span></span>
+<span md-src-pos="992..1011"><span style="color: rgb(0, 51, 179);">import</span> numpy <span style="color: rgb(0, 51, 179);">as</span> np</span>
+<span md-src-pos="1011..1043"><span style="color: rgb(0, 51, 179);">import</span> matplotlib.pyplot <span style="color: rgb(0, 51, 179);">as</span> plt</span>
+<span md-src-pos="1043..1093"><span style="color: rgb(0, 51, 179);">from</span> sklearn.linear_model <span style="color: rgb(0, 51, 179);">import</span> LinearRegression</span>
+<span md-src-pos="1093..1094"></span>
+<span md-src-pos="1094..1095"></span><span md-src-pos="1094..1097"></span></code></pre>
+   <p md-src-pos="1099..1147"><span md-src-pos="1099..1103">Now,</span> <span md-src-pos="1104..1124">just to get started,</span> <span md-src-pos="1125..1146">create some test data</span>:</p>
+   <pre class="code-fence" md-src-pos="1149..1617">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBjcmVhdGUgdGhlIHJhdyBkYXRhIChvciBpbXBvcnQgaXQgZnJvbSBleHRlcm5hbCBmaWxlcykKeGRhdGEgPSBucC5hcnJheShbNSwgMTUsIDI1LCAzNSwgNDUsIDU1XSkKeWRhdGEgPSBucC5hcnJheShbNSwgMjAsIDE0LCAzMiwgMjIsIDM4XSkKCiMgdHJhbnNmb3JtIGFycmF5cyBmb3IgcmVncmVzc2lvbgp4ID0geGRhdGEucmVzaGFwZSgoLTEsIDEpKSAgIyB0aGlzIHRyYW5zZm9ybXMgbGlzdCBpbnRvIGEgbGlzdCBvZiBsaXN0cwp5ID0geWRhdGEKCiMgcHJpbnQgdGhlIGRhdGEgdG8gY2hlY2sgaXQgaXMgYXJlIE9LIGFuZCB0byBzZWUgdGhlICdzaGFwZScgb2YgaXQKcHJpbnQoJ1xucmF3IGRhdGEnKQpwcmludCgneGRhdGEgPSAnLCB4ZGF0YSkKcHJpbnQoJ3lkYXRhID0gJywgeWRhdGEpCnByaW50KCdcbnRyYW5zZm9ybWVkIGRhdGEnKQpwcmludCgneCA9ICcsIHgpCnByaW50KCd4ID0gJywgeSk=">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="1149..1617"><span md-src-pos="1149..1153"></span><span md-src-pos="1153..1153"></span>
+<span md-src-pos="1154..1210"># create the raw data (or import it from external files)</span>
+<span md-src-pos="1211..1252">xdata = np.array([5, 15, 25, 35, 45, 55])</span>
+<span md-src-pos="1253..1294">ydata = np.array([5, 20, 14, 32, 22, 38])</span>
+<span md-src-pos="1295..1295"></span>
+<span md-src-pos="1296..1329"># transform arrays for regression</span>
+<span md-src-pos="1330..1401">x = xdata.reshape((-1, 1))  # this transforms list into a list of lists</span>
+<span md-src-pos="1402..1411">y = ydata</span>
+<span md-src-pos="1412..1412"></span>
+<span md-src-pos="1413..1480"># print the data to check it is are OK and to see the 'shape' of it</span>
+<span md-src-pos="1481..1500">print('\nraw data')</span>
+<span md-src-pos="1501..1525">print('xdata = ', xdata)</span>
+<span md-src-pos="1526..1550">print('ydata = ', ydata)</span>
+<span md-src-pos="1551..1578">print('\ntransformed data')</span>
+<span md-src-pos="1579..1595">print('x = ', x)</span>
+<span md-src-pos="1596..1612">print('x = ', y)</span>
+<span md-src-pos="1613..1613"></span>
+<span md-src-pos="1614..1614"></span><span md-src-pos="1614..1617"></span></code></pre>
+   <p md-src-pos="1619..1762"><span md-src-pos="1619..1762">Now that we have the data and have transformed it into the correct shape we can use the Scikit-Learn library to calculate the line of best fit.</span></p>
+   <pre class="code-fence" md-src-pos="1764..1932">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBEbyBsaW5lYXIgcmVncmVzc2lvbiBvZiBkYXRhIGFuZCBjcmVhdGUgbW9kZWwgb2JqZWN0IChsaW5lIG9mIGJlc3QgZml0KQojID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KbW9kZWwgPSBMaW5lYXJSZWdyZXNzaW9uKCkKbW9kZWwuZml0KHgsIHkp">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="1764..1932"><span md-src-pos="1764..1768"></span><span md-src-pos="1768..1768"></span>
+<span md-src-pos="1769..1842"># Do linear regression of data and create model object (line of best fit)</span>
+<span md-src-pos="1843..1885"># ========================================</span>
+<span md-src-pos="1886..1912">model = LinearRegression()</span>
+<span md-src-pos="1913..1928">model.fit(x, y)</span>
+<span md-src-pos="1929..1929"></span><span md-src-pos="1929..1932"></span></code></pre>
+   <pre class="code-fence" md-src-pos="1933..2158">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtaW5lIHRoZSBwcm9wZXJ0aWVzIG9mIHRoZSBtb2RlbAojID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0Kcl9zcSA9IG1vZGVsLnNjb3JlKHgsIHkpCnByaW50KCdjb2VmZmljaWVudCBvZiBkZXRlcm1pbmF0aW9uOicsIHJfc3EpCnByaW50KCdpbnRlcmNlcHQ6JywgbW9kZWwuaW50ZXJjZXB0XykKcHJpbnQoJ3Nsb3BlOicsIG1vZGVsLmNvZWZfKQ==">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="1933..2158"><span md-src-pos="1933..1937"></span><span md-src-pos="1937..1974"># examine the properties of the model</span>
+<span md-src-pos="1975..2017"># ========================================</span>
+<span md-src-pos="2018..2042">r_sq = model.score(x, y)</span>
+<span md-src-pos="2043..2087">print('coefficient of determination:', r_sq)</span>
+<span md-src-pos="2088..2125">print('intercept:', model.intercept_)</span>
+<span md-src-pos="2126..2154">print('slope:', model.coef_)</span>
+<span md-src-pos="2155..2155"></span><span md-src-pos="2155..2158"></span></code></pre>
+   <pre class="code-fence" md-src-pos="2159..2283">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBQbG90IHRoZSBkYXRhCiMgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQojIHBsb3QgdGhlIGRhdGEKcGx0LnBsb3QoeGRhdGEsIHlkYXRhLCBscz0nJywgbWFya2VyPSdvJyk=">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="2159..2283"><span md-src-pos="2159..2163"></span><span md-src-pos="2163..2178"># Plot the data</span>
+<span md-src-pos="2179..2221"># ========================================</span>
+<span md-src-pos="2222..2237"># plot the data</span>
+<span md-src-pos="2238..2279">plt.plot(xdata, ydata, ls='', marker='o')</span>
+<span md-src-pos="2280..2280"></span><span md-src-pos="2280..2283"></span></code></pre>
+   <pre class="code-fence" md-src-pos="2284..2645">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBwbG90IHRoZSByZWdyZXNzaW9uIGxpbmUKIyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiMgY2FsY3VsYXRlIHR3byAoeCwgeSkgZGF0YSBwb2ludHMgb24gdGhlIHJlZ3Jlc3Npb24gbGluZQojIHR3byBwb2ludHMgb24gdGhlIHktYXhpcwp5bGluZSA9IG5wLmFycmF5KFttb2RlbC5pbnRlcmNlcHRfLCA1NSAqIG1vZGVsLmNvZWZfWzBdICsgbW9kZWwuaW50ZXJjZXB0X10pCiMgdHdvIHBvaW50cyBvbiB0aGUgeC1heGlzCnhsaW5lID0gbnAuYXJyYXkoWzAsIDU1XSkKIyBhbmQgcGxvdCB0aGUgbGluZSBiZXR3ZWVuIHRob3NlIHR3byBwb2ludHMKcGx0LnBsb3QoeGxpbmUsIHlsaW5lKQ==">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="2284..2645"><span md-src-pos="2284..2288"></span><span md-src-pos="2288..2288"></span>
+<span md-src-pos="2289..2315"># plot the regression line</span>
+<span md-src-pos="2316..2358"># ========================================</span>
+<span md-src-pos="2359..2416"># calculate two (x, y) data points on the regression line</span>
+<span md-src-pos="2417..2443"># two points on the y-axis</span>
+<span md-src-pos="2444..2520">yline = np.array([model.intercept_, 55 * model.coef_[0] + model.intercept_])</span>
+<span md-src-pos="2521..2547"># two points on the x-axis</span>
+<span md-src-pos="2548..2573">xline = np.array([0, 55])</span>
+<span md-src-pos="2574..2618"># and plot the line between those two points</span>
+<span md-src-pos="2619..2641">plt.plot(xline, yline)</span>
+<span md-src-pos="2642..2642"></span><span md-src-pos="2642..2645"></span></code></pre>
+   <pre class="code-fence" md-src-pos="2646..2850">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBhZGQgbGFiZWxzIGZvciB0aGUgYXhlcyBhbmQgYSBjaGFydCB0aXRsZQojID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KcGx0LnRpdGxlKCdQbG90IG9mIGRhdGEgYW5kICJiZXN0IGZpdCJyZWdyZXNzaW9uIGxpbmUnKQpwbHQueGxhYmVsKCd4IGRhdGEnKQpwbHQueWxhYmVsKCd5IGRhdGEnKQpwbHQuc2hvdygp">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="2646..2850"><span md-src-pos="2646..2650"></span><span md-src-pos="2650..2650"></span>
+<span md-src-pos="2651..2694"># add labels for the axes and a chart title</span>
+<span md-src-pos="2695..2737"># ========================================</span>
+<span md-src-pos="2738..2803">plt.title('Plot of data and "best fit"regression line')</span>
+<span md-src-pos="2804..2824">plt.xlabel('x data')</span>
+<span md-src-pos="2825..2845">plt.ylabel('y data')</span>
+<span md-src-pos="2846..2856">plt.show()</span>
+<span md-src-pos="2857..2857"></span><span md-src-pos="2847..2850"></span></code></pre>
+   <h3 md-src-pos="2852..2870">Categorization</h3>
+   <p md-src-pos="2872..3224"><span md-src-pos="2872..2962">Categorization is the act of grouping the data points into different groups or categories.</span> <span md-src-pos="2963..2979">The groups might</span> <span md-src-pos="2980..2982">be</span> '<span md-src-pos="2984..2990">friend</span>' <span md-src-pos="2992..2995">and</span> '<span md-src-pos="2997..3000">foe</span>'<span md-src-pos="3001..3002">;</span> <span md-src-pos="3003..3051">or profitable-products and loss-making-products;</span> <span md-src-pos="3052..3067">or red-marbles,</span> <span md-src-pos="3068..3084">blue marbles and</span> <span md-src-pos="3085..3099">green marbles;</span> <span md-src-pos="3100..3130">the possibilities are endless.</span> <span md-src-pos="3131..3192">The key point is that data points in the same category are in</span> <span md-src-pos="3193..3224">some way related to each other.</span></p>
+   <p md-src-pos="3226..3654"><span md-src-pos="3226..3306">Categorization can often be thought of as in some way the inverse of regression.</span> <span md-src-pos="3307..3334">Instead of trying to find a</span> <span md-src-pos="3335..3339">line</span> <span md-src-pos="3340..3342">of</span> '<span md-src-pos="3344..3352">best fit</span>' <span md-src-pos="3354..3424">that is the best approximation to the distribution of the data points,</span> <span md-src-pos="3425..3444">categorization is a</span> <span md-src-pos="3445..3552">search for the best line that separates the data points into two distinct groups each with some property in</span> <span md-src-pos="3553..3560">common.</span> <span md-src-pos="3561..3632">In some sense at least that line separating the categories is a line of</span> '<span md-src-pos="3634..3652">worst possible fit</span>'<span md-src-pos="3653..3654">.</span></p>
+  </div>
+ </body>
+</html>

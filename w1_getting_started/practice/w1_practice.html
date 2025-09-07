@@ -1,0 +1,504 @@
+<!doctype html>
+<html>
+ <head>
+  <title>IntelliJ Markdown Preview</title>
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } pre.frontmatter-header { background-color: transparent; margin: 0; padding: 0; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; }</style>
+  <style>body { background-color: rgba(255, 255, 255, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(8, 8, 8, 255.0); } a { color: rgba(49, 95, 189, 255.0); } table td, table th { border: 1px solid rgba(235, 236, 240, 255.0); } hr { background-color: rgba(235, 236, 240, 255.0); } kbd, tr { border: 1px solid rgba(235, 236, 240, 255.0); } h6 { color: rgba(129, 133, 148, 255.0); } blockquote { border-left: 2px solid rgba(49, 95, 189, 0.4); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.24705882352941178); } ::-webkit-scrollbar { width: 10px; height: 10px; background-color: rgba(245, 245, 245, 1.000000); } ::-webkit-scrollbar-track { background-color: rgba(128, 128, 128, 0.000000); } ::-webkit-scrollbar-track:hover { background-color: rgba(128, 128, 128, 0.000000); } ::-webkit-scrollbar-thumb { background-color: rgba(115, 115, 115, 0.200000); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(128, 128, 128, 0.000000); background-clip: padding-box; outline: 1px solid rgba(89, 89, 89, 0.200000); outline-offset: -1px; } ::-webkit-scrollbar-thumb:hover { background-color: rgba(115, 115, 115, 0.278431); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(128, 128, 128, 0.000000); background-clip: padding-box; outline: 1px solid rgba(89, 89, 89, 0.278431); outline-offset: -1px; } ::-webkit-scrollbar-corner { background-color: rgba(245, 245, 245, 1.000000); } ::-webkit-scrollbar-button { display:none; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head>
+ <body>
+  <div md-src-pos="0..19379">
+   <h1 id="lin62090-coding-for-linguists-br-lesson-1--practice-practice-practice" md-src-pos="0..80">LIN62090 Coding for Linguists <br>
+     Lesson 1 = Practice, Practice, Practice...</h1>
+   <p md-src-pos="82..203"><span md-src-pos="82..128">The key to learning any language is to use it.</span> <span md-src-pos="129..160">Every day at every opportunity,</span> <span md-src-pos="161..169">read it,</span> <span md-src-pos="170..179">write it,</span> <span md-src-pos="180..189">think it,</span> <span md-src-pos="190..203">and speak it.</span></p>
+   <p md-src-pos="205..401"><span md-src-pos="205..208">Don</span>'<span md-src-pos="209..236">t just read these examples,</span> <span md-src-pos="237..273">sit in front of your PC and DO them.</span> <span md-src-pos="274..321">Then experiment with your own variations of the</span> <span md-src-pos="322..401">code to confirm to yourself that you really do understand what Python is doing.</span></p>
+   <p md-src-pos="403..589"><span md-src-pos="403..444">When you start learning any new language,</span> <span md-src-pos="445..497">you need to acquire some words and simple sentences.</span> <span md-src-pos="498..502">That</span>'<span md-src-pos="503..539">s what we will be doing this lesson,</span> <span md-src-pos="540..546">so let</span>'<span md-src-pos="547..589">s get started on building some vocabulary.</span></p>
+   <h1 id="a-foretaste-on-the-web" md-src-pos="591..615">A foretaste on the web</h1>
+   <p md-src-pos="617..660"><span md-src-pos="617..622">Go to</span> <a href="https://www.python.org/" md-src-pos="623..660">Python.org</a></p>
+   <p md-src-pos="662..793"><span md-src-pos="662..754">Once the Python home page has loaded you will see a window on the screen containing the text</span> "<span md-src-pos="756..757">#</span> <span md-src-pos="758..766">Python 3</span>: <span md-src-pos="768..777">Fibonacci</span> <span md-src-pos="778..792">series up to n</span>"</p>
+   <ul md-src-pos="795..1369">
+    <li md-src-pos="795..903">In the top right-hand corner of that window you will see a yellow square with a small black chevron in it.</li>
+    <li md-src-pos="904..1003">Hover the cursor over that yellow square and you will see the message "Python Interactive Shell".</li>
+    <li md-src-pos="1004..1071">Click on the yellow square to start the python interactive shell.</li>
+    <li md-src-pos="1072..1151">When the shell has started you should see the interactive python prompt <code md-src-pos="1146..1151">&gt;&gt;&gt;</code></li>
+    <li md-src-pos="1152..1206">Type <code md-src-pos="1159..1181">print("Hello World")</code> and press the return key</li>
+    <li md-src-pos="1207..1308">Python should respond by displaying <code md-src-pos="1245..1258">Hello World</code>
+     <ul md-src-pos="1261..1308">
+      <li md-src-pos="1261..1308">If not then check your typing and try again</li>
+     </ul></li>
+    <li md-src-pos="1309..1369">Congratulations you have written your first Python Program</li>
+   </ul>
+   <h1 id="getting-started" md-src-pos="1371..1388">Getting started</h1>
+   <p md-src-pos="1390..1504"><span md-src-pos="1390..1486">The PCs in the QM PC Labs have all the software you need to begin programming already installed,</span> <span md-src-pos="1487..1504">including Python.</span></p>
+   <p md-src-pos="1506..1817"><span md-src-pos="1506..1556">Logon to any computer in the PC Lab and at the DOS</span> <span md-src-pos="1557..1558">/</span> <span md-src-pos="1559..1575">Unix prompt type</span> '<span md-src-pos="1577..1583">python</span>' <span md-src-pos="1585..1618">followed by the enter/return key.</span> <span md-src-pos="1619..1661">Python will start and present you with its</span> '<span md-src-pos="1663..1687">interactive shell prompt</span>'<span md-src-pos="1688..1689">,</span> <span md-src-pos="1690..1725">usually indicated by three chevrons</span> <code md-src-pos="1726..1731">&gt;&gt;&gt;</code><span md-src-pos="1731..1732">,</span> <span md-src-pos="1733..1781">which indicates it is awaiting your instructions</span> <span md-src-pos="1782..1783">-</span> <span md-src-pos="1784..1790">so let</span>'<span md-src-pos="1791..1805">s give it some</span>! <span md-src-pos="1807..1816">Type this</span>:</p>
+   <pre class="code-fence" md-src-pos="1819..1862"><div class="code-fence-highlighter-copy-button" data-fence-content="cHJpbnQoJ0hlbGxvIFdvcmxkIC0gYWdhaW4hJyk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="1819..1862"><span md-src-pos="1819..1829"></span><span md-src-pos="1829..1835">print(</span><span md-src-pos="1835..1857" style="color: rgb(6, 125, 23);">'Hello World - again!'</span><span md-src-pos="1857..1859">)
+</span><span md-src-pos="1859..1862"></span></code></pre>
+   <p md-src-pos="1864..2182"><span md-src-pos="1864..1901">Later in this lesson we will use IDLE</span> (<span md-src-pos="1903..1951">Interactive Development and Learning Environment</span>) <span md-src-pos="1953..1975">which you can start by</span> <span md-src-pos="1976..1982">typing</span> <code md-src-pos="1983..1989">idle</code> <span md-src-pos="1990..2000">at the DOS</span> <span md-src-pos="2001..2002">/</span> <span md-src-pos="2003..2046">Unix prompt and then pressing enter/return.</span><br><span md-src-pos="2049..2107">IDLE is used for writing larger and more complex programs.</span> <span md-src-pos="2108..2125">For now though we</span>'<span md-src-pos="2126..2168">ll stick with using the interactive Python</span> <span md-src-pos="2169..2175">prompt</span> <code md-src-pos="2176..2181">&gt;&gt;&gt;</code><span md-src-pos="2181..2182">.</span></p>
+   <h1 id="numbers-and-arithmetic" md-src-pos="2184..2208">Numbers and Arithmetic</h1>
+   <p md-src-pos="2210..2329"><span md-src-pos="2210..2258">Start Python and at the interactive shell prompt</span> <code md-src-pos="2259..2264">&gt;&gt;&gt;</code> <span md-src-pos="2265..2328">type this piece of Python code followed by the return/enter key</span>:</p>
+   <pre class="code-fence" md-src-pos="2331..2344"><div class="code-fence-highlighter-copy-button" data-fence-content="MiArIDI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2331..2344"><span md-src-pos="2331..2335"></span><span md-src-pos="2335..2341">2 + 2
+</span><span md-src-pos="2341..2344"></span></code></pre>
+   <p md-src-pos="2346..2367"><span md-src-pos="2346..2366">The result should be</span>:</p>
+   <pre class="code-fence" md-src-pos="2369..2378"><div class="code-fence-highlighter-copy-button" data-fence-content="NA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2369..2378"><span md-src-pos="2369..2373"></span><span md-src-pos="2373..2375">4
+</span><span md-src-pos="2375..2378"></span></code></pre>
+   <p md-src-pos="2380..2420"><span md-src-pos="2380..2419">Good to see that Python can do addition</span>!</p>
+   <h2 id="the-arithmetic-operators--------" md-src-pos="2422..2472">The Arithmetic Operators: +, -, *, **, /, //, %</h2>
+   <p md-src-pos="2474..2598"><span md-src-pos="2474..2581">Practice using these operators with a variety of integer numbers until you are comfortable with the results</span> <span md-src-pos="2582..2597">you are getting</span>:</p>
+   <pre class="code-fence" md-src-pos="2600..2748"><div class="code-fence-highlighter-copy-button" data-fence-content="MiArIDMgICMgYWRkaXRpb24gCjIgLSAzICAjIHN1YnRyYWN0aW9uCjIgKiAzICAjIG11bHRpcGxpY2F0aW9uCjIgLyAzICAjIGRpdmlzaW9uCjQgLyAyICAjIGRpdmlzaW9uIGFsd2F5cyByZXR1cm5zIGEgJ2Zsb2F0aW5nIHBvaW50JyBudW1iZXI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2600..2748"><span md-src-pos="2600..2604"></span><span md-src-pos="2604..2623">2 + 3  # addition 
+</span><span md-src-pos="2623..2644">2 - 3  # subtraction
+</span><span md-src-pos="2644..2668">2 * 3  # multiplication
+</span><span md-src-pos="2668..2686">2 / 3  # division
+</span><span md-src-pos="2686..2745">4 / 2  # division always returns a 'floating point' number
+</span><span md-src-pos="2745..2748"></span></code></pre>
+   <p md-src-pos="2750..2777"><span md-src-pos="2750..2776">A few more examples to try</span>:</p>
+   <pre class="code-fence" md-src-pos="2779..3042"><div class="code-fence-highlighter-copy-button" data-fence-content="MiAqIC0gMiAgICAgIyAnLScgaXMgdGhlICd1bmFyeSBuZWdhdGlvbiBvcGVyYXRvcicKMiAqKiAzICAgICAgIyBleHBvbmVudGlhdGlvbgoxMSAvIDIgICAgICAjIGRpdmlzaW9uIHlvdSBoYXZlIGFscmVhZHkgZG9uZQoxMSAvLyAyICAgICAjIGNhbiB5b3Ugd29yayBvdXQgd2hhdCB0aGlzIG9wZXJhdG9yIGlzIGRvaW5nPyAKMTEgJSAyICAgICAgIyBhbmQgdGhpcyBvbmU/ICBIaW50OiB0aGV5IGFyZSBjb21wbGltZW50cyBvZiBlYWNoIG90aGVy">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2779..3042"><span md-src-pos="2779..2783"></span><span md-src-pos="2783..2834">2 * - 2     # '-' is the 'unary negation operator'
+</span><span md-src-pos="2834..2863">2 ** 3      # exponentiation
+</span><span md-src-pos="2863..2908">11 / 2      # division you have already done
+</span><span md-src-pos="2908..2969">11 // 2     # can you work out what this operator is doing? 
+</span><span md-src-pos="2969..3039">11 % 2      # and this one?  Hint: they are compliments of each other
+</span><span md-src-pos="3039..3042"></span></code></pre>
+   <p md-src-pos="3044..3317"><span md-src-pos="3044..3067">Try more examples using</span> <span md-src-pos="3068..3070">//</span> <span md-src-pos="3071..3074">and</span> <span md-src-pos="3075..3076">%</span> <span md-src-pos="3077..3122">until you understand what those operators do.</span> <span md-src-pos="3123..3145">Read the documentation</span> <span md-src-pos="3146..3148">at</span>: <a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" md-src-pos="3150..3286">Python documentation: numeric-types-int-float-complex</a> <span md-src-pos="3287..3317">to confirm your understanding.</span></p>
+   <h2 id="bodmas--bidmas--bedmas--pemdas-etc" md-src-pos="3319..3359">BODMAS / BIDMAS / BEDMAS / PEMDAS etc</h2>
+   <p md-src-pos="3361..3437"><span md-src-pos="3361..3417">Brackets control the order in which operations are done.</span> <span md-src-pos="3418..3436">Try these examples</span>:</p>
+   <pre class="code-fence" md-src-pos="3439..3480"><div class="code-fence-highlighter-copy-button" data-fence-content="MiAtIDMgKyA0CigyIC0gMykgKyA0CjIgLSAoMyArIDQp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="3439..3480"><span md-src-pos="3439..3443"></span><span md-src-pos="3443..3453">2 - 3 + 4
+</span><span md-src-pos="3453..3465">(2 - 3) + 4
+</span><span md-src-pos="3465..3477">2 - (3 + 4)
+</span><span md-src-pos="3477..3480"></span></code></pre>
+   <p md-src-pos="3482..3492"><span md-src-pos="3482..3491">And these</span>:</p>
+   <pre class="code-fence" md-src-pos="3494..3628"><div class="code-fence-highlighter-copy-button" data-fence-content="MTEgLy8gMiAqIDIgKyAxMSAlIDIKMTEgLy8gKDIgKiAyKSArIDExICUgMgooMTEgLy8gMiAqIDIgKyAxMSkgJSAyCigyICoqIDQxICsgMiAqKiA0MykgLy8gMTAwMCAlIDEwICAjIGNhbiB5b3UgZXhwbGFpbiByZXN1bHQ/">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="3494..3628"><span md-src-pos="3494..3498"></span><span md-src-pos="3498..3519">11 // 2 * 2 + 11 % 2
+</span><span md-src-pos="3519..3542">11 // (2 * 2) + 11 % 2
+</span><span md-src-pos="3542..3565">(11 // 2 * 2 + 11) % 2
+</span><span md-src-pos="3565..3625">(2 ** 41 + 2 ** 43) // 1000 % 10  # can you explain result?
+</span><span md-src-pos="3625..3628"></span></code></pre>
+   <p md-src-pos="3630..3740"><span md-src-pos="3630..3669">If the answers python gives you are not</span> '<span md-src-pos="3671..3678">obvious</span>' <span md-src-pos="3680..3740">then try more examples until the results really are obvious.</span></p>
+   <h2 id="the-relational-operators------" md-src-pos="3742..3791">The Relational Operators: &lt;, &lt;=, ==, !=, &gt;=, &gt;</h2>
+   <p md-src-pos="3793..3926"><span md-src-pos="3793..3801">In words</span>: <span md-src-pos="3803..3813">less-than,</span> <span md-src-pos="3814..3833">less than or equal,</span> <span md-src-pos="3834..3840">equal,</span> <span md-src-pos="3841..3851">not equal,</span> <span md-src-pos="3852..3874">greater than or equal,</span> <span md-src-pos="3875..3892">and greater than.</span> <span md-src-pos="3893..3925">Try them out with these examples</span>:</p>
+   <pre class="code-fence" md-src-pos="3928..4116"><div class="code-fence-highlighter-copy-button" data-fence-content="NSA+IDQKNSA8IDQKNCA8IDUKNSA9PSA1CjQgPT0gNgo0ICE9IDYKNSA8IDQgPT0gNCA+IDUgICMgaXMgdGhlIHJlc3VsdCBvZiA1PDQgZXF1YWwgdG8gdGhlIHJlc3VsdCBmcm9tIDQ+NT8KNSA8IDQgIT0gNCA+IDUgICMgaXMgdGhlIHJlc3VsdCBvZiA1PDQgbm90IGVxdWFsIHRvIHRoZSByZXN1bHQgZnJvbSA0PjU/">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="3928..4116"><span md-src-pos="3928..3932"></span><span md-src-pos="3932..3941">5 &gt; 4
+</span><span md-src-pos="3941..3950">5 &lt; 4
+</span><span md-src-pos="3950..3959">4 &lt; 5
+</span><span md-src-pos="3959..3966">5 == 5
+</span><span md-src-pos="3966..3973">4 == 6
+</span><span md-src-pos="3973..3980">4 != 6
+</span><span md-src-pos="3980..4061">5 &lt; 4 == 4 &gt; 5  # is the result of 5&lt;4 equal to the result from 4&gt;5?
+</span><span md-src-pos="4061..4146">5 &lt; 4 != 4 &gt; 5  # is the result of 5&lt;4 not equal to the result from 4&gt;5?
+</span><span md-src-pos="4113..4116"></span></code></pre>
+   <h1 id="strings-text" md-src-pos="4118..4134">Strings (text)</h1>
+   <p md-src-pos="4136..4183"><span md-src-pos="4136..4146">In Python,</span> <span md-src-pos="4147..4172">pieces of text are called</span> '<span md-src-pos="4174..4181">strings</span>'<span md-src-pos="4182..4183">.</span></p>
+   <p md-src-pos="4185..4261"><span md-src-pos="4185..4261">You can create a string by enclosing some characters within quotation marks.</span></p>
+   <p md-src-pos="4263..4298"><span md-src-pos="4263..4297">You can use single quotation marks</span>:</p>
+   <pre class="code-fence" md-src-pos="4300..4337"><div class="code-fence-highlighter-copy-button" data-fence-content="J3RoaXMgaXMgc29tZSB0ZXh0IGluIHF1b3Rlcyc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4300..4337"><span md-src-pos="4300..4304"></span><span md-src-pos="4304..4334">'this is some text in quotes'
+</span><span md-src-pos="4334..4337"></span></code></pre>
+   <p md-src-pos="4339..4365"><span md-src-pos="4339..4364">Or double quotation marks</span>:</p>
+   <pre class="code-fence" md-src-pos="4367..4404"><div class="code-fence-highlighter-copy-button" data-fence-content="InRoaXMgaXMgc29tZSB0ZXh0IGluIHF1b3RlcyI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4367..4404"><span md-src-pos="4367..4371"></span><span md-src-pos="4371..4411">"this is some text in quotes"
+</span><span md-src-pos="4401..4404"></span></code></pre>
+   <p md-src-pos="4406..4454"><span md-src-pos="4406..4453">Or three double or three single quotation marks</span>:</p>
+   <pre class="code-fence" md-src-pos="4456..4497"><div class="code-fence-highlighter-copy-button" data-fence-content="JycndGhpcyBpcyBzb21lIHRleHQgaW4gcXVvdGVzJycn">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4456..4497"><span md-src-pos="4456..4460"></span><span md-src-pos="4460..4494">'''this is some text in quotes'''
+</span><span md-src-pos="4494..4497"></span></code></pre>
+   <pre class="code-fence" md-src-pos="4499..4540"><div class="code-fence-highlighter-copy-button" data-fence-content="IiIidGhpcyBpcyBzb21lIHRleHQgaW4gcXVvdGVzIiIi">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4499..4540"><span md-src-pos="4499..4503"></span><span md-src-pos="4503..4567">"""this is some text in quotes"""
+</span><span md-src-pos="4537..4540"></span></code></pre>
+   <p md-src-pos="4542..4650"><span md-src-pos="4542..4608">When you want the same quote symbol inside a string as defines it,</span> <span md-src-pos="4609..4643">use the backslash escape character</span> <code md-src-pos="4644..4649">'\'</code><span md-src-pos="4649..4650">.</span></p>
+   <pre class="code-fence" md-src-pos="4652..4670"><div class="code-fence-highlighter-copy-button" data-fence-content="J2FwcGxlXCdzJw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4652..4670"><span md-src-pos="4652..4656"></span><span md-src-pos="4656..4667">'apple\'s'
+</span><span md-src-pos="4667..4670"></span></code></pre>
+   <pre class="code-fence" md-src-pos="4672..4721"><div class="code-fence-highlighter-copy-button" data-fence-content="J2JvdGggXCcgYW5kICIgYXBwZWFyIHdpdGhpbiB0aGlzIHN0cmluZyc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4672..4721"><span md-src-pos="4672..4676"></span><span md-src-pos="4676..4723">'both \' and " appear within this string'
+</span><span md-src-pos="4718..4721"></span></code></pre>
+   <p md-src-pos="4723..4921"><span md-src-pos="4723..4750">The backslash escape symbol</span> <span md-src-pos="4751..4752">\</span> <span md-src-pos="4753..4795">can also print tabs and newlines and other</span> '<span md-src-pos="4797..4804">special</span>' <span md-src-pos="4806..4817">characters.</span> <span md-src-pos="4818..4835">Consult the print</span>() <span md-src-pos="4838..4860">function documentation</span> (<span md-src-pos="4862..4864">at</span> <a href="https://www.python.org" md-src-pos="4865..4905">www.python.org</a>) <span md-src-pos="4907..4921">to learn more.</span></p>
+   <p md-src-pos="4923..5065"><span md-src-pos="4923..5002">There are also two modifiers you can use to affect how a string is constructed.</span> <span md-src-pos="5003..5022">These are a leading</span> '<span md-src-pos="5024..5025">f</span>' <span md-src-pos="5027..5036">character</span> <span md-src-pos="5037..5050">and a leading</span> '<span md-src-pos="5052..5053">r</span>' <span md-src-pos="5055..5064">character</span>:</p>
+   <pre class="code-fence" md-src-pos="5067..5178"><div class="code-fence-highlighter-copy-button" data-fence-content="ZiJ0aGlzIGlzIGFuICdmJyBvciAnZm9ybWF0JyB7J3N0cmluZyAnICogNX0uIgojIGl0IGNhbiBpbmNsdWRlIGV4cHJlc3Npb25zIGFuZCB2YXJpYmxlIG5hbWVzIHdpdGhpbiBpdA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="5067..5178"><span md-src-pos="5067..5071"></span><span md-src-pos="5071..5128">f"this is an 'f' or 'format' {'string ' * 5}."
+</span><span md-src-pos="5128..5185"># it can include expressions and varible names within it
+</span><span md-src-pos="5175..5178"></span></code></pre>
+   <pre class="code-fence" md-src-pos="5180..5292"><div class="code-fence-highlighter-copy-button" data-fence-content="ciJ0aGlzIGlzIGFcbiAncicgb3IgJ3Jhdycgc1x0cmluZyIgICAgIAojIGJhY2tzbGFzaCAnXCcgZXNjYXBlIGNoYXJhY3RlcnMgd2l0aGluIHRoZSBzdHJpbmcgYXJlIGlnbm9yZWQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="5180..5292"><span md-src-pos="5180..5184"></span><span md-src-pos="5184..5235">r"this is a\n 'r' or 'raw' s\tring"     
+</span><span md-src-pos="5235..5299"># backslash '\' escape characters within the string are ignored
+</span><span md-src-pos="5289..5292"></span></code></pre>
+   <p md-src-pos="5294..5378"><span md-src-pos="5294..5378">Evaluate the above two strings without the leading character and see the difference.</span></p>
+   <p md-src-pos="5380..5471"><span md-src-pos="5380..5415">Just a couple more examples for now</span>: (<span md-src-pos="5418..5470">this code uses variables which we will study shortly</span>)</p>
+   <pre class="code-fence" md-src-pos="5473..5629"><div class="code-fence-highlighter-copy-button" data-fence-content="cyA9ICdzcGFtJwpmX3N0cmluZyA9IGYnTW9yZSB7c30gYW5kIHtzfSBwbGVhc2UhJwpyX3N0cmluZyA9IHIiQzpcVXNlcnNcdGVtcCIKYV9zdHJpbmcgPSAiQzpcUU1VTFx0ZW1wIgpwcmludChzLCBmX3N0cmluZywgcl9zdHJpbmcsIGFfc3RyaW5nKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="5473..5629"><span md-src-pos="5473..5483"></span><span md-src-pos="5483..5487">s = </span><span md-src-pos="5487..5493" style="color: rgb(6, 125, 23);">'spam'</span><span md-src-pos="5493..5494">
+</span><span md-src-pos="5494..5505">f_string = </span><span md-src-pos="5505..5507" style="color: rgb(6, 125, 23);">f'</span><span md-src-pos="5507..5512" style="color: rgb(6, 125, 23);">More </span><span md-src-pos="5512..5513" style="color: rgb(0, 55, 166);">{</span><span md-src-pos="5513..5514">s</span><span md-src-pos="5514..5515" style="color: rgb(0, 55, 166);">}</span><span md-src-pos="5515..5520" style="color: rgb(6, 125, 23);"> and </span><span md-src-pos="5520..5521" style="color: rgb(0, 55, 166);">{</span><span md-src-pos="5521..5522">s</span><span md-src-pos="5522..5523" style="color: rgb(0, 55, 166);">}</span><span md-src-pos="5523..5531" style="color: rgb(6, 125, 23);"> please!</span><span md-src-pos="5531..5532" style="color: rgb(6, 125, 23);">'</span><span md-src-pos="5532..5533">
+</span><span md-src-pos="5533..5544">r_string = </span><span md-src-pos="5544..5560" style="color: rgb(6, 125, 23);">r"C:\Users\temp"</span><span md-src-pos="5560..5561">
+</span><span md-src-pos="5561..5572">a_string = </span><span md-src-pos="5572..5575" style="color: rgb(6, 125, 23);">"C:</span><span md-src-pos="5575..5577" style="color: rgb(6, 125, 23);">\Q</span><span md-src-pos="5577..5580" style="color: rgb(6, 125, 23);">MUL</span><span md-src-pos="5580..5582" style="color: rgb(0, 55, 166);">\t</span><span md-src-pos="5582..5586" style="color: rgb(6, 125, 23);">emp"</span><span md-src-pos="5586..5587">
+</span><span md-src-pos="5587..5626">print(s, f_string, r_string, a_string)
+</span><span md-src-pos="5626..5629"></span></code></pre>
+   <h2 id="the-operators--and--work-on-strings" md-src-pos="5631..5671">The operators + and * work on strings</h2>
+   <pre class="code-fence" md-src-pos="5673..5817"><div class="code-fence-highlighter-copy-button" data-fence-content="J01vbnR5JyArICcgJyArICdQeXRob24nCiMgcmV0dXJucyAnTW9udHkgUHl0aG9uJwonU3BhbScgKyAnIGFuZCBlZ2dzJyAqIDUKIyByZXR1cm5zICdTcGFtIGFuZCBlZ2dzIGFuZCBlZ2dzIGFuZCBlZ2dzIGFuZCBlZ2dzIGFuZCBlZ2dzJw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="5673..5817"><span md-src-pos="5673..5677"></span><span md-src-pos="5677..5702">'Monty' + ' ' + 'Python'
+</span><span md-src-pos="5702..5727"># returns 'Monty Python'
+</span><span md-src-pos="5727..5752">'Spam' + ' and eggs' * 5
+</span><span md-src-pos="5752..5814"># returns 'Spam and eggs and eggs and eggs and eggs and eggs'
+</span><span md-src-pos="5814..5817"></span></code></pre>
+   <h2 id="the-relational-operators-work-on-strings" md-src-pos="5819..5862">The relational operators work on strings</h2>
+   <p md-src-pos="5864..6047"><span md-src-pos="5864..5883">As well as numbers,</span> <span md-src-pos="5884..5961">the relational operators can compare strings and many other types of objects.</span> <span md-src-pos="5962..5985">When comparing strings,</span> <span md-src-pos="5986..6021">Python will use alphabetical order,</span> <span md-src-pos="6022..6047">unless you ask it not to.</span></p>
+   <p md-src-pos="6049..6059"><span md-src-pos="6049..6058">Try these</span>:</p>
+   <pre class="code-fence" md-src-pos="6061..6154"><div class="code-fence-highlighter-copy-button" data-fence-content="J2EnIDwgJ2InCidhJyA8PSAnYicKJ2EnICE9ICdiJwonYScgPT0gJ2EnCidhJyAhPSAnYScKCidBJyA8ICdhJwonWicgPCAnYScKJ0EnICE9ICdhJw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6061..6154"><span md-src-pos="6061..6065"></span><span md-src-pos="6065..6078">'a' &lt; 'b'
+</span><span md-src-pos="6078..6092">'a' &lt;= 'b'
+</span><span md-src-pos="6092..6103">'a' != 'b'
+</span><span md-src-pos="6103..6114">'a' == 'a'
+</span><span md-src-pos="6114..6125">'a' != 'a'
+</span><span md-src-pos="6125..6126">
+</span><span md-src-pos="6126..6139">'A' &lt; 'a'
+</span><span md-src-pos="6139..6152">'Z' &lt; 'a'
+</span><span md-src-pos="6152..6163">'A' != 'a'
+</span><span md-src-pos="6151..6154"></span></code></pre>
+   <p md-src-pos="6156..6221"><span md-src-pos="6156..6160">Here</span>'<span md-src-pos="6161..6186">s a more complex example;</span> <span md-src-pos="6187..6208">can you work out what</span>'<span md-src-pos="6209..6221">s happening?</span></p>
+   <pre class="code-fence" md-src-pos="6223..6253"><div class="code-fence-highlighter-copy-button" data-fence-content="J2EnIDwgJ2InID09ICdjJyA8ICd6Jw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6223..6253"><span md-src-pos="6223..6227"></span><span md-src-pos="6227..6256">'a' &lt; 'b' == 'c' &lt; 'z'
+</span><span md-src-pos="6250..6253"></span></code></pre>
+   <h1 id="the-operator-in" md-src-pos="6255..6272">The operator in</h1>
+   <p md-src-pos="6274..6479"><span md-src-pos="6274..6298">A string is a collection</span> (<span md-src-pos="6300..6313">of characters</span>)<span md-src-pos="6314..6315">,</span> <span md-src-pos="6316..6334">hence the operator</span> '<span md-src-pos="6336..6338">in</span>' <span md-src-pos="6340..6354">is applicable.</span> <span md-src-pos="6355..6445">This very useful operator tests if a given element is a member of a collection and answers</span> <code md-src-pos="6446..6452">True</code> <span md-src-pos="6453..6455">or</span> <code md-src-pos="6456..6463">False</code> <span md-src-pos="6464..6466">as</span> <span md-src-pos="6467..6479">appropriate.</span></p>
+   <pre class="code-fence" md-src-pos="6481..6589"><div class="code-fence-highlighter-copy-button" data-fence-content="J2MnIGluICdhYmNkZWYnCgonTW9udHknIGluICdQeXRob24nCgonTVAnIGluICdhbmQgbm93LCBmb3Igc29tcGV0aGluZyBjb21wbGV0ZWx5IGRpZmZlcmVudCcudXBwZXIoKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6481..6589"><span md-src-pos="6481..6485"></span><span md-src-pos="6485..6501">'c' in 'abcdef'
+</span><span md-src-pos="6501..6502">
+</span><span md-src-pos="6502..6522">'Monty' in 'Python'
+</span><span md-src-pos="6522..6523">
+</span><span md-src-pos="6523..6586">'MP' in 'and now, for sompething completely different'.upper()
+</span><span md-src-pos="6586..6589"></span></code></pre>
+   <h1 id="boolean-truth-values" md-src-pos="6591..6613">Boolean Truth Values</h1>
+   <p md-src-pos="6615..6874"><span md-src-pos="6615..6657">Boolean logic will be studied in lessons 3</span> <span md-src-pos="6658..6659">&amp;</span> <span md-src-pos="6660..6662">4,</span> <span md-src-pos="6663..6732">but for now it will be useful to know that there are only two Boolean</span> <span md-src-pos="6733..6739">values</span>: <code md-src-pos="6741..6747">True</code> <span md-src-pos="6748..6751">and</span> <code md-src-pos="6752..6759">False</code><span md-src-pos="6759..6760">.</span> <span md-src-pos="6761..6824">Note that these names are spelt with leading capital letters so</span> <code md-src-pos="6825..6831">true</code> <span md-src-pos="6832..6835">and</span> <code md-src-pos="6836..6843">false</code> <span md-src-pos="6844..6874">are NOT the same thing at all.</span></p>
+   <p md-src-pos="6876..6977"><span md-src-pos="6876..6977">You have already seen boolean values being returned when you were exploring the relational operators.</span></p>
+   <pre class="code-fence" md-src-pos="6979..7010"><div class="code-fence-highlighter-copy-button" data-fence-content="NCA9PSA1ICAjIHJldHVybnMgRmFsc2U=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6979..7010"><span md-src-pos="6979..6983"></span><span md-src-pos="6983..7007">4 == 5  # returns False
+</span><span md-src-pos="7007..7010"></span></code></pre>
+   <p md-src-pos="7012..7079"><span md-src-pos="7012..7078">You can use boolean values explicitly in expressions such as these</span>:</p>
+   <pre class="code-fence" md-src-pos="7081..7152"><div class="code-fence-highlighter-copy-button" data-fence-content="KDQgPT0gNSkgPT0gRmFsc2UgICMgcmV0dXJucyBUcnVlICh0aGUgYnJhY2tldHMgYXJlIGltcG9ydGFudCEp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="7081..7152"><span md-src-pos="7081..7085"></span><span md-src-pos="7085..7149">(4 == 5) == False  # returns True (the brackets are important!)
+</span><span md-src-pos="7149..7152"></span></code></pre>
+   <p md-src-pos="7154..7193"><span md-src-pos="7154..7192">Or even compare booleans to each other</span>:</p>
+   <pre class="code-fence" md-src-pos="7195..7356"><div class="code-fence-highlighter-copy-button" data-fence-content="RmFsc2UgPT0gRmFsc2UgICMgcmV0dXJucyBUcnVlCgpGYWxzZSAhPSBUcnVlICAgIyBhbHNvIHJldHVybnMgVHJ1ZQoKVHJ1ZSA+IEZhbHNlICAgICMgcGVyaGFwcyBzdXByaXNpbmdseSwgYWxzbyByZXR1cm5zIFRydWUgKGV4cGxhaW5lZCBpbiBsZWN0dXJlcyAzKzQp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="7195..7356"><span md-src-pos="7195..7199"></span><span md-src-pos="7199..7230">False == False  # returns True
+</span><span md-src-pos="7230..7231">
+</span><span md-src-pos="7231..7267">False != True   # also returns True
+</span><span md-src-pos="7267..7268">
+</span><span md-src-pos="7268..7356">True &gt; False    # perhaps suprisingly, also returns True (explained in lectures 3+4)
+</span><span md-src-pos="7353..7356"></span></code></pre>
+   <h1 id="variables" md-src-pos="7358..7369">Variables</h1>
+   <p md-src-pos="7371..7596"><span md-src-pos="7371..7436">Typing in literal values all the time is tedious and error-prone,</span> <span md-src-pos="7437..7466">and litters our programs with</span> <span md-src-pos="7467..7476">so-called</span> <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants" title="Wikipedia link" md-src-pos="7477..7595">Magic Numbers</a><span md-src-pos="7595..7596">.</span></p>
+   <p md-src-pos="7598..7813"><span md-src-pos="7598..7603">Also,</span> <span md-src-pos="7604..7685">if the same literal number or string occurs in more than one place in our program</span> <span md-src-pos="7686..7781">how do we know if the two or more occurrences of the same literal value refer to the same thing</span> <span md-src-pos="7782..7813">or two or more separate things?</span></p>
+   <p md-src-pos="7815..8045"><span md-src-pos="7815..7929">What we need is a way of being able to refer to a value or an expression by a name to avoid confusion over what it</span> <span md-src-pos="7930..8045">refers to as well as avoiding the tedium of repeatedly re-typing what might be a complex expression multiple times.</span></p>
+   <p md-src-pos="8047..8065"><span md-src-pos="8047..8065">We need variables.</span></p>
+   <blockquote md-src-pos="8067..8161">
+    <p md-src-pos="8069..8161"><span md-src-pos="8069..8079">Definition</span>: <span md-src-pos="8081..8117">A variable is the name of an address</span> (<span md-src-pos="8119..8127">location</span>) <span md-src-pos="8129..8161">in memory that contains a value.</span></p>
+   </blockquote>
+   <blockquote md-src-pos="8163..8454">
+    <p md-src-pos="8165..8189"><span md-src-pos="8165..8188">All variable names MUST</span>:</p>
+    <ol md-src-pos="8192..8454">
+     <li md-src-pos="8192..8337">Begin with a lower case letter or an underscore. (variable names beginning with uppercase letters are reserved for Classes and Constants)</li>
+     <li md-src-pos="8340..8360">Contain no spaces</li>
+     <li md-src-pos="8363..8454">Contain only upper or lower case letters, the digits 0 to 9, and underscore within them.</li>
+    </ol>
+   </blockquote>
+   <h2 id="creating-variables" md-src-pos="8456..8477">Creating Variables</h2>
+   <p md-src-pos="8479..8542"><span md-src-pos="8479..8541">Create a variable by giving it a name and assigning it a value</span>:</p>
+   <pre class="code-fence" md-src-pos="8544..8563"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9IDMKYiA9IDU=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="8544..8563"><span md-src-pos="8544..8548"></span><span md-src-pos="8548..8554">a = 3
+</span><span md-src-pos="8554..8560">b = 5
+</span><span md-src-pos="8560..8563"></span></code></pre>
+   <p md-src-pos="8565..8738"><span md-src-pos="8565..8578">The variables</span> <code md-src-pos="8579..8582">a</code> <span md-src-pos="8583..8586">and</span> <code md-src-pos="8587..8590">b</code> <span md-src-pos="8591..8601">now exist,</span> <span md-src-pos="8602..8656">and the values they refer to are 3 and 5 respectively.</span> <span md-src-pos="8657..8725">The values can now be manipulated by referring to the variable names</span> <code md-src-pos="8726..8729">a</code> <span md-src-pos="8730..8733">and</span> <code md-src-pos="8734..8737">b</code><span md-src-pos="8737..8738">.</span></p>
+   <p md-src-pos="8740..8833"><span md-src-pos="8740..8821">You can find the names of all the variables in memory using the built-in function</span> <code md-src-pos="8822..8832">locals()</code><span md-src-pos="8832..8833">.</span></p>
+   <pre class="code-fence" md-src-pos="8835..8937"><div class="code-fence-highlighter-copy-button" data-fence-content="bG9jYWxzKCkKIyBkaXNwbGF5cyBhIGxpc3Qgb2YgYWxsIHRoZSB2YXJpYWJsZSBuYW1lcyBpbiBtZW1vcnksIHdpdGggYSBhbmQgYiBhdCB0aGUgZW5kLg==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="8835..8937"><span md-src-pos="8835..8845"></span><span md-src-pos="8845..8854">locals()
+</span><span md-src-pos="8854..8933" style="color: rgb(140, 140, 140);"># displays a list of all the variable names in memory, with a and b at the end.</span><span md-src-pos="8933..8934">
+</span><span md-src-pos="8934..8937"></span></code></pre>
+   <p md-src-pos="8939..9017"><span md-src-pos="8939..9016">Here are more examples of syntactically correct statements defining variables</span>:</p>
+   <pre class="code-fence" md-src-pos="9019..9179"><div class="code-fence-highlighter-copy-button" data-fence-content="YmFuYW5hcyA9IDUKY2hlcnJpZXMgPSBiYW5hbmFzICsgMTcKbXlfMm5kX0ZBVl9udW1iZXIgPSAxNzI5ICAjIFJhbWFudWphbidzIHRheGkgbnVtYmVyCmZhbHNlID0gVHJ1ZSAgIyBzeW50YWN0aWNhbGx5IGNvcnJlY3QgYnV0IE5PVCByZWNvbW1lbmRlZCE=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="9019..9179"><span md-src-pos="9019..9029"></span><span md-src-pos="9029..9039">bananas = </span><span md-src-pos="9039..9040" style="color: rgb(23, 80, 235);">5</span><span md-src-pos="9040..9041">
+</span><span md-src-pos="9041..9062">cherries = bananas + </span><span md-src-pos="9062..9064" style="color: rgb(23, 80, 235);">17</span><span md-src-pos="9064..9065">
+</span><span md-src-pos="9065..9085">my_2nd_FAV_number = </span><span md-src-pos="9085..9089" style="color: rgb(23, 80, 235);">1729</span><span md-src-pos="9089..9091">  </span><span md-src-pos="9091..9116" style="color: rgb(140, 140, 140);"># Ramanujan's taxi number</span><span md-src-pos="9116..9117">
+</span><span md-src-pos="9117..9125">false = </span><span md-src-pos="9125..9129" style="color: rgb(0, 51, 179);">True</span><span md-src-pos="9129..9131">  </span><span md-src-pos="9131..9175" style="color: rgb(140, 140, 140);"># syntactically correct but NOT recommended!</span><span md-src-pos="9175..9176">
+</span><span md-src-pos="9176..9179"></span></code></pre>
+   <h2 id="using-variables" md-src-pos="9181..9199">Using Variables</h2>
+   <p md-src-pos="9201..9293"><span md-src-pos="9201..9292">Using variables with meaningful names makes calculations and equations easier to understand</span>:</p>
+   <pre class="code-fence" md-src-pos="9295..9406"><div class="code-fence-highlighter-copy-button" data-fence-content="b3Jhbmdlc19jb3N0X2VhY2ggPSA0Cm9yYW5nZXNfcXR5X2JvdWdodCA9IDQKdG90YWxfY29zdCA9IG9yYW5nZXNfcXR5X2JvdWdodCAqIG9yYW5nZXNfY29zdF9lYWNo">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="9295..9406"><span md-src-pos="9295..9305"></span><span md-src-pos="9305..9325">oranges_cost_each = </span><span md-src-pos="9325..9326" style="color: rgb(23, 80, 235);">4</span><span md-src-pos="9326..9327">
+</span><span md-src-pos="9327..9348">oranges_qty_bought = </span><span md-src-pos="9348..9349" style="color: rgb(23, 80, 235);">4</span><span md-src-pos="9349..9350">
+</span><span md-src-pos="9350..9403">total_cost = oranges_qty_bought * oranges_cost_each 
+</span><span md-src-pos="9403..9406"></span></code></pre>
+   <p md-src-pos="9408..9519"><span md-src-pos="9408..9452">There are now three variables in memory with</span> <code md-src-pos="9453..9465">total_cost</code> <span md-src-pos="9466..9519">containing the total cost of the oranges just bought.</span></p>
+   <p md-src-pos="9521..9639"><span md-src-pos="9521..9638">To display the value of a variable just type its name at the interactive prompt and Python will answer with its value</span>:</p>
+   <pre class="code-fence" md-src-pos="9641..9659"><div class="code-fence-highlighter-copy-button" data-fence-content="dG90YWxfY29zdA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="9641..9659"><span md-src-pos="9641..9645"></span><span md-src-pos="9645..9656">total_cost
+</span><span md-src-pos="9656..9659"></span></code></pre>
+   <p md-src-pos="9661..9773"><span md-src-pos="9661..9681">In other situations,</span> <span md-src-pos="9682..9728">where the interactive prompt is not available,</span> <span md-src-pos="9729..9750">you can use the print</span>() <span md-src-pos="9753..9772">statement like this</span>:</p>
+   <pre class="code-fence" md-src-pos="9775..9800"><div class="code-fence-highlighter-copy-button" data-fence-content="cHJpbnQodG90YWxfY29zdCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="9775..9800"><span md-src-pos="9775..9779"></span><span md-src-pos="9779..9797">print(total_cost)
+</span><span md-src-pos="9797..9800"></span></code></pre>
+   <p md-src-pos="9802..10104"><span md-src-pos="9802..9808">So let</span>'<span md-src-pos="9809..9899">s continue our oranges example and imagine that oranges have increased from 4p to 6p each.</span> <span md-src-pos="9900..9920">Whats the total bill</span> <span md-src-pos="9921..9925">now?</span> <span md-src-pos="9926..10000">The quantity of oranges has not changed so no need to alter that variable.</span> <span md-src-pos="10001..10014">Just reassign</span> <code md-src-pos="10015..10034">oranges_cost_each</code> <span md-src-pos="10035..10072">a new value of 6 and then do the same</span> <code md-src-pos="10073..10085">total_cost</code> <span md-src-pos="10086..10103">calculation again</span>:</p>
+   <pre class="code-fence" md-src-pos="10106..10188"><div class="code-fence-highlighter-copy-button" data-fence-content="b3Jhbmdlc19jb3N0X2VhY2ggPSA2CnRvdGFsX2Nvc3QgPSBvcmFuZ2VzX3F0eV9ib3VnaHQgKiBvcmFuZ2VzX2Nvc3RfZWFjaA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="10106..10188"><span md-src-pos="10106..10110"></span><span md-src-pos="10110..10132">oranges_cost_each = 6
+</span><span md-src-pos="10132..10185">total_cost = oranges_qty_bought * oranges_cost_each 
+</span><span md-src-pos="10185..10188"></span></code></pre>
+   <p md-src-pos="10190..10269"><span md-src-pos="10190..10256">And then ask Python for the new value associated with the variable</span> <code md-src-pos="10257..10269">total_cost</code></p>
+   <p md-src-pos="10271..10561"><span md-src-pos="10271..10321">Be careful not to confuse the assignment statement</span> <code md-src-pos="10322..10327">=</code> <span md-src-pos="10328..10365">with arithmetic equality signified by</span> <code md-src-pos="10366..10372">==</code> <span md-src-pos="10373..10375">as</span> <span md-src-pos="10376..10409">they are definitely not the same.</span> <span md-src-pos="10410..10480">To demonstrate this consider the following python statements which are</span> <span md-src-pos="10481..10560">syntactically correct python but obvious nonsense if interpreted mathematically</span>:</p>
+   <pre class="code-fence" md-src-pos="10563..10592"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9IDEKYSA9IGEgKyAz">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="10563..10592"><span md-src-pos="10563..10573"></span><span md-src-pos="10573..10577">a = </span><span md-src-pos="10577..10578" style="color: rgb(23, 80, 235);">1</span><span md-src-pos="10578..10579">
+</span><span md-src-pos="10579..10587">a = a + </span><span md-src-pos="10587..10588" style="color: rgb(23, 80, 235);">3</span><span md-src-pos="10588..10589">
+</span><span md-src-pos="10589..10592"></span></code></pre>
+   <p md-src-pos="10594..10639"><span md-src-pos="10594..10638">The meaning of these statements in Python is</span>:</p>
+   <p md-src-pos="10641..10658"><span md-src-pos="10641..10650">Statement</span> <code md-src-pos="10651..10658">a = 1</code></p>
+   <ul md-src-pos="10660..10711">
+    <li md-src-pos="10660..10711">Create the variable <code md-src-pos="10682..10685">a</code> and assign it the value 1</li>
+   </ul>
+   <p md-src-pos="10713..10734"><span md-src-pos="10713..10722">Statement</span> <code md-src-pos="10723..10734">a = a + 3</code></p>
+   <ul md-src-pos="10736..11005">
+    <li md-src-pos="10736..10813">Get the value from the memory location that the variable name <code md-src-pos="10800..10803">a</code> refers to</li>
+    <li md-src-pos="10814..10835">Add 3 to that value</li>
+    <li md-src-pos="10836..11005">Store the result of that calculation in the memory location the variable name 'a' refers to, thus overwriting and erasing the previous value in that memory location.</li>
+   </ul>
+   <p md-src-pos="11007..11231"><span md-src-pos="11007..11051">When writing programs do give your variables</span> '<span md-src-pos="11053..11069">meaningful names</span>'<span md-src-pos="11070..11071">.</span> <span md-src-pos="11072..11087">In other words,</span> <span md-src-pos="11088..11136">give every variable a name that gives the reader</span> (<span md-src-pos="11138..11164">generally you but often me</span>) <span md-src-pos="11166..11218">a hint as to what the value it refers to represents.</span> <span md-src-pos="11219..11230">For example</span>:</p>
+   <pre class="code-fence" md-src-pos="11233..11370"><div class="code-fence-highlighter-copy-button" data-fence-content="cG5kc19pbl9rZyA9IDIuMgp3ZWlnaHRfaW5fa2cgPSA3MjkgICMgd2VpZ2h0IGluIGtpbG9ncmFtcwp3ZWlnaHRfaW5fcG5kcyA9IHdlaWdodF9pbl9rZyAqIHBuZHNfaW5fa2cgICMgc2FtZSB3ZWlnaHQgaW4gbGJz">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="11233..11370"><span md-src-pos="11233..11243"></span><span md-src-pos="11243..11256">pnds_in_kg = </span><span md-src-pos="11256..11259" style="color: rgb(23, 80, 235);">2.2</span><span md-src-pos="11259..11260">
+</span><span md-src-pos="11260..11275">weight_in_kg = </span><span md-src-pos="11275..11278" style="color: rgb(23, 80, 235);">729</span><span md-src-pos="11278..11280">  </span><span md-src-pos="11280..11301" style="color: rgb(140, 140, 140);"># weight in kilograms</span><span md-src-pos="11301..11302">
+</span><span md-src-pos="11302..11346">weight_in_pnds = weight_in_kg * pnds_in_kg  </span><span md-src-pos="11346..11366" style="color: rgb(140, 140, 140);"># same weight in lbs</span><span md-src-pos="11366..11367">
+</span><span md-src-pos="11367..11370"></span></code></pre>
+   <p md-src-pos="11372..11389"><span md-src-pos="11372..11389">You get the idea.</span></p>
+   <p md-src-pos="11391..11856"><span md-src-pos="11391..11394">For</span> '<span md-src-pos="11396..11406">throw away</span>' <span md-src-pos="11408..11445">and scratch snippets of code it doesn</span>'<span md-src-pos="11446..11499">t matter but for anything you will keep or use again,</span> <span md-src-pos="11500..11526">or share with other people</span> (<span md-src-pos="11528..11532">e.g.</span> <span md-src-pos="11533..11535">me</span>!)<span md-src-pos="11537..11538">,</span> <span md-src-pos="11539..11616">using meaningful names will save you lots of time in your future coding life.</span> <span md-src-pos="11617..11648">Even though you wrote the code,</span> <span md-src-pos="11649..11663">you tested it,</span> <span md-src-pos="11664..11687">and you got it to work,</span> <span md-src-pos="11688..11734">when you come back to your code 3 months later</span> (<span md-src-pos="11736..11745">or 3 days</span>!) <span md-src-pos="11748..11808">you will struggle to remember which variables refer to what,</span> <span md-src-pos="11809..11829">what your code does,</span> <span md-src-pos="11830..11852">and what is wrong with</span> <span md-src-pos="11853..11855">it</span>:</p>
+   <h1 id="more-about-strings" md-src-pos="11858..11878">More about Strings</h1>
+   <p md-src-pos="11880..11894"><span md-src-pos="11880..11893">Remember this</span>:</p>
+   <blockquote md-src-pos="11896..11920">
+    <p md-src-pos="11898..11920"><span md-src-pos="11898..11920">Strings are immutable.</span></p>
+   </blockquote>
+   <p md-src-pos="11922..12015"><span md-src-pos="11922..12015">Tuck that fact away for now and we will come back to the implications of what it means later.</span></p>
+   <h2 id="creating-strings" md-src-pos="12017..12036">Creating Strings</h2>
+   <p md-src-pos="12038..12207"><span md-src-pos="12038..12112">You already know how to create a string in python by using quotation marks</span>: <span md-src-pos="12114..12137">matching single quotes,</span> <span md-src-pos="12138..12153">matching double</span> <span md-src-pos="12154..12161">quotes,</span> <span md-src-pos="12162..12187">or matching triple quotes</span> (<span md-src-pos="12189..12205">double or single</span>)<span md-src-pos="12206..12207">.</span></p>
+   <p md-src-pos="12209..12221"><span md-src-pos="12209..12220">For example</span>:</p>
+   <pre class="code-fence" md-src-pos="12223..12344"><div class="code-fence-highlighter-copy-button" data-fence-content="c2luZ2xlX3F1b3RlcyA9ICdzcGFtJwpkb3VibGVfcXVvdGVzID0gInNwYW0iCnRyaV9zaW5nbGVfcXVvdGVzID0gJycnc3BhbScnJwp0cmlfZG91YmxlX3F1b3RlcyA9ICIiInNwYW0iIiI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-python" md-src-pos="12223..12344"><span md-src-pos="12223..12233"></span><span md-src-pos="12233..12249">single_quotes = </span><span md-src-pos="12249..12255" style="color: rgb(6, 125, 23);">'spam'</span><span md-src-pos="12255..12256">
+</span><span md-src-pos="12256..12272">double_quotes = </span><span md-src-pos="12272..12278" style="color: rgb(6, 125, 23);">"spam"</span><span md-src-pos="12278..12279">
+</span><span md-src-pos="12279..12299">tri_single_quotes = </span><span md-src-pos="12299..12309" style="color: rgb(6, 125, 23);">'''spam'''</span><span md-src-pos="12309..12310">
+</span><span md-src-pos="12310..12330">tri_double_quotes = </span><span md-src-pos="12330..12340" style="color: rgb(6, 125, 23);">"""spam"""</span><span md-src-pos="12340..12341">
+</span><span md-src-pos="12341..12344"></span></code></pre>
+   <p md-src-pos="12346..12426"><span md-src-pos="12346..12389">Having created all these strings containing</span> <code md-src-pos="12390..12396">spam</code> <span md-src-pos="12397..12426">lets check them for equality.</span></p>
+   <pre class="code-fence" md-src-pos="12428..12466"><div class="code-fence-highlighter-copy-button" data-fence-content="c2luZ2xlX3F1b3RlcyA9PSBkb3VibGVfcXVvdGVz">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="12428..12466"><span md-src-pos="12428..12432"></span><span md-src-pos="12432..12463">single_quotes == double_quotes
+</span><span md-src-pos="12463..12466"></span></code></pre>
+   <p md-src-pos="12468..12512"><span md-src-pos="12468..12512">And Python can even compare them all at once</span></p>
+   <pre class="code-fence" md-src-pos="12514..12595"><div class="code-fence-highlighter-copy-button" data-fence-content="c2luZ2xlX3F1b3RlcyA9PSBkb3VibGVfcXVvdGVzID09IHRyaV9zaW5nbGVfcXVvdGVzID09IHRyaV9kb3VibGVfcXVvdGVz">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="12514..12595"><span md-src-pos="12514..12518"></span><span md-src-pos="12518..12592">single_quotes == double_quotes == tri_single_quotes == tri_double_quotes 
+</span><span md-src-pos="12592..12595"></span></code></pre>
+   <h2 id="the-length-of-a-string" md-src-pos="12597..12622">The length of a string</h2>
+   <p md-src-pos="12624..12718"><span md-src-pos="12624..12665">Python has a built-in function called len</span>() <span md-src-pos="12668..12717">that answers the number of characters in a string</span>:</p>
+   <pre class="code-fence" md-src-pos="12720..12757"><div class="code-fence-highlighter-copy-button" data-fence-content="bGVuKCdhcHBsZSBwaWUnKSAgIyBhbnN3ZXJzIDk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="12720..12757"><span md-src-pos="12720..12724"></span><span md-src-pos="12724..12754">len('apple pie')  # answers 9
+</span><span md-src-pos="12754..12757"></span></code></pre>
+   <h2 id="string-indexing" md-src-pos="12759..12777">String Indexing</h2>
+   <p md-src-pos="12779..12963"><span md-src-pos="12779..12834">The individual characters of a string can be referenced</span> (<span md-src-pos="12836..12843">indexed</span>) <span md-src-pos="12845..12893">by their relative position from the start of the</span> <span md-src-pos="12894..12901">string.</span> <span md-src-pos="12902..12922">Remember though that</span> <strong md-src-pos="12923..12961"><em md-src-pos="12925..12959">computer scientists count from 0</em></strong><span md-src-pos="12961..12962">.</span></p>
+   <p md-src-pos="12965..13043"><span md-src-pos="12965..13043">Create a string variable and practice selecting individual characters from it.</span></p>
+   <pre class="code-fence" md-src-pos="13045..13064"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9ICdhcHBsZSc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13045..13064"><span md-src-pos="13045..13049"></span><span md-src-pos="13049..13061">a = 'apple'
+</span><span md-src-pos="13061..13064"></span></code></pre>
+   <h3 id="counting-from-the-first-character-at-index-position-0" md-src-pos="13066..13123">Counting from the first character at index position 0</h3>
+   <pre class="code-fence" md-src-pos="13125..13192"><div class="code-fence-highlighter-copy-button" data-fence-content="YVswXSAgIyBhbnN3ZXJzICdhJwphWzFdICAjIGFuc3dlcnMgJ3AnCmFbNF0gICMgYW5zd2VycyAnZSc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13125..13192"><span md-src-pos="13125..13129"></span><span md-src-pos="13129..13149">a[0]  # answers 'a'
+</span><span md-src-pos="13149..13169">a[1]  # answers 'p'
+</span><span md-src-pos="13169..13189">a[4]  # answers 'e'
+</span><span md-src-pos="13189..13192"></span></code></pre>
+   <h3 id="do-not-go-past-the-last-index" md-src-pos="13194..13228">Do not go past the last index!</h3>
+   <pre class="code-fence" md-src-pos="13230..13276"><div class="code-fence-highlighter-copy-button" data-fence-content="YVs1XSAgIyByYWlzZXMgYW4gJ2luZGV4RXJyb3InIG1lc3NhZ2U=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13230..13276"><span md-src-pos="13230..13234"></span><span md-src-pos="13234..13273">a[5]  # raises an 'indexError' message
+</span><span md-src-pos="13273..13276"></span></code></pre>
+   <h3 id="you-can-also-index-from-the-end-of-the-string-by-using-negative-numbers" md-src-pos="13278..13353">You can also index from the end of the string by using negative numbers</h3>
+   <pre class="code-fence" md-src-pos="13355..13425"><div class="code-fence-highlighter-copy-button" data-fence-content="YVstMV0gICMgYW5zd2VycyAnZScKYVstNF0gICMgYW5zd2VycyAncCcKYVstNV0gICMgYW5zd2VycyAnYSc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13355..13425"><span md-src-pos="13355..13359"></span><span md-src-pos="13359..13380">a[-1]  # answers 'e'
+</span><span md-src-pos="13380..13401">a[-4]  # answers 'p'
+</span><span md-src-pos="13401..13422">a[-5]  # answers 'a'
+</span><span md-src-pos="13422..13425"></span></code></pre>
+   <h3 id="but-once-again-do-not-go-off-the-end-the-beginning-of-the-string" md-src-pos="13427..13499">But once again, do not go off the end (the beginning!) of the string</h3>
+   <pre class="code-fence" md-src-pos="13501..13553"><div class="code-fence-highlighter-copy-button" data-fence-content="YVstNl0gICMgcmFpc2VzIGFub3RoZXIgJ2luZGV4RXJyb3InIG1lc3NhZ2U=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13501..13553"><span md-src-pos="13501..13505"></span><span md-src-pos="13505..13550">a[-6]  # raises another 'indexError' message
+</span><span md-src-pos="13550..13553"></span></code></pre>
+   <h2 id="string-slicing" md-src-pos="13555..13572">String Slicing</h2>
+   <p md-src-pos="13574..13663"><span md-src-pos="13574..13618">Taking the logic of indexing a step further,</span> <span md-src-pos="13619..13662">we can slice whole pieces out of the string</span>:</p>
+   <pre class="code-fence" md-src-pos="13665..13731"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9ICdhcHBsZScKYVsyOjRdICAjIGFuc3dlcnMgJ3BsJwphWzE6LTFdICAjIGFuc3dlcnMgJ3BwbA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13665..13731"><span md-src-pos="13665..13669"></span><span md-src-pos="13669..13681">a = 'apple'
+</span><span md-src-pos="13681..13704">a[2:4]  # answers 'pl'
+</span><span md-src-pos="13704..13728">a[1:-1]  # answers 'ppl
+</span><span md-src-pos="13728..13731"></span></code></pre>
+   <p md-src-pos="13733..13903"><span md-src-pos="13733..13797">The first index number is the index of the starting position and</span> <span md-src-pos="13798..13845">the second number is the index of the character</span> <strong md-src-pos="13846..13855">after</strong> <span md-src-pos="13856..13903">the last character to be included in the slice.</span></p>
+   <p md-src-pos="13905..13971"><span md-src-pos="13905..13970">You can also use different sized steps to move through the string</span>:</p>
+   <pre class="code-fence" md-src-pos="13973..14306"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9ICdhYnJhY2FkYWJyYScKIyBzdGFydCBhdCB0aGUgYmVnaW5uaW5nLCBzdG9wIG9uZSBiZWZvcmUgdGhlIGVuZCwgc3RlcCBldmVyeSAybmQgY2hhcmFjdGVyCmFbMDotMToyXSAKCiMgaWYgeW91IGp1c3Qgd2FudCB0byBzdGFydCBhdCB0aGUgYmVnaW5uaW5nIGFuZCBnbyB0aHJvdWdoIHRvIHRoZSBlbmQKIyB0aGVuIHlvdSBjYW4gb21pdCB0aGUgaW5kaWNlcwphWzo6M10gICMgc2VsZWN0IGV2ZXJ5IDNyZCBjaGFyYWN0ZXIuIEFuc3dlcnMgJ2FhZHInCgojIGl0ZXJhdGUgYmFja3dhcmRzLCBzZWxlY3RpbmcgZXZlcnkgdGhpcmQgY2hhcmFjdGVyCmFbOjotM10=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13973..14306"><span md-src-pos="13973..13977"></span><span md-src-pos="13977..13995">a = 'abracadabra'
+</span><span md-src-pos="13995..14071"># start at the beginning, stop one before the end, step every 2nd character
+</span><span md-src-pos="14071..14082">a[0:-1:2] 
+</span><span md-src-pos="14082..14083">
+</span><span md-src-pos="14083..14154"># if you just want to start at the beginning and go through to the end
+</span><span md-src-pos="14154..14186"># then you can omit the indices
+</span><span md-src-pos="14186..14239">a[::3]  # select every 3rd character. Answers 'aadr'
+</span><span md-src-pos="14239..14240">
+</span><span md-src-pos="14240..14293"># iterate backwards, selecting every third character
+</span><span md-src-pos="14293..14303">a[::-3]  
+</span><span md-src-pos="14303..14306"></span></code></pre>
+   <p md-src-pos="14308..14356"><span md-src-pos="14308..14356">Try a few more example until you feel confident.</span></p>
+   <h2 id="reassembling-strings-using-string-operators" md-src-pos="14358..14404">Reassembling strings using string operators</h2>
+   <pre class="code-fence" md-src-pos="14406..14458"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9ICdhcHBsZScKYVstMjpdICsgYVs6Ml0gICMgYW5zd2VycyAnbGVhcCc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="14406..14458"><span md-src-pos="14406..14410"></span><span md-src-pos="14410..14422">a = 'apple'
+</span><span md-src-pos="14422..14455">a[-2:] + a[:2]  # answers 'leap'
+</span><span md-src-pos="14455..14458"></span></code></pre>
+   <h2 id="modifying-a-string-is-not-possible" md-src-pos="14460..14499">Modifying a String (is not possible)</h2>
+   <p md-src-pos="14501..14533"><span md-src-pos="14501..14532">You might think you can do this</span>:</p>
+   <pre class="code-fence" md-src-pos="14535..14587"><div class="code-fence-highlighter-copy-button" data-fence-content="YT0gJ2FwcGxlIHBpZScKYVsyXSA9ICdlJwojICBvcjoKYVsyXSA9IGFbNF0=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="14535..14587"><span md-src-pos="14535..14539"></span><span md-src-pos="14539..14554">a= 'apple pie'
+</span><span md-src-pos="14554..14565">a[2] = 'e'
+</span><span md-src-pos="14565..14572">#  or:
+</span><span md-src-pos="14572..14584">a[2] = a[4]
+</span><span md-src-pos="14584..14587"></span></code></pre>
+   <p md-src-pos="14589..14624"><span md-src-pos="14589..14600">But you can</span>'<span md-src-pos="14601..14603">t.</span> <span md-src-pos="14604..14619">Try it and see.</span> <span md-src-pos="14620..14624">Why?</span></p>
+   <p md-src-pos="14626..14725"><span md-src-pos="14626..14630">Hint</span>: <span md-src-pos="14632..14655">Read the error message.</span> <span md-src-pos="14656..14686">What is it trying to tell you?</span> <span md-src-pos="14687..14696">Meta Hint</span>: <span md-src-pos="14698..14724">ALWAYS read error messages</span>!</p>
+   <p md-src-pos="14727..14837"><span md-src-pos="14727..14731">Hint</span>: <span md-src-pos="14733..14767">Re-read the first sentence of this</span> '<span md-src-pos="14769..14776">Strings</span>' <span md-src-pos="14778..14837">section and then re-read the error message Python gave you.</span></p>
+   <h2 id="string-methods" md-src-pos="14839..14856">String Methods</h2>
+   <p md-src-pos="14858..15065"><span md-src-pos="14858..14937">Every string in python is an object which means it contains both data and code.</span> <span md-src-pos="14938..14995">The code associated with an object is called its methods.</span> <span md-src-pos="14996..15007">We can call</span> (<span md-src-pos="15009..15016">execute</span> <span md-src-pos="15017..15018">/</span> <span md-src-pos="15019..15022">run</span>) <span md-src-pos="15024..15064">these methods using the template pattern</span>:</p>
+   <blockquote md-src-pos="15067..15104">
+    <p md-src-pos="15069..15104"><span md-src-pos="15069..15092">object_name.method_name</span>(<span md-src-pos="15093..15103">parameters</span>)</p>
+   </blockquote>
+   <p md-src-pos="15106..15312"><span md-src-pos="15106..15135">Strings have lots of methods.</span> <span md-src-pos="15136..15174">See the Python string documentation at</span>: <a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" md-src-pos="15176..15312">docs.python.org/3/library/stdtypes.html#text-sequence-type-str</a></p>
+   <p md-src-pos="15314..15382"><span md-src-pos="15314..15381">A few examples should suffice to get you going under your own steam</span>:</p>
+   <pre class="code-fence" md-src-pos="15384..15724"><div class="code-fence-highlighter-copy-button" data-fence-content="YSA9ICdhYnJhY2FkYWJyYScKYS51cHBlcigpICAgICAgICAgICAgICAgIyBhbnN3ZXJzICdBQlJBQ0FEQUJSQScKYS5jb3VudCgnYicpICAgICAgICAgICAgIyBhbnN3ZXJzIDIKYS5pc2FscGhhKCkgICAgICAgICAgICAgIyBhbnN3ZXJzIFRydWUKYS5pc2RpZ2l0KCkgICAgICAgICAgICAgIyBhbnN3ZXJzIEZhbHNlCmEucmVwbGFjZSgnYScsICd6JykgICAgICMgYW5zd2VycyAnemJyemN6ZHpicnonCmEuc3BsaXQoJ2InKSAgICAgICAgICAgICMgYW5zd2VycyBbJ2EnLCAncmFjYWRhJywgJ3JhJ10KYS50aXRsZSgpLnN3YXBjYXNlKCkgICAgIyBhbnN3ZXJzICdhQlJBQ0FEQUJSQSc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="15384..15724"><span md-src-pos="15384..15388"></span><span md-src-pos="15388..15406">a = 'abracadabra'
+</span><span md-src-pos="15406..15454">a.upper()               # answers 'ABRACADABRA'
+</span><span md-src-pos="15454..15490">a.count('b')            # answers 2
+</span><span md-src-pos="15490..15529">a.isalpha()             # answers True
+</span><span md-src-pos="15529..15569">a.isdigit()             # answers False
+</span><span md-src-pos="15569..15617">a.replace('a', 'z')     # answers 'zbrzczdzbrz'
+</span><span md-src-pos="15617..15673">a.split('b')            # answers ['a', 'racada', 'ra']
+</span><span md-src-pos="15673..15721">a.title().swapcase()    # answers 'aBRACADABRA'
+</span><span md-src-pos="15721..15724"></span></code></pre>
+   <p md-src-pos="15726..15829"><span md-src-pos="15726..15779">Check what is happening by reading the documentation.</span> <span md-src-pos="15780..15829">Try a few other methods with strings of your own.</span></p>
+   <p md-src-pos="15831..16054"><span md-src-pos="15831..15901">It is very important that you become familiar with the string library.</span> <span md-src-pos="15902..15920">At the very least,</span> <span md-src-pos="15921..15995">you should know enough to known that when a text processing problem arises</span> <span md-src-pos="15996..16022">then a string method to do</span> "<span md-src-pos="16024..16028">that</span>" <span md-src-pos="16030..16054">probably already exists.</span></p>
+   <h1 id="pythons-built-in-functions" md-src-pos="16056..16085">Python's Built-in functions</h1>
+   <p md-src-pos="16087..16255"><span md-src-pos="16087..16123">Python has some very handy functions</span> '<span md-src-pos="16125..16133">built-in</span>'<span md-src-pos="16134..16135">.</span> <span md-src-pos="16136..16161">Read the documentation at</span>: <a href="https://docs.python.org/3/library/functions.html" md-src-pos="16163..16255">docs.python.org/3/library/functions.html</a></p>
+   <p md-src-pos="16257..16312"><span md-src-pos="16257..16311">You have already met and used these built-in functions</span>:</p>
+   <pre class="code-fence" md-src-pos="16314..17256"><div class="code-fence-highlighter-copy-button" data-fence-content="aW50KCkKZmxvYXQoKQpzdHIoKQp0eXBlKCkKYm9vbCgpCmxlbigpCgojIFRoZXJlIGFyZSBtYW55IG90aGVyIGJ1aWx0LWluIGZ1bmN0aW9ucy4gU29tZSBhcmUgcXVpdGUgdGVjaG5pY2FsIGJ1dCB0aGUgb25lcyBsaXN0ZWQgYmVsb3cgYXJlIGhhbmR5IHRvIGtub3c6CgpjaHIoKSAgICAgICAgICAjIHRoZSBjaGFyYWN0ZXIgb2YgYSB1bmljb2RlIG51bWJlciwgdGhlIGludmVyc2Ugb2Ygb3JkKCkKZm9ybWF0KCkgICAgICAgIyBmb3JtYXR0aW5nIG9mIHN0cmluZ3MgLSBsb3RzIG9mIG9wdGlvbnMgLSBiZXR0ZXIgdG8gdXNlIGFuICdmJyBzdHJpbmcKaGVscCgpICAgICAgICAgIyBhc2sgUHl0aG9uIGZvciBoZWxwIG9uIHNvbWV0aGluZwppZCgpICAgICAgICAgICAjIGV2ZXJ5IFB5dGhvbiBvYmplY3QgaGFzIGEgdW5pcXVlIElEIG51bWJlcgppbnB1dCgpICAgICAgICAjIGdldCBzb21lIGlucHV0IGZyb20gdGhlIGNvbnNvbGUsIHVzdWFsbHkgdGhlIHVzZXIKbWF4KCkgICAgICAgICAgIyBhbnN3ZXJzIHRoZSBtYXhpbXVtIHBhcmFtZXRlcgptaW4oKSAgICAgICAgICAjIGFuc3dlcnMgdGhlIG1pbmltdW0gcGFyYW1hdGVyCm9yZCgpICAgICAgICAgICMgdGhlIHVuaWNvZGUgbnVtYmVyIG9mIGEgY2hhcmFjdGVyLCB0aGUgaW52ZXJzZSBvZiBjaHIoKQpwcmludCgpICAgICAgICAjIHZlcnkgaGFuZHkgd2hlbiBkZWJ1Z2dpbmchCnJldmVyc2VkKCkgICAgICMgVHJ5IHRoaXMgY29kZTogICAgJ18nLmpvaW4ocmV2ZXJzZWQoJ3NwYW0nKSkKc29ydGVkKCkgICAgICAgIyBUcnkgdGhpcyBjb2RlOiAgICAnJy5qb2luKHNvcnRlZCgnc3BhbScpKQoKdmFycygpLCBsb2NhbHMoKSwgZ2xvYmFscygpLCBkaXIoKSAgIyBhbnN3ZXIgYSBsaXN0IG9mIHRoZSBuYW1lcy92YXJpYWJsZXMgaW4gdGhlIHZhcmlvdXMgcHl0aG9uIGVudmlyb25tZW50cw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="16314..17256"><span md-src-pos="16314..16318"></span><span md-src-pos="16318..16324">int()
+</span><span md-src-pos="16324..16332">float()
+</span><span md-src-pos="16332..16338">str()
+</span><span md-src-pos="16338..16345">type()
+</span><span md-src-pos="16345..16352">bool()
+</span><span md-src-pos="16352..16358">len()
+</span><span md-src-pos="16358..16359">
+</span><span md-src-pos="16359..16472"># There are many other built-in functions. Some are quite technical but the ones listed below are handy to know:
+</span><span md-src-pos="16472..16473">
+</span><span md-src-pos="16473..16546">chr()          # the character of a unicode number, the inverse of ord()
+</span><span md-src-pos="16546..16633">format()       # formatting of strings - lots of options - better to use an 'f' string
+</span><span md-src-pos="16633..16683">help()         # ask Python for help on something
+</span><span md-src-pos="16683..16743">id()           # every Python object has a unique ID number
+</span><span md-src-pos="16743..16810">input()        # get some input from the console, usually the user
+</span><span md-src-pos="16810..16857">max()          # answers the maximum parameter
+</span><span md-src-pos="16857..16904">min()          # answers the minimum paramater
+</span><span md-src-pos="16904..16977">ord()          # the unicode number of a character, the inverse of chr()
+</span><span md-src-pos="16977..17021">print()        # very handy when debugging!
+</span><span md-src-pos="17021..17083">reversed()     # Try this code:    '_'.join(reversed('spam'))
+</span><span md-src-pos="17083..17142">sorted()       # Try this code:    ''.join(sorted('spam'))
+</span><span md-src-pos="17142..17143">
+</span><span md-src-pos="17143..17253">vars(), locals(), globals(), dir()  # answer a list of the names/variables in the various python environments
+</span><span md-src-pos="17253..17256"></span></code></pre>
+   <p md-src-pos="17258..17587"><span md-src-pos="17258..17299">No need to study each of these in detail,</span> <span md-src-pos="17300..17371">but you do need to know them in outline so that you know they exist for</span> <span md-src-pos="17372..17407">those occasions when you need them.</span> <span md-src-pos="17408..17454">Just try a simple example or two for each one.</span> <span md-src-pos="17455..17510">That should be enough to ensure that in future you will</span> '<span md-src-pos="17512..17516">know</span>' <span md-src-pos="17518..17573">that Python has that particular nugget of functionality</span> ' '<span md-src-pos="17577..17585">built-in</span>'<span md-src-pos="17586..17587">.</span></p>
+   <h2 id="interconverting-between-numbers-and-strings" md-src-pos="17589..17635">Interconverting between numbers and strings</h2>
+   <p md-src-pos="17637..17719"><span md-src-pos="17637..17718">Python has some handy built-in functions that convert between numbers and strings</span>:</p>
+   <pre class="code-fence" md-src-pos="17721..17974"><div class="code-fence-highlighter-copy-button" data-fence-content="aW50KCc1JykgICAgICAgICAgICAgICAgIyBhbnN3ZXJzIHRoZSBpbnRlZ2VyIG51bWJlciA1CmZsb2F0KCc1JykgICAgICAgICAgICAgICMgYW5zd2VycyB0aGUgZmxvYXRpbmcgcG9pbnQgbnVtYmVyIDUuMCAobm90aWNlIHRoZSBkZWNpbWFsIHBvaW50KQpzdHIoNSkgICAgICAgICAgICAgICAgICAjIGFuc3dlcnMgdGhlIHN0cmluZyAnNScKc3RyKGZsb2F0KGludCgnNScpKSkgICAgIyBhbnN3ZXJzIHRoZSBzdHJpbmcgJzUuMCc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="17721..17974"><span md-src-pos="17721..17725"></span><span md-src-pos="17725..17780">int('5')                # answers the integer number 5
+</span><span md-src-pos="17780..17871">float('5')              # answers the floating point number 5.0 (notice the decimal point)
+</span><span md-src-pos="17871..17920">str(5)                  # answers the string '5'
+</span><span md-src-pos="17920..17971">str(float(int('5')))    # answers the string '5.0'
+</span><span md-src-pos="17971..17974"></span></code></pre>
+   <h1 id="some-practice-problems-for-you-to-try" md-src-pos="17978..18017">Some Practice problems for you to try</h1>
+   <p md-src-pos="18019..18057"><span md-src-pos="18019..18056">Use python to determine the following</span>:</p>
+   <ul md-src-pos="18059..18206">
+    <li md-src-pos="18059..18104">Given two numbers determine the greater one</li>
+    <li md-src-pos="18105..18152">Given five numbers determine the smallest one</li>
+    <li md-src-pos="18153..18206">Given any integer determine if it is an even number</li>
+   </ul>
+   <p md-src-pos="18208..18255"><span md-src-pos="18208..18255">Create a variable and assign it a string value.</span></p>
+   <ul md-src-pos="18257..19058">
+    <li md-src-pos="18257..18299">Count how many characters the string has</li>
+    <li md-src-pos="18300..18329">Slice out the 3rd character</li>
+    <li md-src-pos="18330..18369">Slice out the 3rd from last character</li>
+    <li md-src-pos="18370..18530">Slice the string into two new substrings:
+     <ul md-src-pos="18416..18530">
+      <li md-src-pos="18416..18472">one containing all the characters with an even index</li>
+      <li md-src-pos="18475..18530">one containing all the characters with an odd index</li>
+     </ul></li>
+    <li md-src-pos="18531..18563">Make the string all lower case</li>
+    <li md-src-pos="18564..18599">Remove all spaces from the string</li>
+    <li md-src-pos="18600..18681">Count the number of <code md-src-pos="18622..18627">'a'</code> characters in the string (answer is an integer value)</li>
+    <li md-src-pos="18682..18761">Check if the character <code md-src-pos="18707..18712">'a'</code> occurs in the string (answer is a boolean value)</li>
+    <li md-src-pos="18762..18818">Sort the characters of the string into ascending order</li>
+    <li md-src-pos="18819..18876">Sort the characters of the string into descending order</li>
+    <li md-src-pos="18877..18915">Reverse the characters in the string</li>
+    <li md-src-pos="18916..18977">Split the string at every occurrence of the character <code md-src-pos="18972..18977">'a'</code></li>
+    <li md-src-pos="18978..19058">Replace every occurrence of the character <code md-src-pos="19022..19027">'n'</code> in the string with <code md-src-pos="19047..19058">'_\n_/n_'</code></li>
+   </ul>
+   <h3 id="go-to-snakifyorg-and-create-an-account" md-src-pos="19060..19131">Go to <a href="https://snakify.org/en/" md-src-pos="19070..19108">snakify.org</a> and create an account.</h3>
+   <p md-src-pos="19133..19192"><span md-src-pos="19133..19191">You should be able to do all the exercises in the sections</span>:</p>
+   <ul md-src-pos="19194..19311">
+    <li md-src-pos="19194..19220">Input, print and numbers</li>
+    <li md-src-pos="19221..19248">Integer and float numbers</li>
+    <li md-src-pos="19249..19311">Strings (except the last one 'delete every third character')</li>
+   </ul>
+   <p md-src-pos="19313..19379"><span md-src-pos="19313..19378">You do not need to submit any evidence of completing these tasks.</span></p>
+  </div>
+ </body>
+</html>

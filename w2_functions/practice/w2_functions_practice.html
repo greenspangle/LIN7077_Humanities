@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+ <head>
+  <title>IntelliJ Markdown Preview</title>
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } pre.frontmatter-header { background-color: transparent; margin: 0; padding: 0; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; }</style>
+  <style>body { background-color: rgba(255, 255, 255, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(8, 8, 8, 255.0); } a { color: rgba(49, 95, 189, 255.0); } table td, table th { border: 1px solid rgba(235, 236, 240, 255.0); } hr { background-color: rgba(235, 236, 240, 255.0); } kbd, tr { border: 1px solid rgba(235, 236, 240, 255.0); } h6 { color: rgba(129, 133, 148, 255.0); } blockquote { border-left: 2px solid rgba(49, 95, 189, 0.4); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.24705882352941178); } ::-webkit-scrollbar { width: 10px; height: 10px; background-color: rgba(245, 245, 245, 1.000000); } ::-webkit-scrollbar-track { background-color: rgba(128, 128, 128, 0.000000); } ::-webkit-scrollbar-track:hover { background-color: rgba(128, 128, 128, 0.000000); } ::-webkit-scrollbar-thumb { background-color: rgba(115, 115, 115, 0.200000); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(128, 128, 128, 0.000000); background-clip: padding-box; outline: 1px solid rgba(89, 89, 89, 0.200000); outline-offset: -1px; } ::-webkit-scrollbar-thumb:hover { background-color: rgba(115, 115, 115, 0.278431); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(128, 128, 128, 0.000000); background-clip: padding-box; outline: 1px solid rgba(89, 89, 89, 0.278431); outline-offset: -1px; } ::-webkit-scrollbar-corner { background-color: rgba(245, 245, 245, 1.000000); } ::-webkit-scrollbar-button { display:none; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head>
+ <body>
+  <div md-src-pos="0..15580">
+   <h1 id="functions" md-src-pos="0..11">Functions</h1>
+   <p md-src-pos="12..108"><span md-src-pos="12..107">Functions are fundamental to modern programming and is essential you become fully familiar with</span>:</p>
+   <ul md-src-pos="110..292">
+    <li md-src-pos="110..130">Creating functions</li>
+    <li md-src-pos="131..148">Using functions</li>
+    <li md-src-pos="149..178">Re-using your own functions</li>
+    <li md-src-pos="179..227">Using the Python Standard Library of functions</li>
+    <li md-src-pos="228..292">Using function Libraries created by other programmers (later)</li>
+   </ul>
+   <h1 id="section-1---getting-started" md-src-pos="294..323">Section 1 - Getting Started</h1>
+   <p md-src-pos="324..372"><span md-src-pos="324..333">Creating,</span> <span md-src-pos="334..372">using and re-using your own functions.</span></p>
+   <h2 id="creating-functions" md-src-pos="374..395">Creating Functions</h2>
+   <p md-src-pos="397..486"><span md-src-pos="397..421">Open a new file in IDLE,</span> <span md-src-pos="422..441">save it as f_s1.py,</span> <span md-src-pos="442..475">and create the following function</span> <span md-src-pos="476..485">within it</span>:</p>
+   <pre class="code-fence" md-src-pos="488..519"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHR3bygpOgogICAgcmV0dXJuIDI=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="488..519"><span md-src-pos="488..492"></span><span md-src-pos="492..503">def two():
+</span><span md-src-pos="503..516">    return 2
+</span><span md-src-pos="516..519"></span></code></pre>
+   <p md-src-pos="521..664"><span md-src-pos="521..537">Run the program.</span> <span md-src-pos="538..600">Assuming there were no errors there should be no output at the</span> <span md-src-pos="601..639">interactive prompt other than a simple</span> "<span md-src-pos="641..642">=</span> <span md-src-pos="643..650">RESTART</span>: <span md-src-pos="652..663">...\f_s1.py</span>"</p>
+   <p md-src-pos="666..715"><span md-src-pos="666..698">At the interactive python prompt</span> <code md-src-pos="699..708">&gt;&gt;&gt;</code> <span md-src-pos="709..714">enter</span>:</p>
+   <pre class="code-fence" md-src-pos="717..730"><div class="code-fence-highlighter-copy-button" data-fence-content="dHdvKCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="717..730"><span md-src-pos="717..721"></span><span md-src-pos="721..727">two()
+</span><span md-src-pos="727..730"></span></code></pre>
+   <p md-src-pos="732..776"><span md-src-pos="732..776">You should get the integer value 2 returned.</span></p>
+   <p md-src-pos="778..832"><span md-src-pos="778..810">If you did then congratulations,</span> <span md-src-pos="811..832">your function worked.</span></p>
+   <p md-src-pos="834..865"><span md-src-pos="834..864">If anything else happened then</span>:</p>
+   <ul md-src-pos="867..1213">
+    <li md-src-pos="867..1134">READ THE ERROR MESSAGE<br>
+      Python error messages are written by programmers with the intention of helping fellow programmers like you.<br>
+      At first they can seem more cryptic than constructive, but you will soon get used to them and their ways of speaking to you.</li>
+    <li md-src-pos="1135..1178">Edit your program to remove the error(s).</li>
+    <li md-src-pos="1179..1213">Test that the new version works.</li>
+   </ul>
+   <p md-src-pos="1215..1326"><span md-src-pos="1215..1270">Now that you have one function working the rest is easy</span>(!)<br><span md-src-pos="1275..1325">Add three more functions to the same python script</span>:</p>
+   <pre class="code-fence" md-src-pos="1328..1534"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHRpbWVzXzIoYW5fb2JqZWN0KToKICAgIHRoZV9yZXN1bHQgPSBhbl9vYmplY3QgKyBhbl9vYmplY3QKICAgIHJldHVybiB0aGVfcmVzdWx0CgpkZWYgdGltZXNfMyhhbl9vYmplY3QpOgogICAgcmV0dXJuIGFuX29iamVjdCAqIDMKCmRlZiBmaXJzdF9sYXN0KGFfc3RyaW5nKToKICAgcmV0dXJuIGFfc3RyaW5nWzBdICsgYV9zdHJpbmdbLTFd">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="1328..1534"><span md-src-pos="1328..1332"></span><span md-src-pos="1332..1356">def times_2(an_object):
+</span><span md-src-pos="1356..1395">    the_result = an_object + an_object
+</span><span md-src-pos="1395..1417">    return the_result
+</span><span md-src-pos="1417..1418">
+</span><span md-src-pos="1418..1442">def times_3(an_object):
+</span><span md-src-pos="1442..1467">    return an_object * 3
+</span><span md-src-pos="1467..1468">
+</span><span md-src-pos="1468..1494">def first_last(a_string):
+</span><span md-src-pos="1494..1531">   return a_string[0] + a_string[-1]
+</span><span md-src-pos="1531..1534"></span></code></pre>
+   <p md-src-pos="1536..1618"><span md-src-pos="1536..1551">Execute f_s1.py</span> (<span md-src-pos="1553..1569">press f5 in IDLE</span>) <span md-src-pos="1571..1605">and then at the interactive prompt</span> '&gt;&gt;&gt;' <span md-src-pos="1612..1617">enter</span>:</p>
+   <pre class="code-fence" md-src-pos="1620..1633"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGlyKCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="1620..1633"><span md-src-pos="1620..1624"></span><span md-src-pos="1624..1630">dir()
+</span><span md-src-pos="1630..1633"></span></code></pre>
+   <p md-src-pos="1635..1783"><span md-src-pos="1635..1695">This built-in function lists names of the objects in memory.</span> <span md-src-pos="1696..1774">At the end of the list you should see the names of the functions you have just</span> <span md-src-pos="1775..1783">created.</span></p>
+   <p md-src-pos="1785..1849"><span md-src-pos="1785..1807">Now test the functions</span> <code md-src-pos="1808..1823">times_2()</code> <span md-src-pos="1824..1827">and</span> <code md-src-pos="1828..1843">times_3()</code> <span md-src-pos="1844..1849">work.</span></p>
+   <p md-src-pos="1851..2032"><span md-src-pos="1851..1897">Type in the name of the function at the python</span> '&gt;&gt;&gt;' <span md-src-pos="1904..1926">prompt with a suitable</span> <span md-src-pos="1927..1965">value within the parentheses and press</span> '<span md-src-pos="1967..1973">return</span>'<span md-src-pos="1974..1975">.</span> <span md-src-pos="1976..2031">Try these examples and check you get the correct result</span>:</p>
+   <pre class="code-fence" md-src-pos="2034..2178"><div class="code-fence-highlighter-copy-button" data-fence-content="dGltZXNfMig3KQp0aW1lc18yKDc3KQp0aW1lc18yKCc3NycpCgp0aW1lc18zKDcpCnRpbWVzXzMoNzcpCnRpbWVzXzMoJzc3IHN1bnNldCBzdHJpcCcpCgpmaXJzdF9sYXN0KCdMSU42MjA5JykKZmlyc3RfbGFzdCgnTGluZ3Vpc3RpY3MnKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2034..2178"><span md-src-pos="2034..2038"></span><span md-src-pos="2038..2049">times_2(7)
+</span><span md-src-pos="2049..2061">times_2(77)
+</span><span md-src-pos="2061..2075">times_2('77')
+</span><span md-src-pos="2075..2076">
+</span><span md-src-pos="2076..2087">times_3(7)
+</span><span md-src-pos="2087..2099">times_3(77)
+</span><span md-src-pos="2099..2126">times_3('77 sunset strip')
+</span><span md-src-pos="2126..2127">
+</span><span md-src-pos="2127..2149">first_last('LIN6209')
+</span><span md-src-pos="2149..2175">first_last('Linguistics')
+</span><span md-src-pos="2175..2178"></span></code></pre>
+   <p md-src-pos="2180..2228"><span md-src-pos="2180..2228">Test the functions with more values of your own.</span></p>
+   <h2 id="functions-are-objects" md-src-pos="2230..2254">Functions are objects</h2>
+   <p md-src-pos="2256..2424"><span md-src-pos="2256..2335">Everything in Python is an object and that applies just as much to functions as</span> <span md-src-pos="2336..2363">it does to everything else.</span> <span md-src-pos="2364..2408">This means that functions can be assigned to</span> <span md-src-pos="2409..2424">variable names.</span></p>
+   <p md-src-pos="2426..2453"><span md-src-pos="2426..2452">Add this code to your file</span>:</p>
+   <pre class="code-fence" md-src-pos="2455..2496"><div class="code-fence-highlighter-copy-button" data-fence-content="bXVsdF8yID0gdGltZXNfMgptdWx0XzMgPSB0aW1lc18z">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2455..2496"><span md-src-pos="2455..2459"></span><span md-src-pos="2459..2476">mult_2 = times_2
+</span><span md-src-pos="2476..2493">mult_3 = times_3
+</span><span md-src-pos="2493..2496"></span></code></pre>
+   <p md-src-pos="2498..2589"><span md-src-pos="2498..2550">And check that these names produce the same results.</span> <span md-src-pos="2551..2557">At the</span> '&gt;&gt;&gt;' <span md-src-pos="2564..2588">prompt try the following</span>:</p>
+   <pre class="code-fence" md-src-pos="2591..2675"><div class="code-fence-highlighter-copy-button" data-fence-content="bXVsdF8yKCdhYmMnKQp0aW1lc18yKCdhYmMnKQojIGFuZCAKbXVsdF8yKCdhYmMteHl6JykgPT0gdGltZXNfMignYWJjLXh5eicp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-" md-src-pos="2591..2675"><span md-src-pos="2591..2596"></span><span md-src-pos="2596..2610">mult_2('abc')
+</span><span md-src-pos="2610..2625">times_2('abc')
+</span><span md-src-pos="2625..2632"># and 
+</span><span md-src-pos="2632..2672">mult_2('abc-xyz') == times_2('abc-xyz')
+</span><span md-src-pos="2672..2675"></span></code></pre>
+   <p md-src-pos="2677..2748"><span md-src-pos="2677..2685">Also run</span> <code md-src-pos="2686..2697">dir()</code> <span md-src-pos="2698..2748">to check that all the names are present in memory.</span></p>
+   <h2 id="functional-composition" md-src-pos="2750..2775">Functional composition</h2>
+   <p md-src-pos="2777..2953"><span md-src-pos="2777..2857">You have already done this when you used addition to compose the return vales of</span> <span md-src-pos="2858..2927">multiple functions as deep within python the arithmetic operators are</span> <span md-src-pos="2928..2953">implemented as functions.</span></p>
+   <p md-src-pos="2955..3026"><span md-src-pos="2955..2994">More explicit examples are given below.</span> <span md-src-pos="2995..3025">Add the following code to f_s2</span>:</p>
+   <pre class="code-fence" md-src-pos="3028..3225"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHRpbWVzXzEwKGFfdmFsdWUpOgogICAgcmVzdWx0ID0gdGltZXNfMih0aW1lc181KGFfdmFsdWUpKQogICAgcmV0dXJuIHJlc3VsdAoKZGVmIHRpbWVzXzY0KGFfdmFsdWUpOgogICAgcmVzdWx0ID0gdGltZXNfMih0aW1lc18yKHRpbWVzXzIodGltZXNfMih0aW1lc18yKHRpbWVzXzIoKSkpKSkpCiAgICByZXR1cm4gcmVzdWx0">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="3028..3225"><span md-src-pos="3028..3032"></span><span md-src-pos="3032..3055">def times_10(a_value):
+</span><span md-src-pos="3055..3094">    result = times_2(times_5(a_value))
+</span><span md-src-pos="3094..3112">    return result
+</span><span md-src-pos="3112..3113">
+</span><span md-src-pos="3113..3136">def times_64(a_value):
+</span><span md-src-pos="3136..3204">    result = times_2(times_2(times_2(times_2(times_2(times_2())))))
+</span><span md-src-pos="3204..3222">    return result
+</span><span md-src-pos="3222..3225"></span></code></pre>
+   <h2 id="functional-de-composition" md-src-pos="3227..3255">Functional de-composition</h2>
+   <p md-src-pos="3257..3349"><span md-src-pos="3257..3335">Functions can also be used to decompose a complex problem into a collection of</span> <span md-src-pos="3336..3349">simpler ones.</span></p>
+   <p md-src-pos="3351..3677"><span md-src-pos="3351..3375">For instance the problem</span> "<span md-src-pos="3377..3423">write a function that will convert a weight in</span> <span md-src-pos="3424..3431">stones,</span> <span md-src-pos="3432..3439">pounds,</span> <span md-src-pos="3440..3485">and ounces to the equivalent number of ounces</span>" <span md-src-pos="3487..3495">could be</span> <span md-src-pos="3496..3527">implemented as single function,</span> <span md-src-pos="3528..3534">but it</span>'<span md-src-pos="3535..3571">s probably easier to split it into a</span> <span md-src-pos="3572..3600">number of simpler functions.</span> <span md-src-pos="3601..3648">The simple functions are also more likely to be</span> <span md-src-pos="3649..3677">re-usable in other problems.</span></p>
+   <pre class="code-fence" md-src-pos="3679..4422"><div class="code-fence-highlighter-copy-button" data-fence-content="IyBkZWZpbmUgc29tZSAocmV1c2FibGU/KSBjb25zdGFudHMgZm9yIGltcGVyaWFsIHdlaWdodCBjb252ZXJzaW9ucwpPWl9JTl9MQiA9IDE2ICAjIGNvbnN0YW50OiBvdW5jZXMgaW4gYSBwb3VuZCB3ZWlnaHQKTEJfSU5fU1QgPSAxNCAgIyBjb25zdGFudDogcG91bmRzIGluIGEgc3RvbmUgd2VpZ2h0CgpkZWYgbGJfdG9fb3oocG91bmRzKToKICAgICIiImFjY2VwdCBwb3VuZHMgd2VpZ2h0IGFuZCByZXR1cm4gdGhlIGVxdWl2YWxlbnQgd2VpZ2h0IGluIG91bmNlcyIiIgogICAgb3VuY2VzID0gcG91bmRzICogT1pfSU5fTEIKICAgIHJldHVybiBvdW5jZXMKCmRlZiBzdF90b19sYihzdG9uZXMpOgogICAgIiIiYWNjZXB0IGFueSB3ZWlnaHQgaW4gc3RvbmVzIGFuZCByZXR1cm4gdGhlIGVxdWl2YWxlbnQgaW4gcG91bmRzIiIiCiAgICBwb3VuZHMgPSBzdG9uZXMgKiBMQl9JTl9TVAogICAgcmV0dXJuIHBvdW5kcwoKZGVmIHN0X2xiX296X3RvX296KHN0LCBsYiwgb3opOgogICAgIiIiYWNjZXB0IGFueSB3ZWlnaHQgaXMgc3RvbmVzLCBwb3VuZHMgYW5kIG91bmNlcyAKICAgIGFuZCBjb252ZXJ0IGl0IGludG8gYW4gZXF1aXZhbGVudCBudW1iZXIgb2Ygb3VuY2VzIiIiCiAgICBzdF9hc19veiA9IGxiX3RvX296KHN0X3RvX2xiKHN0KSkKICAgIGxiX2FzX296ID0gbGJfdG9fb3oobGIpCiAgICB0b3RhbF9veiA9IHN0X2FzX296ICsgbGJfYXNfb3ogKyBvegogICAgcmV0dXJuIHRvdGFsX296">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="3679..4422"><span md-src-pos="3679..3683"></span><span md-src-pos="3683..3751"># define some (reusable?) constants for imperial weight conversions
+</span><span md-src-pos="3751..3803">OZ_IN_LB = 16  # constant: ounces in a pound weight
+</span><span md-src-pos="3803..3855">LB_IN_ST = 14  # constant: pounds in a stone weight
+</span><span md-src-pos="3855..3856">
+</span><span md-src-pos="3856..3878">def lb_to_oz(pounds):
+</span><span md-src-pos="3878..3982">    """accept pounds weight and return the equivalent weight in ounces"""
+</span><span md-src-pos="3982..4013">    ounces = pounds * OZ_IN_LB
+</span><span md-src-pos="4013..4031">    return ounces
+</span><span md-src-pos="4031..4032">
+</span><span md-src-pos="4032..4054">def st_to_lb(stones):
+</span><span md-src-pos="4054..4158">    """accept any weight in stones and return the equivalent in pounds"""
+</span><span md-src-pos="4158..4189">    pounds = stones * LB_IN_ST
+</span><span md-src-pos="4189..4207">    return pounds
+</span><span md-src-pos="4207..4208">
+</span><span md-src-pos="4208..4240">def st_lb_oz_to_oz(st, lb, oz):
+</span><span md-src-pos="4240..4310">    """accept any weight is stones, pounds and ounces 
+</span><span md-src-pos="4310..4383">    and convert it into an equivalent number of ounces"""
+</span><span md-src-pos="4383..4421">    st_as_oz = lb_to_oz(st_to_lb(st))
+</span><span md-src-pos="4421..4449">    lb_as_oz = lb_to_oz(lb)
+</span><span md-src-pos="4449..4489">    total_oz = st_as_oz + lb_as_oz + oz
+</span><span md-src-pos="4489..4509">    return total_oz
+</span><span md-src-pos="4419..4422"></span></code></pre>
+   <p md-src-pos="4424..4848"><span md-src-pos="4424..4500">Obviously there are many other ways those functions could have been written,</span> <span md-src-pos="4501..4504">but</span> <span md-src-pos="4505..4507">it</span>'<span md-src-pos="4508..4584">s generally a very good idea to make the logic flow of your code transparent</span> <span md-src-pos="4585..4597">and obvious,</span> <span md-src-pos="4598..4663">and decomposing a complex function into smaller and simpler parts</span> <span md-src-pos="4664..4674">does that.</span> <span md-src-pos="4675..4754">For instance writing all the code on one line is a nice intellectual challenge,</span> <span md-src-pos="4755..4777">but it generally doesn</span>'<span md-src-pos="4778..4832">t win you any friends with other programmers trying to</span> <span md-src-pos="4833..4848">read your code.</span></p>
+   <h1 id="section-2---re-using-functions" md-src-pos="4850..4882">Section 2 - Re-using Functions</h1>
+   <p md-src-pos="4884..5116"><span md-src-pos="4884..4949">A key strength of functions is that once we have built a function</span> <span md-src-pos="4950..4983">and confirmed it works correctly,</span> <span md-src-pos="4984..5025">then it can be used a limitless number of</span> <span md-src-pos="5026..5032">times,</span> <span md-src-pos="5033..5099">safe in the knowledge that it is well tested and its functionality</span> <span md-src-pos="5100..5116">is well-defined.</span></p>
+   <p md-src-pos="5118..5193"><span md-src-pos="5118..5193">So lets re-use the functions we have just written in another python script.</span></p>
+   <h2 id="the-import-statement" md-src-pos="5195..5224">The <code md-src-pos="5202..5214">import</code> statement</h2>
+   <p md-src-pos="5226..5323"><span md-src-pos="5226..5295">Create a new python file called f_s2.py in the same folder as f_s1.py</span> <span md-src-pos="5296..5322">and add the following code</span>:</p>
+   <pre class="code-fence" md-src-pos="5325..5677"><div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IGZfczEgICMganVzdCB0aGUgZmlsZSBuYW1lLCBub3QgdGhlIC5weSBmaWxlIGV4dGVuc2lvbgojIHRoZSBpbXBvcnQgc3RhdGVtZW50IG1ha2VzIGFsbCB0aGUgZnVuY3Rpb25zIGluIGZfczEucHkgdmlzaWJsZSBpbiB0aGlzIGZpbGUKCmRlZiB0aW1lc181KGFfdmFsdWUpOgogICAgcmVzdWx0ID0gZl9zMS50aW1lc18yKGFfdmFsdWUpICsgZl9zMS50aW1lc18zKGFfdmFsdWUpCiAgICByZXR1cm4gcmVzdWx0CgpkZWYgdGltZXNfOChhX3ZhbHVlKToKICAgIHJlc3VsdCA9IGZfczEudGltZXNfMihmX3MxLnRpbWVzXzIoZl9zMS50aW1lc18yKGFfdmFsdWUpKSkKICAgIHJldHVybiByZXN1bHQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="5325..5677"><span md-src-pos="5325..5329"></span><span md-src-pos="5329..5391">import f_s1  # just the file name, not the .py file extension
+</span><span md-src-pos="5391..5470"># the import statement makes all the functions in f_s1.py visible in this file
+</span><span md-src-pos="5470..5471">
+</span><span md-src-pos="5471..5493">def times_5(a_value):
+</span><span md-src-pos="5493..5552">    result = f_s1.times_2(a_value) + f_s1.times_3(a_value)
+</span><span md-src-pos="5552..5570">    return result
+</span><span md-src-pos="5570..5571">
+</span><span md-src-pos="5571..5593">def times_8(a_value):
+</span><span md-src-pos="5593..5656">    result = f_s1.times_2(f_s1.times_2(f_s1.times_2(a_value)))
+</span><span md-src-pos="5656..5674">    return result
+</span><span md-src-pos="5674..5677"></span></code></pre>
+   <p md-src-pos="5679..5704"><span md-src-pos="5679..5704">Save the file and run it.</span></p>
+   <p md-src-pos="5706..5798"><span md-src-pos="5706..5722">Use the built-in</span> <code md-src-pos="5724..5735">dir()</code> <span md-src-pos="5736..5784">to confirm that the library of functions f_s1.py</span> <span md-src-pos="5785..5798">is in memory.</span></p>
+   <p md-src-pos="5800..5876"><span md-src-pos="5800..5803">Use</span> <code md-src-pos="5805..5820">dir(f_s1)</code> <span md-src-pos="5821..5861">to confirm that the functions in f_s1.py</span> <span md-src-pos="5862..5876">are in memory.</span></p>
+   <p md-src-pos="5878..5909"><span md-src-pos="5878..5909">Then check they work correctly.</span></p>
+   <p md-src-pos="5911..6243"><span md-src-pos="5911..5967">The program in f_s2.py can use the functions in f_s1.py,</span> <span md-src-pos="5968..6044">provided the name of the function provided their names are prefixed with the</span> <span md-src-pos="6045..6116">name of the library they were imported from which is f_s1 in this case.</span> <span md-src-pos="6117..6197">Using the library prefix avoids name clashes which would happen if f_s1 and f_s2</span> <span md-src-pos="6198..6243">both contained a function with the same name.</span></p>
+   <h1 id="section-3---parameters-and-arguments" md-src-pos="6245..6283">Section 3 - Parameters and arguments</h1>
+   <p md-src-pos="6285..6340"><span md-src-pos="6285..6339">Open a new python file named f_s3.py and add this code</span>:</p>
+   <pre class="code-fence" md-src-pos="6342..6654"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHBhcm1zX3YxKG51bTEsIG51bTIsIG51bTMpOgogICAgIiIiIHRoZXJlIGFyZSB0aHJlZSBwYXJhbWV0ZXJzICIiIgogICAgcmV0dXJuIG51bTEgKyAobnVtMiAqIG51bTMpCgpkZWYgcGFybXNfdjIobnVtMSwgbnVtMiwgbnVtMyA9IDUpOgogICAgIiIiIFRoaXJkIHBhcmFtZXRlciBoYXMgYSBkZWZhdWx0IHZhbHVlICIiIgogICAgcmV0dXJuIG51bTEgKyAobnVtMiAqIG51bTMpCiAgCiMgZnVuY3Rpb25zIGFyZSBvYmplY3RzIGhlbmNlIGNhbiBiZSBhc3NpZ25lZCB0byBhIHZhcmlhYmxlIG5hbWUKcGFybXMgPSBwYXJtc192Mg==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6342..6654"><span md-src-pos="6342..6346"></span><span md-src-pos="6346..6378">def parms_v1(num1, num2, num3):
+</span><span md-src-pos="6378..6447">    """ there are three parameters """
+</span><span md-src-pos="6447..6479">    return num1 + (num2 * num3)
+</span><span md-src-pos="6479..6480">
+</span><span md-src-pos="6480..6516">def parms_v2(num1, num2, num3 = 5):
+</span><span md-src-pos="6516..6594">    """ Third parameter has a default value """
+</span><span md-src-pos="6594..6626">    return num1 + (num2 * num3)
+</span><span md-src-pos="6626..6629">  
+</span><span md-src-pos="6629..6694"># functions are objects hence can be assigned to a variable name
+</span><span md-src-pos="6694..6711">parms = parms_v2
+</span><span md-src-pos="6651..6654"></span></code></pre>
+   <p md-src-pos="6656..6812"><span md-src-pos="6656..6705">Run the file f_s3.py and then test that params_v1</span>() <span md-src-pos="6708..6721">and params_v2</span>() <span md-src-pos="6724..6731">work as</span> <span md-src-pos="6732..6744">anticipated.</span> <span md-src-pos="6745..6758">For instance,</span> <span md-src-pos="6759..6800">try executing each of these statements at</span> <code md-src-pos="6801..6810">&gt;&gt;&gt;</code> :</p>
+   <pre class="code-fence" md-src-pos="6814..7076"><div class="code-fence-highlighter-copy-button" data-fence-content="cGFybXNfdjEoNCw1LDYpCnBhcm1zX3YyKDAsIDE3LCAyKQpwYXJtc192Mig0LDUpCnBhcm1zX3YyKDEsIG51bTMgPSAzLCBudW0yID0gMTEpCnBhcm1zX3YyKG51bTIgPSAxNywgbnVtMyA9IDIsIG51bTEgPSAwKQoKIyBhbHNvIHRyeSByZWZlcmVuY2luZyBwYXJtc192MiB1c2luZyB0aGUgbmFtZSBwYXJtczoKcGFybXMoNCw1KQpwYXJtcygxLCBudW0zID0gMywgbnVtMiA9IDExKQpwYXJtcyhudW0yID0gMTcsIG51bTMgPSAyLCBudW0xID0gMCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6814..7076"><span md-src-pos="6814..6818"></span><span md-src-pos="6818..6834">parms_v1(4,5,6)
+</span><span md-src-pos="6834..6853">parms_v2(0, 17, 2)
+</span><span md-src-pos="6853..6867">parms_v2(4,5)
+</span><span md-src-pos="6867..6900">parms_v2(1, num3 = 3, num2 = 11)
+</span><span md-src-pos="6900..6940">parms_v2(num2 = 17, num3 = 2, num1 = 0)
+</span><span md-src-pos="6940..6941">
+</span><span md-src-pos="6941..6995"># also try referencing parms_v2 using the name parms:
+</span><span md-src-pos="6995..7006">parms(4,5)
+</span><span md-src-pos="7006..7036">parms(1, num3 = 3, num2 = 11)
+</span><span md-src-pos="7036..7073">parms(num2 = 17, num3 = 2, num1 = 0)
+</span><span md-src-pos="7073..7076"></span></code></pre>
+   <p md-src-pos="7078..7148"><span md-src-pos="7078..7148">Check the values returned to be sure you understand what is happening.</span></p>
+   <h2 id="parameters-can-be-any-type-of-object" md-src-pos="7150..7189">parameters can be any type of object</h2>
+   <p md-src-pos="7191..7256"><span md-src-pos="7191..7234">Parameter values can be any type of object,</span> <span md-src-pos="7235..7256">even other functions.</span></p>
+   <pre class="code-fence" md-src-pos="7258..7366"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHBhcm1zX3YzKGFuX2ludCA9IDIsIGFfc3RyID0gJ2RlZmF1bHQnLCBhX2Z1bmN0aW9uID0gbGVuKToKICAgIHJldHVybiBhX2Z1bmN0aW9uKGFfc3RyICogYW5faW50KQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="7258..7366"><span md-src-pos="7258..7262"></span><span md-src-pos="7262..7325">def parms_v3(an_int = 2, a_str = 'default', a_function = len):
+</span><span md-src-pos="7325..7363">    return a_function(a_str * an_int)
+</span><span md-src-pos="7363..7366"></span></code></pre>
+   <p md-src-pos="7368..7461"><span md-src-pos="7368..7445">In this example the default value of the parameter a_function is the built-in</span> <span md-src-pos="7446..7458">function len</span>()<span md-src-pos="7460..7461">.</span></p>
+   <p md-src-pos="7463..7530"><span md-src-pos="7463..7530">Create and save this function in a new python file called params.py</span></p>
+   <p md-src-pos="7532..7608"><span md-src-pos="7532..7607">Then execute these calls to the function to confirm it is working correctly</span>:</p>
+   <pre class="code-fence" md-src-pos="7610..7686"><div class="code-fence-highlighter-copy-button" data-fence-content="cGFybXNfdjMoNSwgJzUnLCBpbnQpCnBhcm1zX3YzKDUsICc1JywgZmxvYXQpCnBhcm1zX3YzKDUpCnBhcm1zX3YzKCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="7610..7686"><span md-src-pos="7610..7614"></span><span md-src-pos="7614..7636">parms_v3(5, '5', int)
+</span><span md-src-pos="7636..7660">parms_v3(5, '5', float)
+</span><span md-src-pos="7660..7672">parms_v3(5)
+</span><span md-src-pos="7672..7683">parms_v3()
+</span><span md-src-pos="7683..7686"></span></code></pre>
+   <p md-src-pos="7688..7722"><span md-src-pos="7688..7721">Try these and explain the results</span>:</p>
+   <pre class="code-fence" md-src-pos="7724..7831"><div class="code-fence-highlighter-copy-button" data-fence-content="cGFybXNfdjMoYV9zdHIgPSAnc2l4JywgYV9mdW5jdGlvbiA9IHN0ciwgYW5faW50ID0gOSkKCnBhcm1zX3YzKCdzaXgnLCA2LCBpZCkgICMgdGhyb3dzIGVycm9yLCB3aHk/">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="7724..7831"><span md-src-pos="7724..7728"></span><span md-src-pos="7728..7782">parms_v3(a_str = 'six', a_function = str, an_int = 9)
+</span><span md-src-pos="7782..7783">
+</span><span md-src-pos="7783..7828">parms_v3('six', 6, id)  # throws error, why?
+</span><span md-src-pos="7828..7831"></span></code></pre>
+   <p md-src-pos="7833..7861"><span md-src-pos="7833..7861">Explain the results you get.</span></p>
+   <h1 id="section-4---return-values" md-src-pos="7863..7890">Section 4 - return values</h1>
+   <h2 id="a-function-may-contain-none-one-or-many-return-statements" md-src-pos="7892..7953">A function may contain none, one or many return statements</h2>
+   <p md-src-pos="7955..8096"><span md-src-pos="7955..8025">There can be any number of return statements in a function definition.</span> <span md-src-pos="8026..8095">When the first return statement in the function body is executed then</span>:</p>
+   <ul md-src-pos="8098..8255">
+    <li md-src-pos="8098..8148">no further code in the function body is executed</li>
+    <li md-src-pos="8149..8181">the return values are returned</li>
+    <li md-src-pos="8182..8255">the flow of code execution returns to the code that called the function</li>
+   </ul>
+   <p md-src-pos="8257..8266"><span md-src-pos="8257..8265">Try this</span>:</p>
+   <pre class="code-fence" md-src-pos="8268..8333"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHR3b19yZXR1cm5zKCkKICAgIHJldHVybiAnZmlyc3QnCiAgICByZXR1cm4gJ3NlY29uZCc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-" md-src-pos="8268..8333"><span md-src-pos="8268..8273"></span><span md-src-pos="8273..8291">def two_returns()
+</span><span md-src-pos="8291..8310">    return 'first'
+</span><span md-src-pos="8310..8330">    return 'second'
+</span><span md-src-pos="8330..8333"></span></code></pre>
+   <h2 id="a-return-statement-can-have-none-one-or-many-return-values" md-src-pos="8335..8397">A return statement can have none, one or many return values</h2>
+   <p md-src-pos="8399..8476"><span md-src-pos="8399..8449">If a return statement returns more than one value,</span> <span md-src-pos="8450..8476">separate them with commas.</span></p>
+   <p md-src-pos="8478..8540"><span md-src-pos="8478..8540">Create and save these functions in a python file named f_s4.py</span></p>
+   <pre class="code-fence" md-src-pos="8542..8688"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHJldHVybl9zaW5nbGUoKToKICAgIHJldHVybiAnc2luZ2xlIHN0cmluZyB2YWx1ZSByZXR1cm5lZCcKCmRlZiByZXR1cm5fbWFueSgpOgogICAgcmV0dXJuICdhcycsICdtYW55JywgJ3ZhbHVlcycsICdhcycsICdpcycsICduZWVkZWQn">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="8542..8688"><span md-src-pos="8542..8546"></span><span md-src-pos="8546..8567">def return_single():
+</span><span md-src-pos="8567..8609">    return 'single string value returned'
+</span><span md-src-pos="8609..8610">
+</span><span md-src-pos="8610..8629">def return_many():
+</span><span md-src-pos="8629..8685">    return 'as', 'many', 'values', 'as', 'is', 'needed'
+</span><span md-src-pos="8685..8688"></span></code></pre>
+   <p md-src-pos="8690..8742"><span md-src-pos="8690..8742">Execute and test them to confirm your understanding.</span></p>
+   <h2 id="a-function-always-returns-a-value" md-src-pos="8744..8780">A function always returns a value</h2>
+   <p md-src-pos="8782..8920"><span md-src-pos="8782..8854">If there is no return statement in the function definition or the return</span> <span md-src-pos="8855..8896">statement is empty then the special value</span> <code md-src-pos="8897..8907">None</code> <span md-src-pos="8908..8920">is returned.</span></p>
+   <p md-src-pos="8922..8964"><span md-src-pos="8922..8964">Create and save these functions in f_s4.py</span></p>
+   <pre class="code-fence" md-src-pos="8966..9080"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHJldHVybl9taXNzaW5nKCk6CiAgICBwYXNzICAjIHRoZSBweXRob24gc3RhdGVtZW50IHRoYXQgJ2RvZXMgbm90aGluZycKCmRlZiByZXR1cm5fZW1wdHkoKToKICAgIHJldHVybg==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="8966..9080"><span md-src-pos="8966..8970"></span><span md-src-pos="8970..8992">def return_missing():
+</span><span md-src-pos="8992..9045">    pass  # the python statement that 'does nothing'
+</span><span md-src-pos="9045..9046">
+</span><span md-src-pos="9046..9066">def return_empty():
+</span><span md-src-pos="9066..9077">    return
+</span><span md-src-pos="9077..9080"></span></code></pre>
+   <p md-src-pos="9082..9141"><span md-src-pos="9082..9141">Execute the python script and test that the functions work.</span></p>
+   <p md-src-pos="9143..9238"><span md-src-pos="9143..9222">Determine the type of the values returned by these functions using the built-in</span> <span md-src-pos="9223..9236">function type</span>()</p>
+   <pre class="code-fence" md-src-pos="9240..9333"><div class="code-fence-highlighter-copy-button" data-fence-content="dHlwZShyZXR1cm5fbWlzc2luZygpKQp0eXBlKHJldHVybl9lbXB0eSgpKQp0eXBlKHJldHVybl9zaW5nbGUoKSkKdHlwZShyZXR1cm5fbWFueSgpKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="9240..9333"><span md-src-pos="9240..9244"></span><span md-src-pos="9244..9267">type(return_missing())
+</span><span md-src-pos="9267..9288">type(return_empty())
+</span><span md-src-pos="9288..9310">type(return_single())
+</span><span md-src-pos="9310..9330">type(return_many())
+</span><span md-src-pos="9330..9333"></span></code></pre>
+   <p md-src-pos="9335..9395"><span md-src-pos="9335..9394">Explain the following statements and the values they return</span>:</p>
+   <pre class="code-fence" md-src-pos="9397..9486"><div class="code-fence-highlighter-copy-button" data-fence-content="bGVuKHJldHVybl9zaW5nbGUoKSkKcmV0dXJuX3NpbmdsZSgpWzc6MTJdCmxlbihyZXR1cm5fbWFueSgpKQpyZXR1cm5fbWFueSgpWzJdWzNd">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="9397..9486"><span md-src-pos="9397..9401"></span><span md-src-pos="9401..9422">len(return_single())
+</span><span md-src-pos="9422..9444">return_single()[7:12]
+</span><span md-src-pos="9444..9463">len(return_many())
+</span><span md-src-pos="9463..9483">return_many()[2][3]
+</span><span md-src-pos="9483..9486"></span></code></pre>
+   <h2 id="functions-can-return-any-type-of-object" md-src-pos="9488..9530">Functions can return any type of object</h2>
+   <p md-src-pos="9532..9596"><span md-src-pos="9532..9596">This means that functions can create and return other functions.</span></p>
+   <p md-src-pos="9598..9627"><span md-src-pos="9598..9626">Add this function to f_s4.py</span>:</p>
+   <pre class="code-fence" md-src-pos="9629..9735"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIG51bF9wb2ludHMoKToKICAgIGRlZiBpbm5lcl9mdW5jdGlvbigpOgogICAgICAgIHJldHVybiAnemVybyBwb2ludHMnCiAgICByZXR1cm4gaW5uZXJfZnVuY3Rpb24=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="9629..9735"><span md-src-pos="9629..9633"></span><span md-src-pos="9633..9651">def nul_points():
+</span><span md-src-pos="9651..9677">    def inner_function():
+</span><span md-src-pos="9677..9706">        return 'zero points'
+</span><span md-src-pos="9706..9732">    return inner_function
+</span><span md-src-pos="9732..9735"></span></code></pre>
+   <p md-src-pos="9737..9862"><span md-src-pos="9737..9813">Execute f_s4.py and then execute the following statements at the interactive</span> <span md-src-pos="9814..9827">python prompt</span> <code md-src-pos="9828..9837">&gt;&gt;&gt;</code> <span md-src-pos="9838..9862">and explain the results.</span></p>
+   <pre class="code-fence" md-src-pos="9864..9940"><div class="code-fence-highlighter-copy-button" data-fence-content="ZiA9IG51bF9wb2ludHMoKQp0eXBlKGYpICAgICMgdHlwZSBvZiBmCnR5cGUoZigpKSAgIyB0eXBlIG9mIGYoKQpmKCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="9864..9940"><span md-src-pos="9864..9868"></span><span md-src-pos="9868..9885">f = nul_points()
+</span><span md-src-pos="9885..9908">type(f)    # type of f
+</span><span md-src-pos="9908..9933">type(f())  # type of f()
+</span><span md-src-pos="9933..9937">f()
+</span><span md-src-pos="9937..9940"></span></code></pre>
+   <h1 id="section-5---importing-and-reusing-code" md-src-pos="9942..9982">Section 5 - importing and reusing code</h1>
+   <p md-src-pos="9984..10216"><span md-src-pos="9984..10049">A key strength of functions is that once we have built a function</span> <span md-src-pos="10050..10083">and confirmed it works correctly,</span> <span md-src-pos="10084..10125">then it can be used a limitless number of</span> <span md-src-pos="10126..10132">times,</span> <span md-src-pos="10133..10199">safe in the knowledge that it is well tested and its functionality</span> <span md-src-pos="10200..10216">is well-defined.</span></p>
+   <p md-src-pos="10218..10309"><span md-src-pos="10218..10295">So lets re-use the functions we have previously written and tested in another</span> <span md-src-pos="10296..10309">python script</span></p>
+   <h2 id="the-import-statement" md-src-pos="10311..10340">The <code md-src-pos="10318..10330">import</code> statement</h2>
+   <p md-src-pos="10342..10451"><span md-src-pos="10342..10415">Create a new python file called f_s5.py and import the module f_s1.py you</span> <span md-src-pos="10416..10450">created earlier with the statement</span>:</p>
+   <pre class="code-fence" md-src-pos="10453..10523"><div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IGZfczEgICAjIGp1c3QgdGhlIGZpbGUgbmFtZSwgbm90IHRoZSAucHkgZmlsZSBleHRlbnNpb24=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="10453..10523"><span md-src-pos="10453..10457"></span><span md-src-pos="10457..10520">import f_s1   # just the file name, not the .py file extension
+</span><span md-src-pos="10520..10523"></span></code></pre>
+   <p md-src-pos="10525..10593"><span md-src-pos="10525..10592">After running that code in IDLE then evaluate these two expressions</span>:</p>
+   <pre class="code-fence" md-src-pos="10595..10676"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGlyKCkgICMgdGhlIG5hbWUgJ2ZfczEnIGlzIHZpc2libGUKZGlyKGZfczEpICAjIGxpc3RzIG9iamVjdHMgaW4gJ2ZfczEnLg==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="10595..10676"><span md-src-pos="10595..10599"></span><span md-src-pos="10599..10635">dir()  # the name 'f_s1' is visible
+</span><span md-src-pos="10635..10673">dir(f_s1)  # lists objects in 'f_s1'.
+</span><span md-src-pos="10673..10676"></span></code></pre>
+   <p md-src-pos="10678..10716"><span md-src-pos="10678..10715">Now add the following code to f_s5.py</span>:</p>
+   <pre class="code-fence" md-src-pos="10718..11070"><div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IGZfczEgICMganVzdCB0aGUgZmlsZSBuYW1lLCBub3QgdGhlIC5weSBmaWxlIGV4dGVuc2lvbgojIHRoZSBpbXBvcnQgc3RhdGVtZW50IG1ha2VzIGFsbCB0aGUgZnVuY3Rpb25zIGluIGZfczEucHkgdmlzaWJsZSBpbiB0aGlzIGZpbGUKCmRlZiB0aW1lc181KGFfdmFsdWUpOgogICAgcmVzdWx0ID0gZl9zMS50aW1lc18yKGFfdmFsdWUpICsgZl9zMS50aW1lc18zKGFfdmFsdWUpCiAgICByZXR1cm4gcmVzdWx0CgpkZWYgdGltZXNfOChhX3ZhbHVlKToKICAgIHJlc3VsdCA9IGZfczEudGltZXNfMihmX3MxLnRpbWVzXzIoZl9zMS50aW1lc18yKGFfdmFsdWUpKSkKICAgIHJldHVybiByZXN1bHQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="10718..11070"><span md-src-pos="10718..10722"></span><span md-src-pos="10722..10784">import f_s1  # just the file name, not the .py file extension
+</span><span md-src-pos="10784..10863"># the import statement makes all the functions in f_s1.py visible in this file
+</span><span md-src-pos="10863..10864">
+</span><span md-src-pos="10864..10886">def times_5(a_value):
+</span><span md-src-pos="10886..10945">    result = f_s1.times_2(a_value) + f_s1.times_3(a_value)
+</span><span md-src-pos="10945..10963">    return result
+</span><span md-src-pos="10963..10964">
+</span><span md-src-pos="10964..10986">def times_8(a_value):
+</span><span md-src-pos="10986..11049">    result = f_s1.times_2(f_s1.times_2(f_s1.times_2(a_value)))
+</span><span md-src-pos="11049..11067">    return result
+</span><span md-src-pos="11067..11070"></span></code></pre>
+   <p md-src-pos="11072..11097"><span md-src-pos="11072..11097">Save the file and run it.</span></p>
+   <p md-src-pos="11099..11212"><span md-src-pos="11099..11115">Use the built-in</span> <code md-src-pos="11117..11128">dir()</code> <span md-src-pos="11129..11148">to confirm that the</span> <span md-src-pos="11149..11212">new functions are in memory and then check they work correctly.</span></p>
+   <p md-src-pos="11214..11549"><span md-src-pos="11214..11273">The program in f_s5.py can re-use the functions in f_s1.py,</span> <span md-src-pos="11274..11350">provided the name of the function provided their names are prefixed with the</span> <span md-src-pos="11351..11422">name of the library they were imported from which is f_s1 in this case.</span> <span md-src-pos="11423..11494">Using the library prefix avoids name clashes which would happen if f_s1</span> <span md-src-pos="11495..11549">and f_s5 both contained a function with the same name.</span></p>
+   <p md-src-pos="11551..11642"><span md-src-pos="11551..11588">We can now use these imported objects</span> (<span md-src-pos="11590..11612">functions in this case</span>) <span md-src-pos="11614..11629">in this module,</span> <span md-src-pos="11630..11641">starter2.py</span>:</p>
+   <pre class="code-fence" md-src-pos="11644..11960"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHRpbWVzXzQoYV92YWx1ZSk6CiAgICAiIiJkZW1vbnN0cmF0ZSB1c2Ugb2YgaW1wb3J0ZWQgZnVuY3Rpb24iIiIKICAgIHBhcnRfMSA9IGZfczEudGltZXMyKGFfdmFsdWUpCiAgICBwYXJ0XzIgPSBmX3MxLnRpbWVzMihhX3ZhbHVlKQogICAgcmV0dXJuIHBhcnRfMSArIHBhcnRfMgoKZGVmIHRpbWVzXzcoYV92YWx1ZSk6CiAgICBwYXNzICMgeW91IGRvIHRoaXMKCmRlZiB0aW1lc18xMShhX3ZhbHVlKToKICAgIHBhc3MgIyB5b3UgZG8gdGhpcwogICAgCmRlZiB0aW1lc18xNDQoYV92YWx1ZSkKICAgIHBhc3MgICMgeW91IGRvIHRoaXM=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="11644..11960"><span md-src-pos="11644..11648"></span><span md-src-pos="11648..11670">def times_4(a_value):
+</span><span md-src-pos="11670..11747">    """demonstrate use of imported function"""
+</span><span md-src-pos="11747..11781">    part_1 = f_s1.times2(a_value)
+</span><span md-src-pos="11781..11815">    part_2 = f_s1.times2(a_value)
+</span><span md-src-pos="11815..11842">    return part_1 + part_2
+</span><span md-src-pos="11842..11843">
+</span><span md-src-pos="11843..11865">def times_7(a_value):
+</span><span md-src-pos="11865..11888">    pass # you do this
+</span><span md-src-pos="11888..11889">
+</span><span md-src-pos="11889..11912">def times_11(a_value):
+</span><span md-src-pos="11912..11935">    pass # you do this
+</span><span md-src-pos="11935..11940">    
+</span><span md-src-pos="11940..11963">def times_144(a_value)
+</span><span md-src-pos="11963..11987">    pass  # you do this
+</span><span md-src-pos="11957..11960"></span></code></pre>
+   <p md-src-pos="11962..11992"><span md-src-pos="11962..11992">Test that your functions work.</span></p>
+   <h2 id="the-from-x-import-y-statement" md-src-pos="11994..12032">The <code md-src-pos="12001..12022">from X import Y</code> Statement</h2>
+   <p md-src-pos="12034..12220"><span md-src-pos="12034..12110">This is a variant of the import statement that will import the objects named</span> <span md-src-pos="12111..12113">in</span> '<span md-src-pos="12115..12116">Y</span>' <span md-src-pos="12118..12134">from the library</span> '<span md-src-pos="12136..12137">X</span>' <span md-src-pos="12139..12184">and make them available in the current script</span> <span md-src-pos="12185..12220">without the need to use any prefix.</span></p>
+   <p md-src-pos="12222..12262"><span md-src-pos="12222..12261">Make a copy of f_s5.py and edit to this</span>:</p>
+   <pre class="code-fence" md-src-pos="12264..12578"><div class="code-fence-highlighter-copy-button" data-fence-content="ZnJvbSBmX3MxIGltcG9ydCB0aW1lc18yLCB0aW1lc18zCiMgdGhlIGltcG9ydCBmcm9tIHN0YXRlbWVudCBtYWtlcyBuYW1lZCBmdW5jdGlvbnMgdmlzaWJsZSBpbiB0aGlzIGZpbGUKCmRlZiB0aW1lc181KGFfdmFsdWUpOgogICAgcmVzdWx0ID0gdGltZXNfMihhX3ZhbHVlKSArIHRpbWVzXzMoYV92YWx1ZSkKICAgIHJldHVybiByZXN1bHQKCmRlZiB0aW1lc184KGFfdmFsdWUpOgogICAgcmVzdWx0ID0gdGltZXNfMihhX3ZhbHVlKSArIHRpbWVzXzMoYV92YWx1ZSkgKyB0aW1lc18zKGFfdmFsdWUpICsgCiAgICByZXR1cm4gcmVzdWx0">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="12264..12578"><span md-src-pos="12264..12268"></span><span md-src-pos="12268..12302">from f_s1 import times_2, times_3
+</span><span md-src-pos="12302..12373"># the import from statement makes named functions visible in this file
+</span><span md-src-pos="12373..12374">
+</span><span md-src-pos="12374..12396">def times_5(a_value):
+</span><span md-src-pos="12396..12445">    result = times_2(a_value) + times_3(a_value)
+</span><span md-src-pos="12445..12463">    return result
+</span><span md-src-pos="12463..12464">
+</span><span md-src-pos="12464..12486">def times_8(a_value):
+</span><span md-src-pos="12486..12557">    result = times_2(a_value) + times_3(a_value) + times_3(a_value) + 
+</span><span md-src-pos="12557..12575">    return result
+</span><span md-src-pos="12575..12578"></span></code></pre>
+   <p md-src-pos="12580..12692"><span md-src-pos="12580..12613">Save the file and run it then use</span> <code md-src-pos="12615..12626">dir()</code> <span md-src-pos="12627..12658">to check that the new functions</span> <span md-src-pos="12659..12692">are in memory and that they work.</span></p>
+   <h2 id="importing-from-the-standard-library" md-src-pos="12694..12732">Importing from the standard library</h2>
+   <p md-src-pos="12734..12851"><span md-src-pos="12734..12814">As well re-using your own code you can also import and reuse the enormous amount</span> <span md-src-pos="12815..12851">of software in the standard library.</span></p>
+   <p md-src-pos="12853..12984"><span md-src-pos="12853..12933">Create a file called f_dice.py and use the random library to create the function</span> <span md-src-pos="12934..12938">dice</span>() <span md-src-pos="12941..12983">which simulates throwing a many sided dice</span>:</p>
+   <pre class="code-fence" md-src-pos="12986..13090"><div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IHJhbmRvbSAgIyBmcm9tIHRoZSBzdGFuZGFyZCBsaWJyYXJ5CmRlZiBkaWNlKHNpZGVzPTYpOgogICAgcmV0dXJuIHJhbmRvbS5yYW5kaW50KDEsc2lkZXMp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="12986..13090"><span md-src-pos="12986..12990"></span><span md-src-pos="12990..13033">import random  # from the standard library
+</span><span md-src-pos="13033..13052">def dice(sides=6):
+</span><span md-src-pos="13052..13087">    return random.randint(1,sides)
+</span><span md-src-pos="13087..13090"></span></code></pre>
+   <p md-src-pos="13092..13173"><span md-src-pos="13092..13161">Create a new python script called dice.py and write and test the dice</span>() <span md-src-pos="13164..13173">function.</span></p>
+   <p md-src-pos="13175..13258"><span md-src-pos="13175..13184">Call dice</span>() <span md-src-pos="13187..13258">several times to confirm it only returns integer values between 1 and 6</span></p>
+   <pre class="code-fence" md-src-pos="13260..13288"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGljZSgpCmRpY2UoKQpkaWNlKCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13260..13288"><span md-src-pos="13260..13264"></span><span md-src-pos="13264..13271">dice()
+</span><span md-src-pos="13271..13278">dice()
+</span><span md-src-pos="13278..13285">dice()
+</span><span md-src-pos="13285..13288"></span></code></pre>
+   <p md-src-pos="13290..13370"><span md-src-pos="13290..13299">Call dice</span>(<span md-src-pos="13300..13302">10</span>) <span md-src-pos="13304..13370">several times to confirm it only returns integers between 1 and 10</span></p>
+   <pre class="code-fence" md-src-pos="13371..13423"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGljZSgxMCkKZGljZSgxMCkKZGljZSgxMCkKZGljZSgxMCkKZGljZSgxMCk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13371..13423"><span md-src-pos="13371..13375"></span><span md-src-pos="13375..13384">dice(10)
+</span><span md-src-pos="13384..13393">dice(10)
+</span><span md-src-pos="13393..13402">dice(10)
+</span><span md-src-pos="13402..13411">dice(10)
+</span><span md-src-pos="13411..13420">dice(10)
+</span><span md-src-pos="13420..13423"></span></code></pre>
+   <p md-src-pos="13425..13531"><span md-src-pos="13425..13475">The Random library contains many useful functions.</span> <span md-src-pos="13477..13531">In the IDLE interactive shell execute these statements</span></p>
+   <pre class="code-fence" md-src-pos="13533..13722"><div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IHJhbmRvbQpmcnVpdHMgPSAnYXBwbGUgcGVhciBvcmFuZ2UgbWFuZ28gbWVsb24gZ3JhcGUnCgpyYW5kb20uY2hvaWNlKGZydWl0cy5zcGxpdCgpKQpyYW5kb20uY2hvaWNlKGZydWl0cy5zcGxpdCgpKQpyYW5kb20uY2hvaWNlKGZydWl0cy5zcGxpdCgpKQpyYW5kb20uY2hvaWNlKGZydWl0cy5zcGxpdCgpKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13533..13722"><span md-src-pos="13533..13537"></span><span md-src-pos="13537..13551">import random
+</span><span md-src-pos="13551..13598">fruits = 'apple pear orange mango melon grape'
+</span><span md-src-pos="13598..13599">
+</span><span md-src-pos="13599..13629">random.choice(fruits.split())
+</span><span md-src-pos="13629..13659">random.choice(fruits.split())
+</span><span md-src-pos="13659..13689">random.choice(fruits.split())
+</span><span md-src-pos="13689..13719">random.choice(fruits.split())
+</span><span md-src-pos="13719..13722"></span></code></pre>
+   <p md-src-pos="13724..13749"><span md-src-pos="13724..13749">Explain what is going on.</span></p>
+   <h2 id="fun-with-turtles" md-src-pos="13751..13770">Fun with Turtles</h2>
+   <p md-src-pos="13772..13853"><span md-src-pos="13772..13847">Create a new python script and call it turtle1.py and add this fun piece of</span> <span md-src-pos="13848..13852">code</span>:</p>
+   <pre class="code-fence" md-src-pos="13855..14104"><div class="code-fence-highlighter-copy-button" data-fence-content="ZnJvbSB0dXJ0bGUgaW1wb3J0ICogICMgaW1wb3J0cyBldmVyeXRoaW5nCmRlZiBzcShwZW5jb2xvciwgZmlsbGNvbG9yKToKICAgIGNvbG9yKHBlbmNvbG9yLCBmaWxsY29sb3IpCiAgICBiZWdpbl9maWxsKCkKICAgIGZvcndhcmQoMjAwKQogICAgbGVmdCg5MCkKICAgIGZvcndhcmQoMjAwKQogICAgbGVmdCg5MCkKICAgIGZvcndhcmQoMjAwKQogICAgbGVmdCg5MCkKICAgIGZvcndhcmQoMjAwKQogICAgZW5kX2ZpbGwoKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="13855..14104"><span md-src-pos="13855..13859"></span><span md-src-pos="13859..13902">from turtle import *  # imports everything
+</span><span md-src-pos="13902..13931">def sq(pencolor, fillcolor):
+</span><span md-src-pos="13931..13962">    color(pencolor, fillcolor)
+</span><span md-src-pos="13962..13979">    begin_fill()
+</span><span md-src-pos="13979..13996">    forward(200)
+</span><span md-src-pos="13996..14009">    left(90)
+</span><span md-src-pos="14009..14026">    forward(200)
+</span><span md-src-pos="14026..14039">    left(90)
+</span><span md-src-pos="14039..14056">    forward(200)
+</span><span md-src-pos="14056..14069">    left(90)
+</span><span md-src-pos="14069..14086">    forward(200)
+</span><span md-src-pos="14086..14101">    end_fill()
+</span><span md-src-pos="14101..14104"></span></code></pre>
+   <p md-src-pos="14106..14198"><span md-src-pos="14106..14171">Execute this program and test it works by calling the function sq</span>() <span md-src-pos="14174..14180">at the</span> <code md-src-pos="14181..14190">&gt;&gt;&gt;</code> <span md-src-pos="14191..14197">prompt</span>:</p>
+   <pre class="code-fence" md-src-pos="14200..14256"><div class="code-fence-highlighter-copy-button" data-fence-content="c3EoJ2JsdWUnLCAnZ3JlZW4nKSAgIyBjaG9vc2UgYW55IHN0YW5kYXJkIGNvbG9y">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="14200..14256"><span md-src-pos="14200..14204"></span><span md-src-pos="14204..14253">sq('blue', 'green')  # choose any standard color
+</span><span md-src-pos="14253..14256"></span></code></pre>
+   <p md-src-pos="14258..14355"><span md-src-pos="14258..14267">Modify sq</span>() <span md-src-pos="14270..14302">by adding third parameter called</span> <code md-src-pos="14303..14313">side</code> <span md-src-pos="14314..14355">for the length of the side of the square.</span></p>
+   <p md-src-pos="14357..14387"><span md-src-pos="14357..14384">Test your new version of sq</span>()<span md-src-pos="14386..14387">.</span></p>
+   <p md-src-pos="14389..14453"><span md-src-pos="14389..14398">Modify sq</span>() <span md-src-pos="14401..14453">again by giving all three parameters default values.</span></p>
+   <p md-src-pos="14455..14506"><span md-src-pos="14455..14476">Test that this works,</span> <span md-src-pos="14477..14505">perhaps try these statements</span>:</p>
+   <pre class="code-fence" md-src-pos="14507..14583"><div class="code-fence-highlighter-copy-button" data-fence-content="c3EoKQpzcShzaWRlPTUwKQpzcShmaWxsY29sb3I9J3BpbmsnLCBzaWRlID0gNzcsIHBlbmNvbG9yPSdtYWdlbnRhJyk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="14507..14583"><span md-src-pos="14507..14511"></span><span md-src-pos="14511..14516">sq()
+</span><span md-src-pos="14516..14528">sq(side=50)
+</span><span md-src-pos="14528..14580">sq(fillcolor='pink', side = 77, pencolor='magenta')
+</span><span md-src-pos="14580..14583"></span></code></pre>
+   <p md-src-pos="14586..14633"><span md-src-pos="14586..14633">There are many fun Turtle tutorials on the web.</span></p>
+   <hr>
+   <h1 id="practice-makes-perfect" md-src-pos="14640..14664">Practice makes Perfect</h1>
+   <p md-src-pos="14666..14735"><span md-src-pos="14666..14735">The more programming practice you do h better at practice you become.</span></p>
+   <p md-src-pos="14737..14808"><span md-src-pos="14737..14742">Go to</span> <a href="http://www.w3schools.com" md-src-pos="14743..14760">www.w3schools.com</a> <span md-src-pos="14761..14808">and work through the python functions tutorial.</span></p>
+   <p md-src-pos="14810..14900"><span md-src-pos="14810..14877">By now you should be familiar with the content within the following</span> <span md-src-pos="14878..14899">sections of W3Schools</span>:</p>
+   <p md-src-pos="14902..15433"><a href="https://www.w3schools.com/python/python_comments.asp" md-src-pos="14902..14966">comments</a><br><a href="https://www.w3schools.com/python/python_variables.asp" md-src-pos="14968..15034">variables</a><br><a href="https://www.w3schools.com/python/python_numbers.asp" md-src-pos="15036..15098">numbers</a><br><a href="https://www.w3schools.com/python/python_casting.asp" md-src-pos="15100..15167">type casting</a><br><a href="https://www.w3schools.com/python/python_strings.asp" md-src-pos="15169..15231">strings</a><br><a href="https://www.w3schools.com/python/python_booleans.asp" md-src-pos="15233..15297">booleans</a><br><a href="https://www.w3schools.com/python/python_operators.asp" md-src-pos="15299..15365">operators</a><br><a href="https://www.w3schools.com/python/python_functions.asp" md-src-pos="15367..15433">functions</a></p>
+   <h1 id="even-more-practice" md-src-pos="15435..15455">Even More Practice</h1>
+   <p md-src-pos="15457..15579"><span md-src-pos="15457..15521">There are many other learning and practice resources on the web.</span> <span md-src-pos="15522..15534">Examples are</span> <a href="http://www.freecodecamp.org" md-src-pos="15535..15555">www.freecodecamp.org</a> <span md-src-pos="15556..15559">and</span> <a href="http://www.realpython.com" md-src-pos="15560..15578">www.realpython.com</a></p>
+  </div>
+ </body>
+</html>

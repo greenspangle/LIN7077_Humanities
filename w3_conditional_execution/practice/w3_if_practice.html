@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+ <head>
+  <title>IntelliJ Markdown Preview</title>
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } pre.frontmatter-header { background-color: transparent; margin: 0; padding: 0; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; }</style>
+  <style>body { background-color: rgba(30, 31, 34, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(188, 190, 196, 255.0); } a { color: rgba(107, 155, 250, 255.0); } table td, table th { border: 1px solid rgba(57, 59, 64, 255.0); } hr { background-color: rgba(57, 59, 64, 255.0); } kbd, tr { border: 1px solid rgba(57, 59, 64, 255.0); } h6 { color: rgba(111, 115, 122, 255.0); } blockquote { border-left: 2px solid rgba(107, 155, 250, 0.4); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.09803921568627451); } ::-webkit-scrollbar { width: 10px; height: 10px; background-color: rgba(63, 68, 68, 1.000000); } ::-webkit-scrollbar-track { background-color: rgba(128, 128, 128, 0.000000); } ::-webkit-scrollbar-track:hover { background-color: rgba(128, 128, 128, 0.000000); } ::-webkit-scrollbar-thumb { background-color: rgba(166, 166, 166, 0.278431); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(128, 128, 128, 0.000000); background-clip: padding-box; outline: 1px solid rgba(56, 56, 56, 0.278431); outline-offset: -1px; } ::-webkit-scrollbar-thumb:hover { background-color: rgba(166, 166, 166, 0.349020); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(128, 128, 128, 0.000000); background-clip: padding-box; outline: 1px solid rgba(56, 56, 56, 0.349020); outline-offset: -1px; } ::-webkit-scrollbar-corner { background-color: rgba(63, 68, 68, 1.000000); } ::-webkit-scrollbar-button { display:none; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head>
+ <body>
+  <div md-src-pos="0..9403">
+   <h1 id="making-decisions-with-if" md-src-pos="0..28">Making Decisions with <code md-src-pos="24..28">if</code></h1>
+   <p md-src-pos="30..166"><span md-src-pos="30..77">Work your way through these practice exercises.</span> <span md-src-pos="78..109">Do modify and change these code</span> <span md-src-pos="110..166">examples so that you get maximum benefit from your time.</span></p>
+   <h2 id="is-a-statement-true-or-is-it-false" md-src-pos="168..209">Is a statement <code md-src-pos="186..192">True</code> or is it <code md-src-pos="202..209">False</code></h2>
+   <p md-src-pos="211..269"><span md-src-pos="211..268">At the interactive Python prompt execute these statements</span>:</p>
+   <pre class="code-fence" md-src-pos="271..285"><div class="code-fence-highlighter-copy-button" data-fence-content="MyA8IDQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="271..285"><span md-src-pos="271..275"></span><span md-src-pos="275..285">3 &lt; 4 
+</span><span md-src-pos="282..285"></span></code></pre>
+   <pre class="code-fence" md-src-pos="287..301"><div class="code-fence-highlighter-copy-button" data-fence-content="MyA+IDQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="287..301"><span md-src-pos="287..291"></span><span md-src-pos="291..301">3 &gt; 4 
+</span><span md-src-pos="298..301"></span></code></pre>
+   <pre class="code-fence" md-src-pos="303..321"><div class="code-fence-highlighter-copy-button" data-fence-content="bm90IDMgPCA0">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="303..321"><span md-src-pos="303..307"></span><span md-src-pos="307..321">not 3 &lt; 4 
+</span><span md-src-pos="318..321"></span></code></pre>
+   <p md-src-pos="323..386"><span md-src-pos="323..356">You should get the boolean values</span> <code md-src-pos="357..363">True</code><span md-src-pos="363..364">,</span> <code md-src-pos="365..372">False</code><span md-src-pos="372..373">,</span> <span md-src-pos="374..377">and</span> <code md-src-pos="378..385">False</code><span md-src-pos="385..386">.</span></p>
+   <p md-src-pos="388..493"><span md-src-pos="388..466">As well as numbers you can use the relational operators to compare other types</span> <span md-src-pos="467..492">of object such as strings</span>:</p>
+   <pre class="code-fence" md-src-pos="495..519"><div class="code-fence-highlighter-copy-button" data-fence-content="J3RocmVlJyA8ICdmb3VyJw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="495..519"><span md-src-pos="495..499"></span><span md-src-pos="499..519">'three' &lt; 'four'
+</span><span md-src-pos="516..519"></span></code></pre>
+   <pre class="code-fence" md-src-pos="521..544"><div class="code-fence-highlighter-copy-button" data-fence-content="J2ZvdXInIDwgJ2ZpdmUn">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="521..544"><span md-src-pos="521..525"></span><span md-src-pos="525..544">'four' &lt; 'five'
+</span><span md-src-pos="541..544"></span></code></pre>
+   <pre class="code-fence" md-src-pos="546..568"><div class="code-fence-highlighter-copy-button" data-fence-content="J2ZpdmUnIDwgJ3NpeCc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="546..568"><span md-src-pos="546..550"></span><span md-src-pos="550..568">'five' &lt; 'six'
+</span><span md-src-pos="565..568"></span></code></pre>
+   <h1 id="the-if-statement" md-src-pos="570..590">The <code md-src-pos="576..580">if</code> statement</h1>
+   <p md-src-pos="592..630"><span md-src-pos="592..611">The structure of an</span> <code md-src-pos="612..616">if</code> <span md-src-pos="617..629">statement is</span>:</p>
+   <pre class="code-fence" md-src-pos="632..661"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgY29uZGl0aW9uOgogICBib2R5">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="632..661"><span md-src-pos="632..636"></span><span md-src-pos="636..650">if condition:
+</span><span md-src-pos="650..658">   body
+</span><span md-src-pos="658..661"></span></code></pre>
+   <p md-src-pos="663..757"><span md-src-pos="663..678">The code in the</span> <code md-src-pos="679..685">body</code> <span md-src-pos="686..714">block executes ONLY when the</span> <code md-src-pos="715..726">condition</code> <span md-src-pos="727..749">statement evaluates to</span> <code md-src-pos="750..756">True</code><span md-src-pos="756..757">.</span></p>
+   <h2 id="evaluating-if-statements-interactively" md-src-pos="759..802">Evaluating <code md-src-pos="773..777">if</code> statements interactively</h2>
+   <p md-src-pos="804..917"><span md-src-pos="804..816">You can type</span> <code md-src-pos="817..821">if</code> <span md-src-pos="822..871">statements directly into python and execute them.</span> <span md-src-pos="872..916">Try these examples at the interactive prompt</span>:</p>
+   <pre class="code-fence" md-src-pos="919..987"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgVHJ1ZToKICAgJ1RoZSBib2R5IGNvZGUgb2YgdGhlIGlmIHN0YXRlbWVudCBoYXMgZXhlY3V0ZWQn">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="919..987"><span md-src-pos="919..923"></span><span md-src-pos="923..932">if True:
+</span><span md-src-pos="932..984">   'The body code of the if statement has executed'
+</span><span md-src-pos="984..987"></span></code></pre>
+   <p md-src-pos="989..1200"><span md-src-pos="989..1014">The condition part of the</span> <code md-src-pos="1015..1019">if</code> <span md-src-pos="1020..1042">statement evaluates to</span> <code md-src-pos="1043..1049">True</code> <span md-src-pos="1050..1088">hence the code in the body part of the</span> <code md-src-pos="1089..1093">if</code> <span md-src-pos="1094..1112">statement executes</span> <span md-src-pos="1113..1127">and the string</span> <code md-src-pos="1128..1163">'The condition statement is True'</code> <span md-src-pos="1164..1174">is created</span> <span md-src-pos="1175..1200">and echoed at the prompt.</span></p>
+   <p md-src-pos="1202..1226"><span md-src-pos="1202..1225">Whereas in this example</span>:</p>
+   <pre class="code-fence" md-src-pos="1228..1297"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgRmFsc2U6CiAgICdUaGUgYm9keSBjb2RlIG9mIHRoZSBpZiBzdGF0ZW1lbnQgaGFzIGV4ZWN1dGVkJw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="1228..1297"><span md-src-pos="1228..1232"></span><span md-src-pos="1232..1242">if False:
+</span><span md-src-pos="1242..1294">   'The body code of the if statement has executed'
+</span><span md-src-pos="1294..1297"></span></code></pre>
+   <p md-src-pos="1299..1504"><span md-src-pos="1299..1324">The condition part of the</span> <code md-src-pos="1325..1329">if</code> <span md-src-pos="1330..1352">statement evaluates to</span> <code md-src-pos="1353..1360">False</code> <span md-src-pos="1361..1399">hence the code in the body part of the</span> <code md-src-pos="1400..1404">if</code> <span md-src-pos="1405..1435">statement to create the string</span> <code md-src-pos="1436..1486">'The body code of the if statement has executed'</code> <span md-src-pos="1487..1504">DOES NOT execute.</span></p>
+   <pre class="code-fence" md-src-pos="1506..1561"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgMyA8IDQ6CiAgICBwcmludCgidGhyZWUgaXMgbGVzcyB0aGFuIGZvdXIiKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="1506..1561"><span md-src-pos="1506..1510"></span><span md-src-pos="1510..1523">if 3 &lt; 4:
+</span><span md-src-pos="1523..1570">    print("three is less than four")
+</span><span md-src-pos="1557..1561"></span></code></pre>
+   <p md-src-pos="1563..1627"><span md-src-pos="1563..1580">and press return.</span> <span md-src-pos="1581..1600">Python should print</span> "<span md-src-pos="1602..1625">three is less than four</span>""</p>
+   <pre class="code-fence" md-src-pos="1629..1692"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgbm90IDMgPCA0OgogICAgcHJpbnQoInRocmVlIGlzIG5vdCBsZXNzIHRoYW4gZm91ciIp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="1629..1692"><span md-src-pos="1629..1633"></span><span md-src-pos="1633..1650">if not 3 &lt; 4:
+</span><span md-src-pos="1650..1701">    print("three is not less than four")
+</span><span md-src-pos="1688..1692"></span></code></pre>
+   <p md-src-pos="1694..1739"><span md-src-pos="1694..1718">What result did you get?</span> <span md-src-pos="1719..1739">Can you explain why?</span></p>
+   <h2 id="using-if-statements-in-stored-programs" md-src-pos="1741..1784">Using <code md-src-pos="1750..1754">if</code> statements in stored programs</h2>
+   <p md-src-pos="1786..1995"><span md-src-pos="1786..1852">Typing code into the python prompt is great for trying-things-out,</span> <span md-src-pos="1853..1907">but usually you will want to save your work in a file,</span> <span md-src-pos="1908..1924">or better still,</span> <span md-src-pos="1925..1995">generalise your code into a reusable function and save that in a file.</span></p>
+   <p md-src-pos="1997..2074"><span md-src-pos="1997..2073">Create and test the following examples in a python file named if_examples.py</span>:</p>
+   <pre class="code-fence" md-src-pos="2076..2136"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgVHJ1ZToKICAgcHJpbnQoJ1RoZSBjb25kaXRpb24gc3RhdGVtZW50IGlzIFRydWUnKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2076..2136"><span md-src-pos="2076..2080"></span><span md-src-pos="2080..2089">if True:
+</span><span md-src-pos="2089..2133">   print('The condition statement is True')
+</span><span md-src-pos="2133..2136"></span></code></pre>
+   <p md-src-pos="2138..2244"><span md-src-pos="2138..2151">The body code</span> <code md-src-pos="2152..2194">print('The condition statement is True')</code> <span md-src-pos="2195..2207">will execute</span> <span md-src-pos="2208..2219">because the</span> <code md-src-pos="2220..2224">if</code> <span md-src-pos="2225..2237">condition is</span> <code md-src-pos="2238..2244">True</code></p>
+   <p md-src-pos="2246..2270"><span md-src-pos="2246..2269">Whereas in this example</span>:</p>
+   <pre class="code-fence" md-src-pos="2272..2333"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgRmFsc2U6CiAgIHByaW50KCdUaGUgY29uZGl0aW9uIHN0YXRlbWVudCBpcyBUcnVlJyk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2272..2333"><span md-src-pos="2272..2276"></span><span md-src-pos="2276..2286">if False:
+</span><span md-src-pos="2286..2330">   print('The condition statement is True')
+</span><span md-src-pos="2330..2333"></span></code></pre>
+   <p md-src-pos="2335..2398"><span md-src-pos="2335..2390">The body code does not execute because the condition is</span> <code md-src-pos="2391..2398">False</code></p>
+   <p md-src-pos="2400..2422"><span md-src-pos="2400..2422">Here are more examples</span></p>
+   <pre class="code-fence" md-src-pos="2424..3162"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIG15X21heF92MShhLCBiKToKICAgICIiIm15IGZpcnN0IHZlcnNpb24gb2YgdGhlIGJ1aWx0LWluIG1heCgpIGZ1bmN0aW9uICIiIgogICAgIyB0ZXN0IGlmIGEgaXMgZ3JlYXRlciB0aGFuIGIKICAgIGlmIGEgPiBiOgogICAgICAgIHJldHVybiBhCiAgICAjIHRlc3QgaWYgYiBpcyBncmVhdGVyIHRoYW4gb3IgZXF1YWwgdG8gYQogICAgaWYgYiA+PSBhOgogICAgICAgIHJldHVybiBiCgpkZWYgbXlfbWF4X3YyKGEsIGIpOgogICAgIiIibXkgc2Vjb25kIHZlcnNpb24gb2YgdGhlIGJ1aWx0LWluIG1heCgpIGZ1bmN0aW9uCiAgICAgV29ya3MganVzdCBhcyB3ZWxsIGFuZCwgaW4gZ2VuZXJhbCwgaXMgbGVzcyBwcm9uZSB0byBidWdzIiIiCiAgICBpZiBhID4gYjoKICAgICAgICByZXR1cm4gYQogICAgIyBpZiBhIGlzIG5vdCBncmVhdGVyIHRoYW4gYiwgdGhlbiBiIGlzIGF0IGxlYXN0IGFzIGJpZyBhcyBhCiAgICByZXR1cm4gYiAgCgpkZWYgbXlfbWF4X3YzKGEsIGIpOgogICAgIiIibXkgdGhpcmQgdmVyc2lvbiBvZiB0aGUgYnVpbHQtaW4gbWF4KCkgZnVuY3Rpb24gX2lzX0ZBVUxUWV8uIAogICAgQ2FuIHlvdSBzcG90IHdoYXQncyB3cm9uZyB3aXRoIGl0PyIiIgogICAgaWYgYSA+IGI6CiAgICAgICAgcmVzdWx0ID0gYQogICAgcmVzdWx0ID0gYgogICAgcmV0dXJuIHJlc3VsdAoKCm15X21heCA9IG15X21heF92MiAgIyBJIHRoaW5rIHYyIGlzIHRoZSBiZXN0IGNob2ljZQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="2424..3162"><span md-src-pos="2424..2428"></span><span md-src-pos="2428..2449">def my_max_v1(a, b):
+</span><span md-src-pos="2449..2538">    """my first version of the built-in max() function """
+</span><span md-src-pos="2538..2572">    # test if a is greater than b
+</span><span md-src-pos="2572..2589">    if a &gt; b:
+</span><span md-src-pos="2589..2606">        return a
+</span><span md-src-pos="2606..2652">    # test if b is greater than or equal to a
+</span><span md-src-pos="2652..2670">    if b &gt;= a:
+</span><span md-src-pos="2670..2687">        return b
+</span><span md-src-pos="2687..2688">
+</span><span md-src-pos="2688..2709">def my_max_v2(a, b):
+</span><span md-src-pos="2709..2780">    """my second version of the built-in max() function
+</span><span md-src-pos="2780..2861">     Works just as well and, in general, is less prone to bugs"""
+</span><span md-src-pos="2861..2878">    if a &gt; b:
+</span><span md-src-pos="2878..2895">        return a
+</span><span md-src-pos="2895..2960">    # if a is not greater than b, then b is at least as big as a
+</span><span md-src-pos="2960..2975">    return b  
+</span><span md-src-pos="2975..2976">
+</span><span md-src-pos="2976..2997">def my_max_v3(a, b):
+</span><span md-src-pos="2997..3081">    """my third version of the built-in max() function _is_FAULTY_. 
+</span><span md-src-pos="3081..3138">    Can you spot what's wrong with it?"""
+</span><span md-src-pos="3138..3155">    if a &gt; b:
+</span><span md-src-pos="3155..3174">        result = a
+</span><span md-src-pos="3174..3189">    result = b
+</span><span md-src-pos="3189..3207">    return result
+</span><span md-src-pos="3207..3208">
+</span><span md-src-pos="3208..3209">
+</span><span md-src-pos="3209..3261">my_max = my_max_v2  # I think v2 is the best choice
+</span><span md-src-pos="3159..3162"></span></code></pre>
+   <p md-src-pos="3164..3277"><span md-src-pos="3164..3232">Execute if_examples.py then check the functions you wrote are now in</span> <span md-src-pos="3233..3274">memory by using the built-in function dir</span>()<span md-src-pos="3276..3277">.</span></p>
+   <p md-src-pos="3279..3397"><span md-src-pos="3279..3347">Test these functions work in the way you expect with test cases such</span> <span md-src-pos="3348..3350">as</span> <code md-src-pos="3351..3365">my_max (3,4)</code><span md-src-pos="3365..3366">,</span> <code md-src-pos="3367..3391">my_max('three','four')</code><span md-src-pos="3391..3392">,</span> <span md-src-pos="3393..3397">etc.</span></p>
+   <p md-src-pos="3399..3408"><strong md-src-pos="3399..3408">Task:</strong></p>
+   <ul md-src-pos="3410..3538">
+    <li md-src-pos="3410..3538">Design, write and test a function <code md-src-pos="3446..3470">my_min(value1, value2)</code> that duplicates the functionality of the built_in function min().</li>
+   </ul>
+   <p md-src-pos="3540..3596"><span md-src-pos="3540..3573">Here are few more functions using</span> '<span md-src-pos="3575..3577">if</span>' <span md-src-pos="3579..3595">to practice with</span>:</p>
+   <pre class="code-fence" md-src-pos="3598..4219"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIGdyYWRlX3YxKG1hcmspOgogICAgIiIiIFBhc3Mgb3IgRmFpbD8gIiIiCiAgICBpZiBtYXJrID4gNjA6CiAgICAgICAgcmV0dXJuICdQYXNzJwogICAgcmV0dXJuICdGYWlsJwoKZGVmIGJyb2xseShhX3N0cik6CiAgICAiIiIgdGFrZSB1bWJyZWxsYT8gIiIiCiAgICBpZiAncmFpbicgaW4gYV9zdHI6CiAgICAgICAgcmV0dXJuICdUYWtlIHVtYnJlbGxhJwoKZGVmIHdlYXRoZXIoYV9zdHIpOgogICAgIiIiIHJhaW4gb3Igc2hpbmU/ICIiIgogICAgaWYgJ3JhaW4nIGluIGFfc3RyOgogICAgICAgIHJldHVybiAnVGFrZSB1bWJyZWxsYScKICAgIGlmICdzdW4nIGluIGFfc3RyOgogICAgICAgIHJldHVybiAnVGFrZSBzdW5zY3JlZW4nCiAgICByZXR1cm4gJ0xvb2sgb3V0c2lkZSBhbmQgZ3Vlc3MnCgpkZWYgZXhlY19kZWNpc2lvbih0YXNrID0gJ2x1bmNoJywgZGVhZGxpbmVfdG9kYXkgPSBUcnVlKToKICAgICIiIiBleGVjdXRpdmUgZGVjaXNpb24gbWFrZXIgd2l0aCBkZWZhdWx0IHZhbHVlcyIiIgogICAgaWYgZGVhZGxpbmVfdG9kYXk6CiAgICAgICAgcmV0dXJuICdEbyAnICsgdGFzayArICcgbm93IScKICAgIHJldHVybiAncHV0IG9mZiB1bnRpbCB0b21vcnJvdyc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code class="language-" md-src-pos="3598..4219"><span md-src-pos="3598..3603"></span><span md-src-pos="3603..3604">
+</span><span md-src-pos="3604..3624">def grade_v1(mark):
+</span><span md-src-pos="3624..3680">    """ Pass or Fail? """
+</span><span md-src-pos="3680..3701">    if mark &gt; 60:
+</span><span md-src-pos="3701..3723">        return 'Pass'
+</span><span md-src-pos="3723..3741">    return 'Fail'
+</span><span md-src-pos="3741..3742">
+</span><span md-src-pos="3742..3761">def brolly(a_str):
+</span><span md-src-pos="3761..3818">    """ take umbrella? """
+</span><span md-src-pos="3818..3842">    if 'rain' in a_str:
+</span><span md-src-pos="3842..3873">        return 'Take umbrella'
+</span><span md-src-pos="3873..3874">
+</span><span md-src-pos="3874..3894">def weather(a_str):
+</span><span md-src-pos="3894..3951">    """ rain or shine? """
+</span><span md-src-pos="3951..3975">    if 'rain' in a_str:
+</span><span md-src-pos="3975..4006">        return 'Take umbrella'
+</span><span md-src-pos="4006..4029">    if 'sun' in a_str:
+</span><span md-src-pos="4029..4061">        return 'Take sunscreen'
+</span><span md-src-pos="4061..4097">    return 'Look outside and guess'
+</span><span md-src-pos="4097..4098">
+</span><span md-src-pos="4098..4156">def exec_decision(task = 'lunch', deadline_today = True):
+</span><span md-src-pos="4156..4242">    """ executive decision maker with default values"""
+</span><span md-src-pos="4242..4265">    if deadline_today:
+</span><span md-src-pos="4265..4303">        return 'Do ' + task + ' now!'
+</span><span md-src-pos="4303..4339">    return 'put off until tomorrow'
+</span><span md-src-pos="4216..4219"></span></code></pre>
+   <p md-src-pos="4221..4313"><span md-src-pos="4221..4257">The above functions are easy to copy</span> <span md-src-pos="4258..4259">&amp;</span> <span md-src-pos="4260..4293">paste so check you know what each</span> <span md-src-pos="4294..4313">statement is doing.</span></p>
+   <p md-src-pos="4315..4398"><span md-src-pos="4315..4385">Execute your script then test your functions to make sure they work as</span> <span md-src-pos="4386..4398">anticipated.</span></p>
+   <pre class="code-fence" md-src-pos="4400..4429"><div class="code-fence-highlighter-copy-button" data-fence-content="d2VhdGhlcigncmFpbmNsb3Vkcycp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4400..4429"><span md-src-pos="4400..4404"></span><span md-src-pos="4404..4426">weather('rainclouds')
+</span><span md-src-pos="4426..4429"></span></code></pre>
+   <pre class="code-fence" md-src-pos="4431..4480"><div class="code-fence-highlighter-copy-button" data-fence-content="d2VhdGhlcignY2xvdWR5IHdpdGggb2NjYXNpb25hbCBzaG93ZXJzJyk=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4431..4480"><span md-src-pos="4431..4435"></span><span md-src-pos="4435..4477">weather('cloudy with occasional showers')
+</span><span md-src-pos="4477..4480"></span></code></pre>
+   <pre class="code-fence" md-src-pos="4482..4505"><div class="code-fence-highlighter-copy-button" data-fence-content="ZXhlY19kZWNpc2lvbigp">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4482..4505"><span md-src-pos="4482..4486"></span><span md-src-pos="4486..4502">exec_decision()
+</span><span md-src-pos="4502..4505"></span></code></pre>
+   <p md-src-pos="4507..4549"><span md-src-pos="4507..4549">Is the result they give what you expected?</span></p>
+   <h2 id="more-if-examples" md-src-pos="4551..4570">More if examples</h2>
+   <p md-src-pos="4572..4627"><span md-src-pos="4572..4626">Here is a more realistic version of a grading function</span>:</p>
+   <pre class="code-fence" md-src-pos="4629..4855"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIGdyYWRlX3YyKG1hcmspOgogICAgIiIiIEFuc3dlciBncmFkZSBmb3IgZ2l2ZW4gbWFyayAiIiIKICAgIGlmIG1hcmsgPiA4MDoKICAgICAgICByZXR1cm4gJ0V4Y2VsbGVudCcKICAgIGlmIG1hcmsgPiA2MDoKICAgICAgICByZXR1cm4gJ0dvb2QnCiAgICBpZiBtYXJrID4gNDA6CiAgICAgICAgcmV0dXJuICdQYXNzJwogICAgcmV0dXJuICdUcnkgaGFyZGVyIG5leHQgdGltZSc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="4629..4855"><span md-src-pos="4629..4633"></span><span md-src-pos="4633..4653">def grade_v2(mark):
+</span><span md-src-pos="4653..4723">    """ Answer grade for given mark """
+</span><span md-src-pos="4723..4744">    if mark &gt; 80:
+</span><span md-src-pos="4744..4771">        return 'Excellent'
+</span><span md-src-pos="4771..4792">    if mark &gt; 60:
+</span><span md-src-pos="4792..4814">        return 'Good'
+</span><span md-src-pos="4814..4835">    if mark &gt; 40:
+</span><span md-src-pos="4835..4857">        return 'Pass'
+</span><span md-src-pos="4857..4891">    return 'Try harder next time'
+</span><span md-src-pos="4852..4855"></span></code></pre>
+   <p md-src-pos="4857..4886"><span md-src-pos="4857..4886">Execute it and test it works.</span></p>
+   <p md-src-pos="4888..5129"><span md-src-pos="4888..4919">As things get more complicated,</span> <span md-src-pos="4920..4936">lots of separate</span> <code md-src-pos="4937..4954">if . . . return</code> <span md-src-pos="4955..4965">statements</span> <span md-src-pos="4966..4992">become prone to bugs as it</span>'<span md-src-pos="4993..5008">s easy to leave</span> '<span md-src-pos="5010..5014">gaps</span>' <span md-src-pos="5016..5039">between the conditions.</span> <span md-src-pos="5040..5044">With</span> <span md-src-pos="5045..5119">more actions associated with each condition it also gets more difficult to</span> <span md-src-pos="5120..5129">maintain.</span></p>
+   <h1 id="the-else-statement" md-src-pos="5131..5153">The <code md-src-pos="5137..5143">else</code> statement</h1>
+   <p md-src-pos="5155..5241"><span md-src-pos="5155..5158">The</span> '<span md-src-pos="5160..5164">else</span>' <span md-src-pos="5166..5207">statement catches the other option to the</span> '<span md-src-pos="5209..5211">if</span>' <span md-src-pos="5213..5223">statement.</span> <span md-src-pos="5224..5228">Here</span>'<span md-src-pos="5229..5233">s an</span> <span md-src-pos="5234..5241">example</span></p>
+   <pre class="code-fence" md-src-pos="5243..5437"><div class="code-fence-highlighter-copy-button" data-fence-content="IyBBIHNpbXBsZSBncmFkaW5nIHN0cnVjdHVyZQpkZWYgZ3JhZGVfdjIobWFyayk6CiAgICAiIiIgUGFzcyBvciBGYWlsPyAiIiIKICAgIGlmIG1hcmsgPiA0MDoKICAgICAgICBncmFkZSA9ICAnUGFzcycKICAgIGVsc2U6CiAgICAgICAgZ3JhZGUgJ0ZhaWwnCiAgICAjIG1vcmUgc3RhdGVtZW50cwogICAgcmV0dXJuIGdyYWRl">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="5243..5437"><span md-src-pos="5243..5247"></span><span md-src-pos="5247..5276"># A simple grading structure
+</span><span md-src-pos="5276..5296">def grade_v2(mark):
+</span><span md-src-pos="5296..5352">    """ Pass or Fail? """
+</span><span md-src-pos="5352..5373">    if mark &gt; 40:
+</span><span md-src-pos="5373..5397">        grade =  'Pass'
+</span><span md-src-pos="5397..5407">    else:
+</span><span md-src-pos="5407..5428">        grade 'Fail'
+</span><span md-src-pos="5428..5450">    # more statements
+</span><span md-src-pos="5450..5467">    return grade
+</span><span md-src-pos="5434..5437"></span></code></pre>
+   <p md-src-pos="5439..5490"><span md-src-pos="5439..5468">Here is an example that nests</span> <code md-src-pos="5469..5478">if-else</code> <span md-src-pos="5479..5489">statements</span>:</p>
+   <pre class="code-fence" md-src-pos="5492..5996"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIGdyYWRlX3YzKHN0dWRlbnRfbWFyayk6CiAgICAiIiJUaGlzIHN0cnVjdHVyZSBtYWtlcyBzdXJlIHRoZXJlIGFyZSBubyBnYXBzIGJldHdlZW4gZ3JhZGVzIiIiCiAgICBpZiBzdHVkZW50X21hcmsgPiA5MDoKICAgICAgICBncmFkZSA9ICdTdGFyc2hpcCBDYXB0YWluJwogICAgZWxzZToKICAgICAgICBpZiBzdHVkZW50X21hcmsgPiA4MDoKICAgICAgICAgICAgZ3JhZGUgPSAnQXN0cm9uYXV0JwogICAgICAgIGVsc2U6CiAgICAgICAgICAgIGlmIHN0dWRlbnRfbWFyayA+IDYwOgogICAgICAgICAgICAgICAgZ3JhZGUgPSAnQWVyb25hdXQnCiAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICBpZiBzdHVkZW50X21hcmsgPiA0MDoKICAgICAgICAgICAgICAgICAgICBncmFkZSA9ICdFYXJ0aGxpbmcnCiAgICAgICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgICAgIGdyYWRlID0gJ09oIGRlYXJ5LCBkZWFyeSBtZScKICAgIHJldHVybiBncmFkZQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="5492..5996"><span md-src-pos="5492..5496"></span><span md-src-pos="5496..5524">def grade_v3(student_mark):
+</span><span md-src-pos="5524..5623">    """This structure makes sure there are no gaps between grades"""
+</span><span md-src-pos="5623..5652">    if student_mark &gt; 90:
+</span><span md-src-pos="5652..5687">        grade = 'Starship Captain'
+</span><span md-src-pos="5687..5697">    else:
+</span><span md-src-pos="5697..5730">        if student_mark &gt; 80:
+</span><span md-src-pos="5730..5762">            grade = 'Astronaut'
+</span><span md-src-pos="5762..5776">        else:
+</span><span md-src-pos="5776..5813">            if student_mark &gt; 60:
+</span><span md-src-pos="5813..5848">                grade = 'Aeronaut'
+</span><span md-src-pos="5848..5866">            else:
+</span><span md-src-pos="5866..5907">                if student_mark &gt; 40:
+</span><span md-src-pos="5907..5947">                    grade = 'Earthling'
+</span><span md-src-pos="5947..5969">                else:
+</span><span md-src-pos="5969..6018">                    grade = 'Oh deary, deary me'
+</span><span md-src-pos="6018..6035">    return grade
+</span><span md-src-pos="5993..5996"></span></code></pre>
+   <p md-src-pos="5998..6018"><span md-src-pos="5998..6017">and another example</span>:</p>
+   <pre class="code-fence" md-src-pos="6020..6689"><div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIGdyYWRlX3Y0KHN0dWRlbnRfbWFyayk6CiAgIiIiVXNpbmcgaWYtZWxzZS4gSW1hZ2luZSBpZiB0aGVyZSB3ZXJlIHRlbiBncmFkZSBvcHRpb25zLCBvciBtb3JlLgogIFRoaXMgbmVzdGluZyBjb3VsZCBnZXQgdmVyeSBkZWVwIGFuZCBpZiBjb21iaW5lZCB3aXRoIG90aGVyIGNvbmRpdGlvbnMsCiAgdmVyeSBkaWZmaWN1bHQgdG8gZmF0aG9tLiIiIgogIGlmIHN0dWRlbnRfbWFyayA+IDkwOgogICAgZ3JhZGUgPSAnQScKICAgIGNsYXNzaWZpY2F0aW9uID0gJ2ZpcnN0JwogIGVsc2U6CiAgICBpZiBzdHVkZW50X21hcmsgPiA4MDoKICAgICAgZ3JhZGUgPSAnQicKICAgICAgY2xhc3NpZmljYXRpb24gPSAnc2Vjb25kJwogICAgZWxzZToKICAgICAgaWYgc3R1ZGVudF9tYXJrID4gNjA6CiAgICAgICAgZ3JhZGUgPSAnQycKICAgICAgICBjbGFzc2lmaWNhdGlvbiA9ICdzZWNvbmQnCiAgICAgIGVsc2U6CiAgICAgICAgaWYgc3R1ZGVudF9tYXJrID4gNDA6CiAgICAgICAgICBncmFkZSA9ICdEJwogICAgICAgICAgY2xhc3NpZmljYXRpb24gPSAndGhpcmQnCiAgICAgICAgZWxzZToKICAgICAgICAgIGdyYWRlID0gJ0YnCiAgICAgICAgICBjbGFzc2lmaWNhdGlvbiA9ICdvaCBkZWFyeSwgZGVhcnkgbWUnCiAgcmV0dXJuIGdyYWRlLCBjbGFzc2lmaWNhdGlvbg==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6020..6689"><span md-src-pos="6020..6024"></span><span md-src-pos="6024..6052">def grade_v4(student_mark):
+</span><span md-src-pos="6052..6137">  """Using if-else. Imagine if there were ten grade options, or more.
+</span><span md-src-pos="6137..6211">  This nesting could get very deep and if combined with other conditions,
+</span><span md-src-pos="6211..6257">  very difficult to fathom."""
+</span><span md-src-pos="6257..6284">  if student_mark &gt; 90:
+</span><span md-src-pos="6284..6300">    grade = 'A'
+</span><span md-src-pos="6300..6329">    classification = 'first'
+</span><span md-src-pos="6329..6337">  else:
+</span><span md-src-pos="6337..6366">    if student_mark &gt; 80:
+</span><span md-src-pos="6366..6384">      grade = 'B'
+</span><span md-src-pos="6384..6416">      classification = 'second'
+</span><span md-src-pos="6416..6426">    else:
+</span><span md-src-pos="6426..6457">      if student_mark &gt; 60:
+</span><span md-src-pos="6457..6477">        grade = 'C'
+</span><span md-src-pos="6477..6511">        classification = 'second'
+</span><span md-src-pos="6511..6523">      else:
+</span><span md-src-pos="6523..6556">        if student_mark &gt; 40:
+</span><span md-src-pos="6556..6578">          grade = 'D'
+</span><span md-src-pos="6578..6613">          classification = 'third'
+</span><span md-src-pos="6613..6627">        else:
+</span><span md-src-pos="6627..6649">          grade = 'F'
+</span><span md-src-pos="6649..6697">          classification = 'oh deary, deary me'
+</span><span md-src-pos="6697..6728">  return grade, classification
+</span><span md-src-pos="6686..6689"></span></code></pre>
+   <h1 id="the-elif-statement" md-src-pos="6691..6713">The <code md-src-pos="6697..6703">elif</code> statement</h1>
+   <p md-src-pos="6715..6806"><span md-src-pos="6715..6731">More grades mean</span>'<span md-src-pos="6732..6738">s more</span> <code md-src-pos="6739..6748">if-else</code> <span md-src-pos="6749..6781">statements and deeper nesting of</span> <span md-src-pos="6782..6792">successive</span> <code md-src-pos="6793..6797">if</code> <span md-src-pos="6798..6806">clauses.</span></p>
+   <pre class="code-fence" md-src-pos="6808..7231"><div class="code-fence-highlighter-copy-button" data-fence-content="IyBlbGlmIHNpbXBsaWZpZXMgdGhpbmdzIApkZWYgZ3JhZGVfdjUoc3R1ZGVudF9tYXJrKToKICAgICJVc2luZyBpZi1lbGlmLWVsc2UgdGhlIGNvZGUgaXMgbXVjaCBuZWF0ZXIgYW5kIGVhc2llciB0byByZWFkIiIiCiAgICBpZiBzdHVkZW50X21hcmsgPiA5MDoKICAgICAgICBncmFkZSA9ICdTdGFyc2hpcCBDYXB0YWluJwogICAgZWxpZiBzdHVkZW50X21hcmsgPiA4MDoKICAgICAgICBncmFkZSA9ICdBc3Ryb25hdXQnCiAgICBlbGlmIHN0dWRlbnRfbWFyayA+IDYwOgogICAgICAgIGdyYWRlID0gJ0Flcm9uYXV0JwogICAgZWxpZiBzdHVkZW50X21hcmsgPiA0MDoKICAgICAgICBncmFkZSA9ICdFYXJ0aGxpbmcnCiAgICBlbHNlOgogICAgICAgIGdyYWRlID0gJ09oIGRlYXJ5LCBkZWFyeSBtZScKICAgIHJldHVybiBncmFkZQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="6808..7231"><span md-src-pos="6808..6812"></span><span md-src-pos="6812..6838"># elif simplifies things 
+</span><span md-src-pos="6838..6866">def grade_v5(student_mark):
+</span><span md-src-pos="6866..6956">    "Using if-elif-else the code is much neater and easier to read"""
+</span><span md-src-pos="6956..6985">    if student_mark &gt; 90:
+</span><span md-src-pos="6985..7020">        grade = 'Starship Captain'
+</span><span md-src-pos="7020..7051">    elif student_mark &gt; 80:
+</span><span md-src-pos="7051..7079">        grade = 'Astronaut'
+</span><span md-src-pos="7079..7110">    elif student_mark &gt; 60:
+</span><span md-src-pos="7110..7137">        grade = 'Aeronaut'
+</span><span md-src-pos="7137..7168">    elif student_mark &gt; 40:
+</span><span md-src-pos="7168..7196">        grade = 'Earthling'
+</span><span md-src-pos="7196..7206">    else:
+</span><span md-src-pos="7206..7243">        grade = 'Oh deary, deary me'
+</span><span md-src-pos="7243..7260">    return grade
+</span><span md-src-pos="7228..7231"></span></code></pre>
+   <h1 id="boolean-algebra" md-src-pos="7233..7250">Boolean Algebra</h1>
+   <p md-src-pos="7252..7273"><span md-src-pos="7252..7273">The algebra of logic.</span></p>
+   <p md-src-pos="7275..7370"><span md-src-pos="7275..7306">Boolean algebra has two values,</span> <code md-src-pos="7307..7313">True</code> <span md-src-pos="7314..7317">and</span> <code md-src-pos="7318..7325">False</code><span md-src-pos="7325..7326">,</span> <span md-src-pos="7327..7346">and three operators</span> <code md-src-pos="7347..7352">and</code><span md-src-pos="7352..7353">,</span> <code md-src-pos="7354..7358">or</code><span md-src-pos="7358..7359">,</span> <span md-src-pos="7360..7363">and</span> <code md-src-pos="7364..7369">not</code><span md-src-pos="7369..7370">.</span></p>
+   <h2 id="boolean-expressions" md-src-pos="7372..7394">Boolean Expressions</h2>
+   <p md-src-pos="7396..7439"><span md-src-pos="7396..7398">If</span> <code md-src-pos="7399..7402">a</code> <span md-src-pos="7403..7406">and</span> <code md-src-pos="7407..7410">b</code> <span md-src-pos="7411..7438">are two boolean values then</span>:</p>
+   <ul md-src-pos="7441..7810">
+    <li md-src-pos="7441..7510"><code md-src-pos="7443..7452">a and b</code> is <code md-src-pos="7456..7462">True</code> if and only if <code md-src-pos="7479..7482">a</code> is <code md-src-pos="7486..7492">True</code> and <code md-src-pos="7497..7500">b</code> is <code md-src-pos="7504..7510">True</code></li>
+    <li md-src-pos="7511..7589"><code md-src-pos="7513..7522">a and b</code> is <code md-src-pos="7526..7533">False</code> if <code md-src-pos="7537..7540">a</code> is <code md-src-pos="7544..7551">False</code> or <code md-src-pos="7555..7558">b</code> is <code md-src-pos="7562..7569">False</code> or both are <code md-src-pos="7582..7589">False</code></li>
+    <li md-src-pos="7590..7663"><code md-src-pos="7592..7600">a or b</code> is <code md-src-pos="7604..7610">True</code> if <code md-src-pos="7614..7617">a</code> is <code md-src-pos="7621..7627">True</code> or <code md-src-pos="7631..7634">b</code> is <code md-src-pos="7638..7644">True</code> or both are <code md-src-pos="7657..7663">True</code></li>
+    <li md-src-pos="7664..7734"><code md-src-pos="7666..7674">a or b</code> is <code md-src-pos="7678..7685">False</code> if and only if <code md-src-pos="7701..7704">a</code> is <code md-src-pos="7708..7715">False</code> and <code md-src-pos="7720..7723">b</code> is <code md-src-pos="7727..7734">False</code></li>
+    <li md-src-pos="7735..7772"><code md-src-pos="7737..7744">not a</code> is <code md-src-pos="7748..7754">True</code> if <code md-src-pos="7758..7761">a</code> is <code md-src-pos="7765..7772">False</code></li>
+    <li md-src-pos="7773..7810"><code md-src-pos="7775..7782">not a</code> is <code md-src-pos="7786..7793">False</code> if <code md-src-pos="7797..7800">a</code> is <code md-src-pos="7804..7810">True</code></li>
+   </ul>
+   <h2 id="example-boolean-expression" md-src-pos="7812..7841">Example Boolean expression</h2>
+   <p md-src-pos="7843..7942"><span md-src-pos="7843..7919">Evaluate these Boolean equations on paper and then confirm by executing them</span> <span md-src-pos="7920..7941">interactively in IDLE</span>:</p>
+   <p md-src-pos="7944..7963"><code md-src-pos="7944..7963">a = True</code></p>
+   <p md-src-pos="7965..7984"><code md-src-pos="7965..7984">b = True</code></p>
+   <p md-src-pos="7986..8005"><code md-src-pos="7986..8005">a and b</code></p>
+   <p md-src-pos="8007..8026"><code md-src-pos="8007..8026">a or b</code></p>
+   <p md-src-pos="8028..8047"><code md-src-pos="8028..8047">not a and b</code></p>
+   <p md-src-pos="8049..8068"><code md-src-pos="8049..8068">not a or b</code></p>
+   <p md-src-pos="8070..8089"><code md-src-pos="8070..8089">not not not not a</code></p>
+   <p md-src-pos="8091..8110"><code md-src-pos="8091..8110">a and not a</code></p>
+   <p md-src-pos="8112..8131"><code md-src-pos="8112..8131">b and not b</code></p>
+   <p md-src-pos="8133..8151"><code md-src-pos="8133..8145">a or not a</code></p>
+   <p md-src-pos="8153..8165"><code md-src-pos="8153..8165">b or not b</code></p>
+   <h1 id="complex-if-conditions" md-src-pos="8168..8193">complex <code md-src-pos="8178..8182">if</code> conditions</h1>
+   <p md-src-pos="8195..8292"><span md-src-pos="8195..8219">So far the conditions in</span> <code md-src-pos="8220..8224">if</code> <span md-src-pos="8225..8265">statements have been simple comparisons,</span> <span md-src-pos="8266..8278">for instance</span> <code md-src-pos="8279..8291">grade &gt; 50</code><span md-src-pos="8291..8292">.</span></p>
+   <p md-src-pos="8294..8405"><span md-src-pos="8294..8372">Boolean algebra allows us to combine these simple conditional statements using</span> <span md-src-pos="8373..8391">boolean operators.</span> <span md-src-pos="8392..8404">For instance</span>:</p>
+   <pre class="code-fence" md-src-pos="8407..8478"><div class="code-fence-highlighter-copy-button" data-fence-content="aWYgdG9kYXkgPT0gJ3NhdHVyZGF5JyBvciB0b2RheSA9PSAnc3VuZGF5JzoKICAgIHdlZWtlbmQgPSBUcnVl">
+  <img class="code-fence-highlighter-copy-button-icon">
+</div><code md-src-pos="8407..8478"><span md-src-pos="8407..8411"></span><span md-src-pos="8411..8456">if today == 'saturday' or today == 'sunday':
+</span><span md-src-pos="8456..8475">    weekend = True
+</span><span md-src-pos="8475..8478"></span></code></pre>
+   <h2 id="truth-tables" md-src-pos="8481..8496">Truth Tables</h2>
+   <p md-src-pos="8498..8571"><span md-src-pos="8498..8570">The behaviour of the boolean operators can be summarised in truth tables</span>:</p>
+   <table md-src-pos="8573..8776">
+    <thead>
+     <tr md-src-pos="8573..8606">
+      <th md-src-pos="8574..8579">AND</th>
+      <th align="center" md-src-pos="8580..8587">a</th>
+      <th align="center" md-src-pos="8588..8595">b</th>
+      <th align="center" md-src-pos="8596..8605">a and b</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr md-src-pos="8641..8674">
+      <td md-src-pos="8642..8647"></td>
+      <td align="center" md-src-pos="8648..8655">True</td>
+      <td align="center" md-src-pos="8656..8663">True</td>
+      <td align="center" md-src-pos="8664..8673">True</td>
+     </tr>
+     <tr class="intellij-row-even" md-src-pos="8675..8708">
+      <td md-src-pos="8676..8681"></td>
+      <td align="center" md-src-pos="8682..8689">True</td>
+      <td align="center" md-src-pos="8690..8697">False</td>
+      <td align="center" md-src-pos="8698..8707">False</td>
+     </tr>
+     <tr md-src-pos="8709..8742">
+      <td md-src-pos="8710..8715"></td>
+      <td align="center" md-src-pos="8716..8723">False</td>
+      <td align="center" md-src-pos="8724..8731">True</td>
+      <td align="center" md-src-pos="8732..8741">False</td>
+     </tr>
+     <tr class="intellij-row-even" md-src-pos="8743..8776">
+      <td md-src-pos="8744..8749"></td>
+      <td align="center" md-src-pos="8750..8757">False</td>
+      <td align="center" md-src-pos="8758..8765">False</td>
+      <td align="center" md-src-pos="8766..8775">False</td>
+     </tr>
+    </tbody>
+   </table>
+   <table md-src-pos="8778..8969">
+    <thead>
+     <tr md-src-pos="8778..8809">
+      <th md-src-pos="8779..8783">OR</th>
+      <th align="center" md-src-pos="8784..8791">a</th>
+      <th align="center" md-src-pos="8792..8799">b</th>
+      <th align="center" md-src-pos="8800..8808">a or b</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr md-src-pos="8842..8873">
+      <td md-src-pos="8843..8847"></td>
+      <td align="center" md-src-pos="8848..8855">True</td>
+      <td align="center" md-src-pos="8856..8863">True</td>
+      <td align="center" md-src-pos="8864..8872">True</td>
+     </tr>
+     <tr class="intellij-row-even" md-src-pos="8874..8905">
+      <td md-src-pos="8875..8879"></td>
+      <td align="center" md-src-pos="8880..8887">True</td>
+      <td align="center" md-src-pos="8888..8895">False</td>
+      <td align="center" md-src-pos="8896..8904">True</td>
+     </tr>
+     <tr md-src-pos="8906..8937">
+      <td md-src-pos="8907..8911"></td>
+      <td align="center" md-src-pos="8912..8919">False</td>
+      <td align="center" md-src-pos="8920..8927">True</td>
+      <td align="center" md-src-pos="8928..8936">True</td>
+     </tr>
+     <tr class="intellij-row-even" md-src-pos="8938..8969">
+      <td md-src-pos="8939..8943"></td>
+      <td align="center" md-src-pos="8944..8951">False</td>
+      <td align="center" md-src-pos="8952..8959">False</td>
+      <td align="center" md-src-pos="8960..8968">False</td>
+     </tr>
+    </tbody>
+   </table>
+   <table md-src-pos="8971..9066">
+    <thead>
+     <tr md-src-pos="8971..8994">
+      <th md-src-pos="8972..8977">NOT</th>
+      <th align="center" md-src-pos="8978..8985">a</th>
+      <th align="center" md-src-pos="8986..8993">not a</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr md-src-pos="9019..9042">
+      <td md-src-pos="9020..9025"></td>
+      <td align="center" md-src-pos="9026..9033">True</td>
+      <td align="center" md-src-pos="9034..9041">False</td>
+     </tr>
+     <tr class="intellij-row-even" md-src-pos="9043..9066">
+      <td md-src-pos="9044..9049"></td>
+      <td align="center" md-src-pos="9050..9057">False</td>
+      <td align="center" md-src-pos="9058..9065">True</td>
+     </tr>
+    </tbody>
+   </table>
+   <p md-src-pos="9069..9146"><span md-src-pos="9069..9094">Build the truth table for</span>: (<span md-src-pos="9097..9107">a or not b</span>) <span md-src-pos="9109..9112">and</span> (<span md-src-pos="9114..9128">not b or not a</span>) <span md-src-pos="9130..9132">or</span> (<span md-src-pos="9134..9145">b and not a</span>)</p>
+   <h2 id="venn-diagrams" md-src-pos="9148..9164">Venn Diagrams</h2>
+   <p md-src-pos="9166..9286"><span md-src-pos="9166..9240">Venn diagrams can be helpful when trying to visualise Boolean expressions.</span> <span md-src-pos="9241..9286">They are very handy tools when you need them.</span></p>
+   <p md-src-pos="9289..9402"><span md-src-pos="9289..9306">That said though,</span> <span md-src-pos="9307..9366">it is good practice to design your code so that the Boolean</span> <span md-src-pos="9367..9402">conditions are individually simple.</span></p>
+  </div>
+ </body>
+</html>

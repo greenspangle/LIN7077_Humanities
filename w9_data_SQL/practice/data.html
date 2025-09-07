@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+ <head> 
+  <title>IntelliJ Markdown Preview</title>               
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,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) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; } </style>
+  <style>body { background-color: rgba(255, 255, 255, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(8, 8, 8, 255.0); } a { color: rgba(36, 112, 179, 255.0); } table td, table th { border: 1px solid rgba(209, 209, 209, 255.0); } hr { background-color: rgba(209, 209, 209, 255.0); } kbd, tr { border: 1px solid rgba(209, 209, 209, 255.0); } h6 { color: rgba(153, 153, 153, 255.0); } blockquote { border-left: 2px solid rgba(36, 112, 179, 0.4); } ::-webkit-scrollbar-thumb { background-color: rgba(115, 115, 115, 0.2); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.24705882352941178); }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; } </style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head> 
+ <body>
+  <div md-src-pos="0..4258">
+   <h1 md-src-pos="0..38">Reading and Writing Data with Python</h1>
+   <p md-src-pos="40..136"><span md-src-pos="40..78">Python can easily write date to files.</span> <span md-src-pos="79..136">But how can Python objects be written Data can be written</span></p>
+   <h2 md-src-pos="138..151">Text files</h2>
+   <p md-src-pos="153..179"><span md-src-pos="153..179">We have already done this.</span></p>
+   <h3 md-src-pos="181..207">Writing to a text file</h3>
+   <pre class="code-fence" md-src-pos="209..595">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtcGxlXzEgLSB3cml0aW5nIHRleHQgZGF0YSB0byBhIGZpbGUKCmRhdGEgPSBbMSwgMiwgMywgNCwgNV0KZmlsZW5hbWUgPSAnZXhfMV90ZXh0X2RhdGEudHh0JwoKIyB3cml0ZSB0aGUgZGF0YSB0byBhIGZpbGUgbmFtZWQgYGZpbGVuYW1lYAp3aXRoIG9wZW4oZmlsZW5hbWUsICd3JywgZW5jb2Rpbmc9J3V0Zi04JykgYXMgZjoKICAgIGYud3JpdGUoJ3NvbWUgdGV4dCcgKyAnXG4nKQogICAgZi53cml0ZShzdHIoZGF0YSkgKyAnXG4nKQogICAgZi53cml0ZShyZXByKGRhdGEpICsgJ1xuJykKICAgIGZvciBpdGVtIGluIGRhdGE6CiAgICAgICAgZi53cml0ZShzdHIoaXRlbSkgKyAnXG4nKQogICAgZi53cml0ZSgnZW5kIG9mIHRoZSBmaWxlJyk=">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="209..595"><span md-src-pos="209..219"></span><span md-src-pos="219..220"></span>
+<span md-src-pos="220..262"><span style="color: rgb(140, 140, 140);"># example_1 - writing text data to a file</span></span>
+<span md-src-pos="262..263"></span>
+<span md-src-pos="263..286">data = [<span style="color: rgb(23, 80, 235);">1</span>, <span style="color: rgb(23, 80, 235);">2</span>, <span style="color: rgb(23, 80, 235);">3</span>, <span style="color: rgb(23, 80, 235);">4</span>, <span style="color: rgb(23, 80, 235);">5</span>]</span>
+<span md-src-pos="286..318">filename = <span style="color: rgb(6, 125, 23);">'ex_1_text_data.txt'</span></span>
+<span md-src-pos="318..319"></span>
+<span md-src-pos="319..363"><span style="color: rgb(140, 140, 140);"># write the data to a file named `filename`</span></span>
+<span md-src-pos="363..412"><span style="color: rgb(0, 51, 179);">with</span> open(filename, <span style="color: rgb(6, 125, 23);">'w'</span>, encoding=<span style="color: rgb(6, 125, 23);">'utf-8'</span>) <span style="color: rgb(0, 51, 179);">as</span> f:</span>
+<span md-src-pos="412..444">    f.write(<span style="color: rgb(6, 125, 23);">'some text'</span> + <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="444..474">    f.write(str(data) + <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="474..505">    f.write(repr(data) + <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="505..527">    <span style="color: rgb(0, 51, 179);">for</span> item <span style="color: rgb(0, 51, 179);">in</span> data:</span>
+<span md-src-pos="527..561">        f.write(str(item) + <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="561..592">    f.write(<span style="color: rgb(6, 125, 23);">'end of the file'</span>)</span>
+<span md-src-pos="592..593"></span><span md-src-pos="592..595"></span></code></pre>
+   <h3 md-src-pos="597..625">Reading from a text file</h3>
+   <pre class="code-fence" md-src-pos="627..880">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtcGxlXzIgLSByZWFkaW5nIHRleHQgZGF0YSBmcm9tIGEgZmlsZQoKZmlsZW5hbWUgPSAnZXhfMV90ZXh0X2RhdGEudHh0JwoKIyByZWFkIHRoZSBkYXRhIGZyb20gdGhlIGZpbGUgbmFtZWQgYGZpbGVuYW1lYCBpbnRvIGEgc3RyaW5nCndpdGggb3BlbihmaWxlbmFtZSwgJ3InLCBlbmNvZGluZz0ndXRmLTgnKSBhcyBmOgogICAgZmlsZV9jb250ZW50cyA9IGYucmVhZCgpCgpwcmludChmaWxlX2NvbnRlbnRzKQ==">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="627..880"><span md-src-pos="627..637"></span><span md-src-pos="637..638"></span>
+<span md-src-pos="638..682"><span style="color: rgb(140, 140, 140);"># example_2 - reading text data from a file</span></span>
+<span md-src-pos="682..683"></span>
+<span md-src-pos="683..715">filename = <span style="color: rgb(6, 125, 23);">'ex_1_text_data.txt'</span></span>
+<span md-src-pos="715..716"></span>
+<span md-src-pos="716..777"><span style="color: rgb(140, 140, 140);"># read the data from the file named `filename` into a string</span></span>
+<span md-src-pos="777..826"><span style="color: rgb(0, 51, 179);">with</span> open(filename, <span style="color: rgb(6, 125, 23);">'r'</span>, encoding=<span style="color: rgb(6, 125, 23);">'utf-8'</span>) <span style="color: rgb(0, 51, 179);">as</span> f:</span>
+<span md-src-pos="826..855">    file_contents = f.read()</span>
+<span md-src-pos="855..856"></span>
+<span md-src-pos="856..877">print(file_contents)</span>
+<span md-src-pos="877..878"></span><span md-src-pos="877..880"></span></code></pre>
+   <h2 md-src-pos="882..894">CSV files</h2>
+   <p md-src-pos="896..1076"><span md-src-pos="896..962">CSV files are text files with variable fields separated by commas.</span> <span md-src-pos="963..1024">CSV files may contain an optional header as the first record.</span> <span md-src-pos="1025..1076">The header record contains the names of the fields.</span></p>
+   <h3 md-src-pos="1078..1103">Writing to a CSV file</h3>
+   <p md-src-pos="1105..1138"><span md-src-pos="1105..1137">Example of writing to a CSV file</span>:</p>
+   <pre class="code-fence" md-src-pos="1140..1538">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtcGxlXzMgLSB3cml0aW5nIHRleHQgZGF0YSB0byBhIENTViBmaWxlCgppbXBvcnQgY3N2CgpmaWxlbmFtZSA9ICdleF8zX2RhdGEuY3N2JyAgIyB3cml0ZSB0byB0aGlzIGZpbGUKCndpdGggb3BlbihmaWxlbmFtZSwgJ3cnLCBuZXdsaW5lPScnKSBhcyBjc3ZmaWxlOgogICAgY3N2X3dyaXRlciA9IGNzdi53cml0ZXIoY3N2ZmlsZSkKICAgIHJlY18xID0gWyduYW1lJywgJ2FnZSddICAjIGhlYWRlciByZWNvcmQKICAgIHJlY18yID0gWydKYW5lJywgMjddCiAgICByZWNfMyA9IFsnSm9lJywgMjddCiAgICBjc3Zfd3JpdGVyLndyaXRlcm93KHJlY18xKQogICAgY3N2X3dyaXRlci53cml0ZXJvdyhyZWNfMikKICAgIGNzdl93cml0ZXIud3JpdGVyb3cocmVjXzMp">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="1140..1538"><span md-src-pos="1140..1150"></span><span md-src-pos="1150..1151"></span>
+<span md-src-pos="1151..1197"><span style="color: rgb(140, 140, 140);"># example_3 - writing text data to a CSV file</span></span>
+<span md-src-pos="1197..1198"></span>
+<span md-src-pos="1198..1209"><span style="color: rgb(0, 51, 179);">import</span> csv</span>
+<span md-src-pos="1209..1210"></span>
+<span md-src-pos="1210..1259">filename = <span style="color: rgb(6, 125, 23);">'ex_3_data.csv'</span>  <span style="color: rgb(140, 140, 140);"># write to this file</span></span>
+<span md-src-pos="1259..1260"></span>
+<span md-src-pos="1260..1309"><span style="color: rgb(0, 51, 179);">with</span> open(filename, <span style="color: rgb(6, 125, 23);">'w'</span>, newline=<span style="color: rgb(6, 125, 23);">''</span>) <span style="color: rgb(0, 51, 179);">as</span> csvfile:</span>
+<span md-src-pos="1309..1346">    csv_writer = csv.writer(csvfile)</span>
+<span md-src-pos="1346..1391">    rec_1 = [<span style="color: rgb(6, 125, 23);">'name'</span>, <span style="color: rgb(6, 125, 23);">'age'</span>]  <span style="color: rgb(140, 140, 140);"># header record</span></span>
+<span md-src-pos="1391..1416">    rec_2 = [<span style="color: rgb(6, 125, 23);">'Jane'</span>, <span style="color: rgb(23, 80, 235);">27</span>]</span>
+<span md-src-pos="1416..1440">    rec_3 = [<span style="color: rgb(6, 125, 23);">'Joe'</span>, <span style="color: rgb(23, 80, 235);">27</span>]</span>
+<span md-src-pos="1440..1471">    csv_writer.writerow(rec_1)</span>
+<span md-src-pos="1471..1502">    csv_writer.writerow(rec_2)</span>
+<span md-src-pos="1502..1533">    csv_writer.writerow(rec_3)</span>
+<span md-src-pos="1533..1534"></span>
+<span md-src-pos="1534..1535"></span>
+<span md-src-pos="1535..1536"></span><span md-src-pos="1535..1538"></span></code></pre>
+   <h3 md-src-pos="1540..1568">Reading from a CSV file:</h3>
+   <pre class="code-fence" md-src-pos="1570..1818">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtcGxlXzQgLSByZWFkaW5nIGRhdGEgZnJvbSBhIENTViBmaWxlCgppbXBvcnQgY3N2CgpmaWxlbmFtZSA9ICdleF8zX2RhdGEuY3N2JyAgIyByZWFkIGZyb20gdGhpcyBmaWxlCgp3aXRoIG9wZW4oZmlsZW5hbWUsICdyJykgYXMgY3N2ZmlsZToKICAgIGNzdl9yZWFkZXIgPSBjc3YucmVhZGVyKGNzdmZpbGUpCiAgICBmb3IgcmVjb3JkIGluIGNzdl9yZWFkZXI6CiAgICAgICAgcHJpbnQocmVjb3JkKQ==">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="1570..1818"><span md-src-pos="1570..1580"></span><span md-src-pos="1580..1581"></span>
+<span md-src-pos="1581..1624"><span style="color: rgb(140, 140, 140);"># example_4 - reading data from a CSV file</span></span>
+<span md-src-pos="1624..1625"></span>
+<span md-src-pos="1625..1636"><span style="color: rgb(0, 51, 179);">import</span> csv</span>
+<span md-src-pos="1636..1637"></span>
+<span md-src-pos="1637..1687">filename = <span style="color: rgb(6, 125, 23);">'ex_3_data.csv'</span>  <span style="color: rgb(140, 140, 140);"># read from this file</span></span>
+<span md-src-pos="1687..1688"></span>
+<span md-src-pos="1688..1725"><span style="color: rgb(0, 51, 179);">with</span> open(filename, <span style="color: rgb(6, 125, 23);">'r'</span>) <span style="color: rgb(0, 51, 179);">as</span> csvfile:</span>
+<span md-src-pos="1725..1762">    csv_reader = csv.reader(csvfile)</span>
+<span md-src-pos="1762..1792">    <span style="color: rgb(0, 51, 179);">for</span> record <span style="color: rgb(0, 51, 179);">in</span> csv_reader:</span>
+<span md-src-pos="1792..1814">        print(record)</span>
+<span md-src-pos="1814..1815"></span>
+<span md-src-pos="1815..1816"></span><span md-src-pos="1815..1818"></span></code></pre>
+   <h2 md-src-pos="1820..1845">JSON strings and files</h2>
+   <p md-src-pos="1847..1978"><span md-src-pos="1847..1921">JSON strings have a structure that strongly resembles python dictionaries.</span> <span md-src-pos="1922..1978">JSON files are effectively JSON strings stored in files.</span></p>
+   <h3 md-src-pos="1980..2034">Reading JSON files and strings into Python objects</h3>
+   <pre class="code-fence" md-src-pos="2036..2898">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtcGxlXzUgLSB3cml0aW5nIGFuZCByZWFkaW5nIEpTT04gc3RyaW5ncwoKaW1wb3J0IGpzb24KCiMgZmlyc3QgY3JlYXRlIHNvbmUgZGF0YQpweV9kYXRhID0gewogICAgInByZXNpZGVudCI6IHsKICAgICAgICAibmFtZSI6ICJaYXBob2QgQmVlYmxlYnJveCIsCiAgICAgICAgInNwZWNpZXMiOiAiQmV0ZWxnZXVzaWFuIgogICAgfQp9Cgpqc29uX3N0ciA9ICIiIgp7CiAgICAicmVzZWFyY2hlciI6IHsKICAgICAgICAibmFtZSI6ICJGb3JkIFByZWZlY3QiLAogICAgICAgICJzcGVjaWVzIjogIkJldGVsZ2V1c2lhbiIsCiAgICAgICAgInJlbGF0aXZlcyI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgIm5hbWUiOiAiWmFwaG9kIEJlZWJsZWJyb3giLAogICAgICAgICAgICAgICAgInNwZWNpZXMiOiAiQmV0ZWxnZXVzaWFuIgogICAgICAgICAgICB9CiAgICAgICAgXQogICAgfQp9CiIiIgoKIyBkdW1wIHB5dGhvbiBvYmplY3QgdG8gYSBzdHJpbmcgdXNpbmcgdGhlIGR1bXBzKCkgbWV0aG9kCmpfc3RyID0ganNvbi5kdW1wcyhweV9kYXRhKQpwcmludCgnSlNPTiBzdHJpbmcgaXM6XG4nLCBqX3N0ciwgJ1xuJykKCiMgcmVhZCBweXRob24gb2JqZWN0IGZyb20gYSBKU09OIHN0cmluZyB1c2luZyB0aGUgbG9hZHMoKSBtZXRob2QKcHlfb2JqXzEgPSBqc29uLmxvYWRzKGpfc3RyKQpwcmludCgncHl0aG9uIG9iamVjdCBpczpcbicsIHB5X29ial8xLCAnXG4nKQoKIyBhbmQgYW5vdGhlciBKU09OIHN0cmluZwpweV9vYmpfMiA9IGpzb24ubG9hZHMoanNvbl9zdHIpCnByaW50KCdhbmQgYW5vdGhlciBweXRvbiBvYmplY3QgZnJvbSBKU09OIGlzOlxuJywgcHlfb2JqXzIp">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="2036..2898"><span md-src-pos="2036..2046"></span><span md-src-pos="2046..2047"></span>
+<span md-src-pos="2047..2094"><span style="color: rgb(140, 140, 140);"># example_5 - writing and reading JSON strings</span></span>
+<span md-src-pos="2094..2095"></span>
+<span md-src-pos="2095..2107"><span style="color: rgb(0, 51, 179);">import</span> json</span>
+<span md-src-pos="2107..2108"></span>
+<span md-src-pos="2108..2133"><span style="color: rgb(140, 140, 140);"># first create sone data</span></span>
+<span md-src-pos="2133..2145">py_data = {</span>
+<span md-src-pos="2145..2164">    <span style="color: rgb(6, 125, 23);">"president"</span>: {</span>
+<span md-src-pos="2164..2201">        <span style="color: rgb(6, 125, 23);">"name"</span>: <span style="color: rgb(6, 125, 23);">"Zaphod Beeblebrox"</span>,</span>
+<span md-src-pos="2201..2235">        <span style="color: rgb(6, 125, 23);">"species"</span>: <span style="color: rgb(6, 125, 23);">"Betelgeusian"</span></span>
+<span md-src-pos="2235..2241">    }</span>
+<span md-src-pos="2241..2243">}</span>
+<span md-src-pos="2243..2244"></span>
+<span md-src-pos="2244..2259">json_str = """</span>
+<span md-src-pos="2259..2261">{</span>
+<span md-src-pos="2261..2281">    "researcher": {</span>
+<span md-src-pos="2281..2313">        "name": "Ford Prefect",</span>
+<span md-src-pos="2313..2348">        "species": "Betelgeusian",</span>
+<span md-src-pos="2348..2371">        "relatives": [</span>
+<span md-src-pos="2371..2385">            {</span>
+<span md-src-pos="2385..2430">                "name": "Zaphod Beeblebrox",</span>
+<span md-src-pos="2430..2472">                "species": "Betelgeusian"</span>
+<span md-src-pos="2472..2486">            }</span>
+<span md-src-pos="2486..2496">        ]</span>
+<span md-src-pos="2496..2502">    }</span>
+<span md-src-pos="2502..2504">}</span>
+<span md-src-pos="2504..2508">"""</span>
+<span md-src-pos="2508..2509"></span>
+<span md-src-pos="2509..2567"><span style="color: rgb(140, 140, 140);"># dump python object to a string using the dumps() method</span></span>
+<span md-src-pos="2567..2595">j_str = json.dumps(py_data)</span>
+<span md-src-pos="2595..2635">print(<span style="color: rgb(6, 125, 23);">'JSON string is:</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, j_str, <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="2635..2636"></span>
+<span md-src-pos="2636..2701"><span style="color: rgb(140, 140, 140);"># read python object from a JSON string using the loads() method</span></span>
+<span md-src-pos="2701..2730">py_obj_1 = json.loads(j_str)</span>
+<span md-src-pos="2730..2775">print(<span style="color: rgb(6, 125, 23);">'python object is:</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, py_obj_1, <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="2775..2776"></span>
+<span md-src-pos="2776..2802"><span style="color: rgb(140, 140, 140);"># and another JSON string</span></span>
+<span md-src-pos="2802..2834">py_obj_2 = json.loads(json_str)</span>
+<span md-src-pos="2834..2894">print(<span style="color: rgb(6, 125, 23);">'and another pyton object from JSON is:</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, py_obj_2)</span>
+<span md-src-pos="2894..2895"></span>
+<span md-src-pos="2895..2896"></span><span md-src-pos="2895..2898"></span></code></pre>
+   <h3 md-src-pos="2900..2944">Writing Python objects into JSON strings</h3>
+   <pre class="code-fence" md-src-pos="2946..3747">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBleGFtcGxlXzUgLSB3cml0aW5nIGFuZCByZWFkaW5nIEpTT04gZmlsZXMKCmltcG9ydCBqc29uCgojIGZpcnN0IGNyZWF0ZSBzb21lIGRhdGEKcHlfZGF0YSA9IHsKICAgICJwcmVzaWRlbnQiOiB7CiAgICAgICAgIm5hbWUiOiAiWmFwaG9kIEJlZWJsZWJyb3giLAogICAgICAgICJzcGVjaWVzIjogIkJldGVsZ2V1c2lhbiIKICAgIH0KfQoKanNvbl9zdHIgPSAiIiIKewogICAgInJlc2VhcmNoZXIiOiB7CiAgICAgICAgIm5hbWUiOiAiRm9yZCBQcmVmZWN0IiwKICAgICAgICAic3BlY2llcyI6ICJCZXRlbGdldXNpYW4iLAogICAgICAgICJyZWxhdGl2ZXMiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJuYW1lIjogIlphcGhvZCBCZWVibGVicm94IiwKICAgICAgICAgICAgICAgICJzcGVjaWVzIjogIkJldGVsZ2V1c2lhbiIKICAgICAgICAgICAgfQogICAgICAgIF0KICAgIH0KfQoiIiIKCiMgZHVtcCBweXRob24gb2JqZWN0IHRvIGEganNvbiBmaWxlCmZpbGVuYW1lID0gImV4XzZfZGF0YS5qc29uIgp3aXRoIG9wZW4oZmlsZW5hbWUgKyAnMScsCiAgICAgICAgICAidyIpIGFzIGY6CiAgICBqc29uLmR1bXAocHlfZGF0YSwgZiwgaW5kZW50PTQpCgojIGNvbnZlcnQgSlNPTiBzdHJpbmcgdG8gYSBweXRob24gb2JqZWN0IHRoZW4gZHVtcCgpIHRvIEpTT04gZmlsZQpweV9vYmogPSBqc29uLmxvYWRzKGpzb25fc3RyKQp3aXRoIG9wZW4oZmlsZW5hbWUgKyAnMicsCiAgICAgICAgICAiYSIpIGFzIGY6CiAgICBqc29uLmR1bXAocHlfb2JqLCBmLCBpbmRlbnQ9NCk=">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="2946..3747"><span md-src-pos="2946..2956"></span><span md-src-pos="2956..2957"></span>
+<span md-src-pos="2957..3002"><span style="color: rgb(140, 140, 140);"># example_5 - writing and reading JSON files</span></span>
+<span md-src-pos="3002..3003"></span>
+<span md-src-pos="3003..3015"><span style="color: rgb(0, 51, 179);">import</span> json</span>
+<span md-src-pos="3015..3016"></span>
+<span md-src-pos="3016..3041"><span style="color: rgb(140, 140, 140);"># first create some data</span></span>
+<span md-src-pos="3041..3053">py_data = {</span>
+<span md-src-pos="3053..3072">    <span style="color: rgb(6, 125, 23);">"president"</span>: {</span>
+<span md-src-pos="3072..3109">        <span style="color: rgb(6, 125, 23);">"name"</span>: <span style="color: rgb(6, 125, 23);">"Zaphod Beeblebrox"</span>,</span>
+<span md-src-pos="3109..3143">        <span style="color: rgb(6, 125, 23);">"species"</span>: <span style="color: rgb(6, 125, 23);">"Betelgeusian"</span></span>
+<span md-src-pos="3143..3149">    }</span>
+<span md-src-pos="3149..3151">}</span>
+<span md-src-pos="3151..3152"></span>
+<span md-src-pos="3152..3167">json_str = """</span>
+<span md-src-pos="3167..3169">{</span>
+<span md-src-pos="3169..3189">    "researcher": {</span>
+<span md-src-pos="3189..3221">        "name": "Ford Prefect",</span>
+<span md-src-pos="3221..3256">        "species": "Betelgeusian",</span>
+<span md-src-pos="3256..3279">        "relatives": [</span>
+<span md-src-pos="3279..3293">            {</span>
+<span md-src-pos="3293..3338">                "name": "Zaphod Beeblebrox",</span>
+<span md-src-pos="3338..3380">                "species": "Betelgeusian"</span>
+<span md-src-pos="3380..3394">            }</span>
+<span md-src-pos="3394..3404">        ]</span>
+<span md-src-pos="3404..3410">    }</span>
+<span md-src-pos="3410..3412">}</span>
+<span md-src-pos="3412..3416">"""</span>
+<span md-src-pos="3416..3417"></span>
+<span md-src-pos="3417..3453"><span style="color: rgb(140, 140, 140);"># dump python object to a json file</span></span>
+<span md-src-pos="3453..3481">filename = <span style="color: rgb(6, 125, 23);">"ex_6_data.json"</span></span>
+<span md-src-pos="3481..3507"><span style="color: rgb(0, 51, 179);">with</span> open(filename + <span style="color: rgb(6, 125, 23);">'1'</span>,</span>
+<span md-src-pos="3507..3528">          <span style="color: rgb(6, 125, 23);">"w"</span>) <span style="color: rgb(0, 51, 179);">as</span> f:</span>
+<span md-src-pos="3528..3564">    json.dump(py_data, f, indent=<span style="color: rgb(23, 80, 235);">4</span>)</span>
+<span md-src-pos="3564..3565"></span>
+<span md-src-pos="3565..3631"><span style="color: rgb(140, 140, 140);"># convert JSON string to a python object then dump() to JSON file</span></span>
+<span md-src-pos="3631..3661">py_obj = json.loads(json_str)</span>
+<span md-src-pos="3661..3687"><span style="color: rgb(0, 51, 179);">with</span> open(filename + <span style="color: rgb(6, 125, 23);">'2'</span>,</span>
+<span md-src-pos="3687..3708">          <span style="color: rgb(6, 125, 23);">"a"</span>) <span style="color: rgb(0, 51, 179);">as</span> f:</span>
+<span md-src-pos="3708..3743">    json.dump(py_obj, f, indent=<span style="color: rgb(23, 80, 235);">4</span>)</span>
+<span md-src-pos="3743..3744"></span>
+<span md-src-pos="3744..3745"></span><span md-src-pos="3744..3747"></span></code></pre>
+   <p md-src-pos="3749..3911"><span md-src-pos="3749..3852">Now that you have a template to work with create some python objects of your own and write them to JSON</span> <span md-src-pos="3853..3910">strings and files abd then recover them to python objects</span>:</p>
+   <ul md-src-pos="3912..4063">
+    <li md-src-pos="3912..3920">an int</li>
+    <li md-src-pos="3921..3930">a float</li>
+    <li md-src-pos="3931..3938">a str</li>
+    <li md-src-pos="3939..3947">a list</li>
+    <li md-src-pos="3948..4011">a tuple (tuples become JSON arrays which become python lists)</li>
+    <li md-src-pos="4012..4048">a set (sets are not serializable!)</li>
+    <li md-src-pos="4049..4063">a dictionary</li>
+   </ul>
+   <h1 md-src-pos="4065..4070">SQL</h1>
+   <p md-src-pos="4071..4256"><span md-src-pos="4071..4226">Because SQL and relational databases need a considerable amount of setup before they can be used it is far simpler to practice on dedicated website such as</span> <a href="file:/C:/Users/green/OneDrive/AllTeaching/_QMUL/LIN6209_22/w9_SQL/practice/www.sqlzoo.net" md-src-pos="4227..4255">SQLzoo.net</a><span md-src-pos="4255..4256">.</span></p>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,60 @@
+def all_ops_part1(int1, int2):
+    return int1 + int2, int1 - int2, int1 * int2, int1 / int2, int1 // int2, int1 % int2
+
+def all_ops_part2(int1, int2):
+    return int1 < int2, int1 <= int2, int1 == int2, int1 != int2, int1 >= int2, int1 > int2
+
+     
+def magic_number(a_num):
+    return str('7' in 'a_7num')
+
+def hms_to_s(hours,minutes,seconds):
+    seconds_in_hours = hours*60
+    seconds_in_minutes = minutes*60
+    seconds_in_seconds = seconds
+    total_seconds = seconds_in_hours + seconds_in_minutes + seconds_in_seconds
+    return total_seconds
+
+def s_to_hms(seconds):
+    hours = seconds//3600
+    minutes = seconds//60
+    seconds = seconds%60
+    return (hours, minutes, seconds)
+
+
+def add_hms(hr1, min1, sec1, hr2, min2, sec2):
+    hms_to_s(hr1, min1, sec1)
+    seconds_in_hours = hr1*60
+    seconds_in_minutes = min1*60
+    seconds_in_seconds = sec1
+    hms_to_s(hr2, min2, sec2)
+    seconds_in_hours = hr2*60
+    seconds_in_minutes = min2*60
+    seconds_in_seconds = sec2
+    total_seconds = seconds_in_hours + seconds_in_minutes + seconds_in_seconds + seconds_in_hours + seconds_in_minutes + seconds_in_seconds
+    s_to_hms(total_seconds)
+    hours = total_seconds//3600
+    minutes = total_seconds//60
+    seconds = total_seconds%60
+    return (hours, minutes, seconds)
+
+def add_old_uk(pounds1, shillings1, pennies1, pounds2, shillings2, pennies2):
+    old_uk_psp_to_p(pounds1, shillings1, pennies1) 
+    pennies_in_pounds1 = pennies*240
+    pennies_in_shillings1 = pennies*12
+    pennies_in_pennies1 = pennies
+    old_uk_psp_to_p(pounds2, shillings2, pennies2) 
+    pennies_in_pounds2 = pennies*240
+    pennies_in_shillings2 = pennies*12
+    pennies_in_pennies2 = pennies
+    total_pennies = pennies_in_pounds1 + pennies_in_shillings1 + pennies_in_pennies1 +  pennies_in_pounds2 + pennies_in_shillings2 + pennies_in_pennies2
+    return total_pennies
+   
+   
+
+
+
+    
+
+
+  

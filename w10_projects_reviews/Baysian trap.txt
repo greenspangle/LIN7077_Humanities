@@ -1,0 +1,20 @@
+What is the Bayesian trap?
+
+I’ve been doing data analysis and reading about it for 25 years and hadn’t heard the term, so I googled. I found the same video that Terry Moore found, and one site with a little bit of text.
+
+The “trap” is well known, but it isn’t Bayesian - Bayes Theorem provides the way out of the trap, not the way into it.
+
+Suppose you are a hypochondriac and are always getting yourself tested for rare diseases with no real reason to think you have them. Now suppose one of those diseases occurs in 1 in 10,000 people from the general population. Further, let’s say the test is 99% accurate both for positive cases and negative ones.
+
+You take the test, it comes back positive. What are the chances you have the disease?
+
+Less than 1%!
+
+Why?
+
+Let’s say 1 million people take the test. Of those, 100 will actually have the disease and 99 of those people will test positive. But 999,900 people will not have the disease and 9999 of those will test positive.
+
+So, the total testing positive is 99+9999=10,098
+. And 9910098=0.0098 which is just under 1%.
+
+https://www.quora.com/What-is-the-Bayesian-trap

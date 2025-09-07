@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+ <head> 
+  <title>IntelliJ Markdown Preview</title>               
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,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) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; } </style>
+  <style>body { background-color: rgba(255, 255, 255, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(8, 8, 8, 255.0); } a { color: rgba(36, 112, 179, 255.0); } table td, table th { border: 1px solid rgba(209, 209, 209, 255.0); } hr { background-color: rgba(209, 209, 209, 255.0); } kbd, tr { border: 1px solid rgba(209, 209, 209, 255.0); } h6 { color: rgba(153, 153, 153, 255.0); } blockquote { border-left: 2px solid rgba(36, 112, 179, 0.4); } ::-webkit-scrollbar-thumb { background-color: rgba(115, 115, 115, 0.2); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.24705882352941178); }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; } </style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head> 
+ <body>
+  <div md-src-pos="0..2885">
+   <h1 md-src-pos="0..21">Regular Expressions</h1>
+   <p md-src-pos="22..115"><span md-src-pos="22..40">Start with MS Word</span> '<span md-src-pos="42..48">search</span> <span md-src-pos="49..50">&amp;</span> <span md-src-pos="51..58">replace</span>' <span md-src-pos="60..115">as that is a close model and easier to get started with</span></p>
+   <h2 md-src-pos="117..156">Using regular expressions in MS Word</h2>
+   <p md-src-pos="158..325"><span md-src-pos="158..182">MS Word has the standard</span> '<span md-src-pos="184..202">search and replace</span>' <span md-src-pos="204..260">features you might expect to find an any word processor,</span> <span md-src-pos="261..264">but</span> <span md-src-pos="265..280">it also has and</span> '<span md-src-pos="282..290">advanced</span>' <span md-src-pos="292..325">option that is much more capable.</span></p>
+   <h3 md-src-pos="327..379">Given any piece of text find the occurrences of:</h3>
+   <ol md-src-pos="381..798">
+    <li md-src-pos="381..417">The occurrences of the text ‘and’</li>
+    <li md-src-pos="418..454">The text ‘s_s’ where _ is a vowel</li>
+    <li md-src-pos="455..498">Every digit that is followed by a letter</li>
+    <li md-src-pos="499..544">Words that begin with ‘s’ and end with ‘t’</li>
+    <li md-src-pos="545..586">Words that contain two adjacent vowels</li>
+    <li md-src-pos="587..636">Find every word that ends with a question mark</li>
+    <li md-src-pos="637..729">Words that begin with a letter, three digits,a dash ‘-’, and then two digits e.g. A123-45</li>
+    <li md-src-pos="730..798">Find ‘fruit’ and transpose it with the immediately following word</li>
+   </ol>
+   <p md-src-pos="800..1050"><strong md-src-pos="800..824">Test with this text:</strong><br> <span md-src-pos="827..837">The quick?</span> <span md-src-pos="838..894">sassy brown fox and the lazy dog sat and looked at each?</span> <span md-src-pos="895..932">?other and the dog barked A456-11 and</span> <span md-src-pos="933..939">789bcd</span>! <span md-src-pos="941..948">321?BBD</span>!! <span md-src-pos="951..987">and foxy said fruit and nuts to you?</span> <span md-src-pos="988..1039">while the band played on and on until they agreed a</span> <span md-src-pos="1040..1050">settlement</span></p>
+   <p md-src-pos="1052..1205"><span md-src-pos="1052..1061">For hints</span> <span md-src-pos="1062..1063">&amp;</span> <span md-src-pos="1064..1068">tips</span> <span md-src-pos="1069..1072">see</span> <a href="https://wordmvp.com/FAQs/General/UsingWildcards.htm" md-src-pos="1073..1167">wordmvp.com/FAQs/General/UsingWildcards</a><br> <span md-src-pos="1170..1205">Answers at the end of this document</span></p>
+   <h2 md-src-pos="1207..1247">Searching strings with the re library</h2>
+   <pre class="code-fence" md-src-pos="1249..1573">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IHJlCmFfc3RyID0gJ2ZvbzEyM2JhcicKcmUuc2VhcmNoKCcxMjMnLCBhX3N0cikgCiMgPHJlLm1hdGNoIG9iamVjdDsgc3Bhbj0oMywgNiksIG1hdGNoPScxMjPigJk+CmFfc3RyWzM6Nl0KIyDigJgxMjPigJkKCiMgdXNpbmcgbWV0YWNoYXJhY3RlcnMKcmUuc2VhcmNoKCdbMC05XVswLTldWzAtOV0nLCBhX3N0cikgCgojIG9yLCBldmVuIGJldHRlcgpyZS5zZWFyY2goJ1swLTldezN9JywgYV9zdHIpCgojIGludHMgbXVzdCBiZSBjb25zZWN1dGl2ZSwgcnVuIHRoZSBzYW1lIGNvZGUgd2l0aCBhX3N0ciA9IHQKdD0gJ2ExMmNjY2NjMzRhJw==">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="1249..1573"><span md-src-pos="1249..1259"></span><span md-src-pos="1259..1260"></span>
+<span md-src-pos="1260..1270"><span style="color: rgb(0, 51, 179);">import</span> re</span>
+<span md-src-pos="1270..1290">a_str = <span style="color: rgb(6, 125, 23);">'foo123bar'</span></span>
+<span md-src-pos="1290..1315">re.search(<span style="color: rgb(6, 125, 23);">'123'</span>, a_str) </span>
+<span md-src-pos="1315..1361"><span style="color: rgb(140, 140, 140);"># &lt;re.match object; span=(3, 6), match='123’&gt;</span></span>
+<span md-src-pos="1361..1372">a_str[<span style="color: rgb(23, 80, 235);">3</span>:<span style="color: rgb(23, 80, 235);">6</span>]</span>
+<span md-src-pos="1372..1380"><span style="color: rgb(140, 140, 140);"># ‘123’</span></span>
+<span md-src-pos="1380..1381"></span>
+<span md-src-pos="1381..1404"><span style="color: rgb(140, 140, 140);"># using metacharacters</span></span>
+<span md-src-pos="1404..1441">re.search(<span style="color: rgb(6, 125, 23);">'[0-9][0-9][0-9]'</span>, a_str) </span>
+<span md-src-pos="1441..1442"></span>
+<span md-src-pos="1442..1460"><span style="color: rgb(140, 140, 140);"># or, even better</span></span>
+<span md-src-pos="1460..1489">re.search(<span style="color: rgb(6, 125, 23);">'[0-9]{3}'</span>, a_str)</span>
+<span md-src-pos="1489..1490"></span>
+<span md-src-pos="1490..1551"><span style="color: rgb(140, 140, 140);"># ints must be consecutive, run the same code with a_str = t</span></span>
+<span md-src-pos="1551..1569">t= <span style="color: rgb(6, 125, 23);">'a12ccccc34a'</span> </span>
+<span md-src-pos="1569..1570"></span>
+<span md-src-pos="1570..1571"></span><span md-src-pos="1570..1573"></span></code></pre>
+   <h3 md-src-pos="1575..1606">Greedy and Lazy Quantifiers</h3>
+   <pre class="code-fence" md-src-pos="1608..1796">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="PC4qPgojIHRoaXMgcmVndWxhciBleHByZXNzaW9uIHdpbGwgY29uc3VtZSBldmVyeXRoaW5nIGZyb20gdGhlIGZpcnN0IOKAmDzigJggdG8gdGhlIGxhc3Qg4oCYPuKAmQoKPC4qPz4KIyB0aGlzIG9uZSB3aWxsIGNvbnN1bWUgZXZlcnl0aGluZyBmcm9tIHRoZSBmaXJzdCDigJg84oCYIHRvIHRoZSBmaXJzdCBmb2xsb3dpbmcg4oCYPuKAmQ==">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code md-src-pos="1608..1796"><span md-src-pos="1608..1612"></span><span md-src-pos="1612..1612"></span>
+<span md-src-pos="1613..1623">&lt;.*&gt;</span>
+<span md-src-pos="1624..1714"># this regular expression will consume everything from the first ‘&lt;‘ to the last ‘&gt;’</span>
+<span md-src-pos="1715..1715"></span>
+<span md-src-pos="1716..1727">&lt;.*?&gt;</span>
+<span md-src-pos="1728..1815"># this one will consume everything from the first ‘&lt;‘ to the first following ‘&gt;’ </span>
+<span md-src-pos="1816..1816"></span>
+<span md-src-pos="1817..1817"></span><span md-src-pos="1793..1796"></span></code></pre>
+   <h3 md-src-pos="1798..1859">More problems to try in <a href="https://pythex.org/" md-src-pos="1826..1859">pythex.org</a></h3>
+   <p md-src-pos="1860..1939"><span md-src-pos="1860..1938">Create a suitable piece of text to work with and then search for the following</span>:</p>
+   <ol md-src-pos="1941..2355">
+    <li md-src-pos="1941..1951">A vowel</li>
+    <li md-src-pos="1952..2007">A lower case letter followed by an upper case letter</li>
+    <li md-src-pos="2008..2069">A capital letter followed by at least 2 lower case letters</li>
+    <li md-src-pos="2070..2125">The letter sequence any vowel, any letter, any vowel</li>
+    <li md-src-pos="2126..2157">A valid Python variable name</li>
+    <li md-src-pos="2158..2207">A binary number (consecutive zero’s and one’s)</li>
+    <li md-src-pos="2208..2267">A hexadecimal number (digits are 0123456789abcdefABCDEF)</li>
+    <li md-src-pos="2268..2335">The letter sequence ‘a’, followed by any letter, followed by ‘a’</li>
+    <li md-src-pos="2336..2355">An email address</li>
+   </ol>
+   <h3 md-src-pos="2357..2390">Compiling Regular Expressions</h3>
+   <p md-src-pos="2391..2442"><span md-src-pos="2391..2441">Execute this code in the interactive python shell?</span></p>
+   <pre class="code-fence" md-src-pos="2444..2559">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IHJlCnAgPSByZS5jb21waWxlKCdhYmMnKQpwLnNlYXJjaCgnenp6YWJjcXFxJykKIyA8cmUuTWF0Y2ggb2JqZWN0OyBzcGFuPSgzLCA2KSwgbWF0Y2g9J2FiYyc+">
+  
+     <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="2444..2559"><span md-src-pos="2444..2454"></span><span md-src-pos="2454..2455"></span>
+<span md-src-pos="2455..2465"><span style="color: rgb(0, 51, 179);">import</span> re</span>
+<span md-src-pos="2465..2487">p = re.compile(<span style="color: rgb(6, 125, 23);">'abc'</span>)</span>
+<span md-src-pos="2487..2509">p.search(<span style="color: rgb(6, 125, 23);">'zzzabcqqq'</span>)</span>
+<span md-src-pos="2509..2555"><span style="color: rgb(140, 140, 140);"># &lt;re.Match object; span=(3, 6), match='abc'&gt;</span></span>
+<span md-src-pos="2555..2556"></span>
+<span md-src-pos="2556..2557"></span><span md-src-pos="2556..2559"></span></code></pre>
+   <h1 md-src-pos="2562..2584">Answers to MS Word Q</h1>
+   <h3 md-src-pos="2586..2640">Given any piece of text find the occurrences .....</h3>
+   <p md-src-pos="2641..2664"><span md-src-pos="2641..2663">The search strings are</span>:</p>
+   <ol md-src-pos="2666..2882">
+    <li md-src-pos="2666..2672">and</li>
+    <li md-src-pos="2673..2686">s[aeiou]s</li>
+    <li md-src-pos="2687..2706">[0-9][a-z,A-Z]</li>
+    <li md-src-pos="2707..2716">&lt;s*t&gt;</li>
+    <li md-src-pos="2717..2736">[aeiou][aeiou]</li>
+    <li md-src-pos="2737..2754">&lt;[a-z]{1,}\?</li>
+    <li md-src-pos="2755..2789">&lt;[a-z,A-Z][0-9]{3}-[0-9]{2}&gt;</li>
+    <li md-src-pos="2790..2882">Answer in two parts:
+     <ol md-src-pos="2817..2882">
+      <li md-src-pos="2817..2853">Find string: (&lt;fruit&gt;)[ ](&lt;*&gt;)</li>
+      <li md-src-pos="2857..2882">Replace string: \2 \1</li>
+     </ol></li>
+   </ol>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+ <head>
+  <title>IntelliJ Markdown Preview</title>
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; }</style>
+  <style>body { background-color: rgba(255, 255, 255, 255.0); font-size: 19px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(8, 8, 8, 255.0); } a { color: rgba(36, 112, 179, 255.0); } table td, table th { border: 1px solid rgba(209, 209, 209, 255.0); } hr { background-color: rgba(209, 209, 209, 255.0); } kbd, tr { border: 1px solid rgba(209, 209, 209, 255.0); } h6 { color: rgba(153, 153, 153, 255.0); } blockquote { border-left: 2px solid rgba(36, 112, 179, 0.4); } ::-webkit-scrollbar-thumb { background-color: java.awt.Color[r=115,g=115,b=115]; } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.24705882352941178); }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head>
+ <body>
+  <div md-src-pos="0..12349">
+   <h1 id="the-python-and-it-ecosystems" md-src-pos="0..30">The Python and IT ecosystems</h1>
+   <h2 id="f-strings" md-src-pos="32..44">f strings</h2>
+   <p md-src-pos="46..223"><span md-src-pos="46..96">Introduced in Python 3.6 fstrings are a convenient</span> (<span md-src-pos="98..111">and efficient</span>) <span md-src-pos="113..139">way of formatting strings.</span> <span md-src-pos="140..143">See</span> <a href="https://docs.python.org/3/reference/lexical_analysis.html#index-25" md-src-pos="144..210">https://docs.python.org/3/reference/lexical_analysis.html#index-25</a> <span md-src-pos="211..223">for details.</span></p>
+   <p md-src-pos="225..372"><span md-src-pos="225..270">Suppose your program uses an integer variable</span> <code md-src-pos="271..276">age</code> <span md-src-pos="277..309">which has a current value of 27,</span> <span md-src-pos="310..332">and you want to create</span> <span md-src-pos="333..343">the string</span> <code md-src-pos="344..371">'You are 27 years of age'</code><span md-src-pos="371..372">.</span></p>
+   <pre class="code-fence" md-src-pos="374..752">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="YWdlID0gMjcKIyAgUmF0aGVyIHRoYXQgaGF2aW5nIHRvIHdyaXRlIHNvbWV0aGluZyBsaWtlCnN0cl8xID0gJ1lvdSBhcmUgJyArIHN0cihhZ2UpICsgJyB5ZWFycyBvZiBhZ2UnCnByaW50KCdzdHJpbmcgMSA9Jywgc3RyXzEpCgojIHVzaW5nIGFuIGYgc3RyaW5nIGl0J3MganVzdApzdHJfMiA9IGYnWW91IGFyZSB7YWdlfSB5ZWFycyBvZiBhZ2UnCnByaW50KCdzdHJpbmcgMiA9Jywgc3RyXzIpCgojIHlvdSBjYW4gZXZlbiBkbyBjYWxjdWxhdGlvbnMgd2l0aGluIHRoZSBmIHN0cmluZwpzdHJfMyA9IGYnWW91IGhhdmUgYmVlbiBhYmxlIHRvIHZvdGUgZm9yIHthZ2UgLSAxOH0geWVhcnMnCnByaW50KCdzdHJpbmcgMyA9Jywgc3RyXzMp">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="374..752"><span md-src-pos="373..383"></span><span md-src-pos="383..384"></span>
+<span md-src-pos="384..393">age = <span style="color: rgb(23, 80, 235);">27</span></span>
+<span md-src-pos="393..439"><span style="color: rgb(140, 140, 140);">#  Rather that having to write something like</span></span>
+<span md-src-pos="439..487">str_1 = <span style="color: rgb(6, 125, 23);">'You are '</span> + str(age) + <span style="color: rgb(6, 125, 23);">' years of age'</span></span>
+<span md-src-pos="487..514">print(<span style="color: rgb(6, 125, 23);">'string 1 ='</span>, str_1)</span>
+<span md-src-pos="514..515"></span>
+<span md-src-pos="515..545"><span style="color: rgb(140, 140, 140);"># using an f string it's just</span></span>
+<span md-src-pos="545..583">str_2 = <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">You are </span><span style="color: rgb(0, 55, 166);">{</span>age<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> years of age</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="583..610">print(<span style="color: rgb(6, 125, 23);">'string 2 ='</span>, str_2)</span>
+<span md-src-pos="610..611"></span>
+<span md-src-pos="611..662"><span style="color: rgb(140, 140, 140);"># you can even do calculations within the f string</span></span>
+<span md-src-pos="662..721">str_3 = <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">You have been able to vote for </span><span style="color: rgb(0, 55, 166);">{</span>age - <span style="color: rgb(23, 80, 235);">18</span><span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> years</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="721..748">print(<span style="color: rgb(6, 125, 23);">'string 3 ='</span>, str_3)</span>
+<span md-src-pos="748..749"></span><span md-src-pos="748..751"></span></code></pre>
+   <p md-src-pos="754..782"><span md-src-pos="754..781">Try a few examples yourself</span>:</p>
+   <pre class="code-fence" md-src-pos="784..1487">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBBIHJvb20gaXMgM20gd2lkZSBhbmQgNW0gYnJvYWQgCndpZHRoLCBicmVhZHRoID0gMywgNQojIHVzaW5nIGFuIGYgc3RyaW5nLCBjcmVhdGUgYSBzdHJpbmcgc3RhdGluZyBpdHMgZGltZW5zaW9ucyBhbmQgYXJlYQoKbWVzc2FnZV8xID0gZidUaGUgcm9vbSBpcyA/PyBtZXRyZXMgd2lkZSwgPz8/IG1ldGVycyBhY3Jvc3MgYW5kIGhhcyBhbiBhcmVhIG9mID8/Pz8gc3F1YXJlIG1ldHJlcycKcHJpbnQobWVzc2FnZV8xKQoKCiMgd29ya2luZyBvdXQgbXkgcGF5CiMgSSB3b3JrIDE1IGhvdXJzIGF0IMKjMTIgcGVyIGhvdXIgbGVzcyDCozExIG5hdGlvbmFsIGluc3VyYW5jZSBhbmQgdGF4IGF0IDIwJSBvbiB0aGUgcmVtYWluZGVyCmhvdXJseV9yYXRlLCBob3Vyc193b3JrZWQsIG5hdF9pbnMsIHRheF9yYXRlID0gMTIsIDE1LCAxMSwgMjAKCm1lc3NhZ2VfMiA9IGYnVGhpcyB3ZWVrIEkgd29ya2VkID8/IGhvdXJzIGF0IMKjPz8gcGVyIGhvdXIgZm9yIGEgZ3Jvc3MgcGF5IG9mIMKjPz8uJwptZXNzYWdlXzMgPSAnTXkgZGVkdWN0aW9ucyB3ZXJlIMKjPz8gZm9yIG5hdGlvbmFsIGluc3VyYW5jZSBhbmQgPz8gZm9yIHRheCBsZWF2aW5nIG1lIHdpdGggYSBuZXQgcGF5IG9mIMKjPz8nCnByaW50KG1lc3NhZ2VfMikKcHJpbnQobWVzc2FnZV8zKQoKIyBhbmQgdHJ5IGEgY291cGxlIG9mIHlvdXIgb3duIGV4YW1wbGVz">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="784..1487"><span md-src-pos="783..793"></span><span md-src-pos="793..794"></span>
+<span md-src-pos="794..828"><span style="color: rgb(140, 140, 140);"># A room is 3m wide and 5m broad </span></span>
+<span md-src-pos="828..850">width, breadth = <span style="color: rgb(23, 80, 235);">3</span>, <span style="color: rgb(23, 80, 235);">5</span></span>
+<span md-src-pos="850..919"><span style="color: rgb(140, 140, 140);"># using an f string, create a string stating its dimensions and area</span></span>
+<span md-src-pos="919..920"></span>
+<span md-src-pos="920..1019">message_1 = <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">The room is ?? metres wide, ??? meters across and has an area of ???? square metres</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="1019..1036">print(message_1)</span>
+<span md-src-pos="1036..1037"></span>
+<span md-src-pos="1037..1038"></span>
+<span md-src-pos="1038..1059"><span style="color: rgb(140, 140, 140);"># working out my pay</span></span>
+<span md-src-pos="1059..1153"><span style="color: rgb(140, 140, 140);"># I work 15 hours at £12 per hour less £11 national insurance and tax at 20% on the remainder</span></span>
+<span md-src-pos="1153..1215">hourly_rate, hours_worked, nat_ins, tax_rate = <span style="color: rgb(23, 80, 235);">12</span>, <span style="color: rgb(23, 80, 235);">15</span>, <span style="color: rgb(23, 80, 235);">11</span>, <span style="color: rgb(23, 80, 235);">20</span></span>
+<span md-src-pos="1215..1216"></span>
+<span md-src-pos="1216..1299">message_2 = <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">This week I worked ?? hours at £?? per hour for a gross pay of £??.</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="1299..1407">message_3 = <span style="color: rgb(6, 125, 23);">'My deductions were £?? for national insurance and ?? for tax leaving me with a net pay of £??'</span></span>
+<span md-src-pos="1407..1424">print(message_2)</span>
+<span md-src-pos="1424..1441">print(message_3)</span>
+<span md-src-pos="1441..1442"></span>
+<span md-src-pos="1442..1482"><span style="color: rgb(140, 140, 140);"># and try a couple of your own examples</span></span>
+<span md-src-pos="1482..1483"></span>
+<span md-src-pos="1483..1484"></span><span md-src-pos="1483..1486"></span></code></pre>
+   <h2 id="documenting-your-programs" md-src-pos="1489..1517">Documenting your programs</h2>
+   <p md-src-pos="1519..1776"><span md-src-pos="1519..1578">Ever tried using software without any instructions or help?</span> <span md-src-pos="1579..1595">Not always easy.</span> <span md-src-pos="1596..1617">Now imagine trying to</span> <span md-src-pos="1618..1636">amend someone else</span>'<span md-src-pos="1637..1710">s code without any documentation or information about how the code works,</span> <span md-src-pos="1711..1721">or what it</span> <span md-src-pos="1722..1727">does,</span> <span md-src-pos="1728..1760">or even is supposed to be doing.</span> <span md-src-pos="1761..1776">Even less easy.</span></p>
+   <p md-src-pos="1778..1898"><span md-src-pos="1778..1812">Documentation is important because</span> <strong md-src-pos="1813..1897">most developers spend most of their time fixing and enhancing other peoples code</strong><span md-src-pos="1897..1898">.</span></p>
+   <p md-src-pos="1900..2406"><span md-src-pos="1900..1969">Code is difficult enough to read and understand at the best of times.</span> <span md-src-pos="1970..2004">Trying to find bugs in software of</span> <span md-src-pos="2005..2078">anything more than trivial complexity is a serious intellectual exercise.</span> <span md-src-pos="2079..2108">If the code is unfamiliar and</span> <span md-src-pos="2109..2178">poorly documented that can rapidly become a mind twisting experience.</span> <span md-src-pos="2179..2202">Fixing undocumented or,</span> <span md-src-pos="2203..2217">perhaps worse,</span> <span md-src-pos="2218..2279">incorrectly documented code is in another league beyond that.</span> <span md-src-pos="2280..2282">It</span>'<span md-src-pos="2283..2325">s often quicker to throw it away and write</span> <span md-src-pos="2326..2406">it again from scratch rather than attempt to fix an impenetrable jungle of code.</span></p>
+   <p md-src-pos="2408..2457"><span md-src-pos="2408..2456">At a minimum your code should be documented with</span>:</p>
+   <ul md-src-pos="2459..2528">
+    <li md-src-pos="2459..2484">meaningful object names</li>
+    <li md-src-pos="2485..2515">informative in-line comments</li>
+    <li md-src-pos="2516..2528">docstrings</li>
+   </ul>
+   <h3 id="object-names" md-src-pos="2530..2546">Object Names</h3>
+   <p md-src-pos="2548..2695"><span md-src-pos="2548..2653">The name of an object should give the reader a good clue about what type of object it is and what data it</span> <span md-src-pos="2654..2695">will contain or function it will perform.</span></p>
+   <pre class="code-fence" md-src-pos="2697..2816">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="eCwgeSwgeiA9IDAsIDAsIDAgICMgbWVhbmluZ2xlc3MgbmFtZXMgPSBiYWQKaGVpZ2h0LCB3aWR0aCwgZGVwdGggPSAwLCAwLCAwICAjIGluZm9ybWF0aXZlIG5hbWVzID0gZ29vZA==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="2697..2816"><span md-src-pos="2696..2706"></span><span md-src-pos="2706..2707"></span>
+<span md-src-pos="2707..2752">x, y, z = <span style="color: rgb(23, 80, 235);">0</span>, <span style="color: rgb(23, 80, 235);">0</span>, <span style="color: rgb(23, 80, 235);">0</span>  <span style="color: rgb(140, 140, 140);"># meaningless names = bad</span></span>
+<span md-src-pos="2752..2811">height, width, depth = <span style="color: rgb(23, 80, 235);">0</span>, <span style="color: rgb(23, 80, 235);">0</span>, <span style="color: rgb(23, 80, 235);">0</span>  <span style="color: rgb(140, 140, 140);"># informative names = good</span></span>
+<span md-src-pos="2811..2812"></span>
+<span md-src-pos="2812..2813"></span><span md-src-pos="2812..2815"></span></code></pre>
+   <h3 id="in-line-comments" md-src-pos="2818..2838">In-line comments</h3>
+   <p md-src-pos="2840..2953"><span md-src-pos="2840..2904">Say what the code is doing without saying the trivially obvious,</span> <span md-src-pos="2905..2941">you are after all talking to another</span> <span md-src-pos="2942..2953">programmer.</span></p>
+   <pre class="code-fence" md-src-pos="2955..3396">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="Y29zdCwgcHJvZml0LCB0YXggPSAxNywgOCwgNQpwcmljZSA9IGNvc3QgKyBwcm9maXQgKyB0YXggICMgYWRkIGNvc3QgYW5kIHByb2ZpdCBhbmQgdGF4IGFuZCBhc3NpZ24gdG8gcHJpY2UgPSBwb2ludGxlc3MgdmVyYmlhZ2UhCgptYXRyaXhfMSA9IFtbMSwgMiwgM10sIFs0LCA1LCA2XSwgWzcsIDguOV1dCiMgbWF0cml4XzEgaXMgYSBsaXN0IG9mIGxpc3RzLiBUaGUgb3V0ZXIgbGlzdCBjb250YWlucyB0aGUgcm93cyBvZiB0aGUgbWF0cml4LiBUaGUgaW5uZXIgbGlzdHMgZWFjaCBjb250YWluIHRoZSBlbGVtZW50cyBvZiBhIHBhcnRpY3VsYXIgcm93LgpmbGF0ID0gW2VsZW1lbnQgZm9yIHJvdyBpbiBtYXRyaXhfMSBmb3IgZWxlbWVudCBpbiByb3ddICAjIGZsYXR0ZW4gdGhlIG1hdHJpeCBpbnRvIGEgc2luZ2xlIGxpc3Qgb2YgZWxlbWVudHM=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="2955..3396"><span md-src-pos="2954..2964"></span><span md-src-pos="2964..2965"></span>
+<span md-src-pos="2965..2994">cost, profit, tax = <span style="color: rgb(23, 80, 235);">17</span>, <span style="color: rgb(23, 80, 235);">8</span>, <span style="color: rgb(23, 80, 235);">5</span></span>
+<span md-src-pos="2994..3095">price = cost + profit + tax  <span style="color: rgb(140, 140, 140);"># add cost and profit and tax and assign to price = pointless verbiage!</span></span>
+<span md-src-pos="3095..3096"></span>
+<span md-src-pos="3096..3140">matrix_1 = [[<span style="color: rgb(23, 80, 235);">1</span>, <span style="color: rgb(23, 80, 235);">2</span>, <span style="color: rgb(23, 80, 235);">3</span>], [<span style="color: rgb(23, 80, 235);">4</span>, <span style="color: rgb(23, 80, 235);">5</span>, <span style="color: rgb(23, 80, 235);">6</span>], [<span style="color: rgb(23, 80, 235);">7</span>, <span style="color: rgb(23, 80, 235);">8.9</span>]]</span>
+<span md-src-pos="3140..3282"><span style="color: rgb(140, 140, 140);"># matrix_1 is a list of lists. The outer list contains the rows of the matrix. The inner lists each contain the elements of a particular row.</span></span>
+<span md-src-pos="3282..3391">flat = [element <span style="color: rgb(0, 51, 179);">for</span> row <span style="color: rgb(0, 51, 179);">in</span> matrix_1 <span style="color: rgb(0, 51, 179);">for</span> element <span style="color: rgb(0, 51, 179);">in</span> row]  <span style="color: rgb(140, 140, 140);"># flatten the matrix into a single list of elements</span></span>
+<span md-src-pos="3391..3392"></span>
+<span md-src-pos="3392..3393"></span><span md-src-pos="3392..3395"></span></code></pre>
+   <h3 id="docstrings" md-src-pos="3398..3412">Docstrings</h3>
+   <p md-src-pos="3414..3484"><span md-src-pos="3414..3422">Ideally,</span> <span md-src-pos="3423..3484">your functions should contain an explanation of what they do.</span></p>
+   <pre class="code-fence" md-src-pos="3486..3912">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIG1hZ2ljNygpOgogICAgIiIiIFRoaXMgZnVuY3Rpb24gdGFrZXMgbm8gcGFyYW1ldGVycyBhbmQgcmV0dXJucyB0aGUgaW50ZWdlciB2YWx1ZSA3LgogICAgCiAgICBUaGlzIGlzIHRoZSAnZG9jc3RyaW5nJyB0aGF0IHByb3ZpZGVkIHVzZXJzIG9mIHRoaXMgZnVuY3Rpb24gaGVscGZ1bCBpbmZvcm1hdGlvbi4KICAgIEl0IGlzIEFMV0FZUyBnb29kIHByYWN0aWNlIHRvIGluY2x1ZGUgb25lLgogICAgYmxhaCBibGFoIGRlZSBkYWggZGFoIGJsYWgKICAgICIiIgogICAgcmV0dXJuIDcKCgojIGV4ZWN1dGUgdGhlIGFib3ZlIGluIElETEUgYW5kIHRoZW4gcnVuCmhlbHAobWFnaWM3KQojIFZvaWxhISBZb3VyIGZ1bmN0aW9ucyBhcmUgbm93IGludGVncmF0ZWQgaW50byB0aGUgUHl0aG9uIGhlbHAgc3lzdGVtIDotKQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="3486..3912"><span md-src-pos="3485..3495"></span><span md-src-pos="3495..3496"></span>
+<span md-src-pos="3496..3510"><span style="color: rgb(0, 51, 179);">def</span> magic7():</span>
+<span md-src-pos="3510..3585">    """ This function takes no parameters and returns the integer value 7.</span>
+<span md-src-pos="3585..3590">    </span>
+<span md-src-pos="3590..3676">    This is the 'docstring' that provided users of this function helpful information.</span>
+<span md-src-pos="3676..3723">    It is ALWAYS good practice to include one.</span>
+<span md-src-pos="3723..3754">    blah blah dee dah dah blah</span>
+<span md-src-pos="3754..3762">    """</span>
+<span md-src-pos="3762..3775">    <span style="color: rgb(0, 51, 179);">return</span> <span style="color: rgb(23, 80, 235);">7</span></span>
+<span md-src-pos="3775..3776"></span>
+<span md-src-pos="3776..3777"></span>
+<span md-src-pos="3777..3818"><span style="color: rgb(140, 140, 140);"># execute the above in IDLE and then run</span></span>
+<span md-src-pos="3818..3831">help(magic7)</span>
+<span md-src-pos="3831..3907"><span style="color: rgb(140, 140, 140);"># Voila! Your functions are now integrated into the Python help system :-) </span></span>
+<span md-src-pos="3907..3908"></span>
+<span md-src-pos="3908..3909"></span><span md-src-pos="3908..3911"></span></code></pre>
+   <p md-src-pos="3914..4165"><span md-src-pos="3914..4005">You should also develop the habit of placing a docstring as the first item in your modules,</span> <span md-src-pos="4006..4013">classes</span> <span md-src-pos="4014..4031">and class methods</span> <span md-src-pos="4032..4033">-</span> <span md-src-pos="4034..4063">for exactly the same reasons.</span> <span md-src-pos="4064..4076">For example,</span> <span md-src-pos="4077..4165">run the following few lines of code in IDLE which use packages from the standard library</span></p>
+   <pre class="code-fence" md-src-pos="4167..4351">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBsZXQncyBoYXZlIGEgbG9vayBhdCBmcmFjdGlvbnMKaW1wb3J0IGZyYWN0aW9ucwoKaGVscChmcmFjdGlvbnMpCmhlbHAoZnJhY3Rpb25zLkZyYWN0aW9uKQphPWZyYWN0aW9ucy5GcmFjdGlvbigzLDgpCmhlbHAoYSkKCiMgYW5kIHBlcmhhcHMKaW1wb3J0IHN0cmluZwoKaGVscChzdHJpbmcp">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="4167..4351"><span md-src-pos="4166..4176"></span><span md-src-pos="4176..4177"></span>
+<span md-src-pos="4177..4210"><span style="color: rgb(140, 140, 140);"># let's have a look at fractions</span></span>
+<span md-src-pos="4210..4227"><span style="color: rgb(0, 51, 179);">import</span> fractions</span>
+<span md-src-pos="4227..4228"></span>
+<span md-src-pos="4228..4244">help(fractions)</span>
+<span md-src-pos="4244..4269">help(fractions.Fraction)</span>
+<span md-src-pos="4269..4295">a=fractions.Fraction(<span style="color: rgb(23, 80, 235);">3</span>,<span style="color: rgb(23, 80, 235);">8</span>)</span>
+<span md-src-pos="4295..4303">help(a)</span>
+<span md-src-pos="4303..4304"></span>
+<span md-src-pos="4304..4318"><span style="color: rgb(140, 140, 140);"># and perhaps</span></span>
+<span md-src-pos="4318..4332"><span style="color: rgb(0, 51, 179);">import</span> string</span>
+<span md-src-pos="4332..4333"></span>
+<span md-src-pos="4333..4346">help(string)</span>
+<span md-src-pos="4346..4347"></span>
+<span md-src-pos="4347..4348"></span><span md-src-pos="4347..4350"></span></code></pre>
+   <h2 id="try---except" md-src-pos="4353..4368">Try - Except</h2>
+   <p md-src-pos="4370..4395"><span md-src-pos="4370..4395">For when things go wrong.</span></p>
+   <p md-src-pos="4397..4639"><span md-src-pos="4397..4446">When Python encounters a problem it cannot fix it</span> "<span md-src-pos="4448..4467">raises an exception</span>"<span md-src-pos="4468..4469">.</span> <span md-src-pos="4470..4500">This exception object cascades</span> <span md-src-pos="4502..4533">upwards through the code stack.</span> <span md-src-pos="4534..4560">If exception object is not</span> "<span md-src-pos="4562..4568">caught</span>" <span md-src-pos="4570..4587">before it gets to</span> <span md-src-pos="4588..4639">the top of the call stack then the program crashes.</span></p>
+   <p md-src-pos="4641..4816"><span md-src-pos="4641..4680">Possible reasons an exception may occur</span>: <span md-src-pos="4682..4693">user enters</span> "<span md-src-pos="4695..4700">wrong</span>" <span md-src-pos="4702..4714">sort of data</span> (<span md-src-pos="4716..4730">wrong leaves??</span>)<span md-src-pos="4731..4732">,</span> <span md-src-pos="4733..4760">attempts to divide by zero,</span> <span md-src-pos="4761..4769">attempts</span> <span md-src-pos="4770..4805">to read a file that does not exist,</span> <span md-src-pos="4806..4816">and so on.</span></p>
+   <pre class="code-fence" md-src-pos="4818..5128">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBHZXQgdXNlciBpbnB1dDogVGhlIHNpbXBsZSBidXQgZnJhZ2lsZSB2ZXJzaW9uCmRlZiBnZXRfbnVtX3YxKCk6CiAgICBhX2Zsb2F0ID0gZmxvYXQoaW5wdXQoJ2lucHV0IGEgbnVtYmVyOiAnKSkKICAgIHJldHVybiBhX2Zsb2F0CgojIHJ1biB0aGlzIGZ1bmN0aW9uIGEgZmV3IHRpbWVzIHRvIGRldGVybWluZSBob3cgd2VsbCBpdCB3b3JrcyBhbmQgaG93IHJvYnVzdCBpdCBpcy4KCiMgd2hlbiBpdCBhc2tzIHlvdSB0byAnaW5wdXQgYSBudW1iZXI6ICcgd2hhdCBoYXBwZW5zIGlmIHlvdSBlbnRlciAnc2V2ZW4nPw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="4818..5128"><span md-src-pos="4817..4827"></span><span md-src-pos="4827..4828"></span>
+<span md-src-pos="4828..4877"><span style="color: rgb(140, 140, 140);"># Get user input: The simple but fragile version</span></span>
+<span md-src-pos="4877..4895"><span style="color: rgb(0, 51, 179);">def</span> get_num_v1():</span>
+<span md-src-pos="4895..4942">    a_float = float(input(<span style="color: rgb(6, 125, 23);">'input a number: '</span>))</span>
+<span md-src-pos="4942..4961">    <span style="color: rgb(0, 51, 179);">return</span> a_float</span>
+<span md-src-pos="4961..4962"></span>
+<span md-src-pos="4962..5047"><span style="color: rgb(140, 140, 140);"># run this function a few times to determine how well it works and how robust it is.</span></span>
+<span md-src-pos="5047..5048"></span>
+<span md-src-pos="5048..5124"><span style="color: rgb(140, 140, 140);"># when it asks you to 'input a number: ' what happens if you enter 'seven'?</span></span>
+<span md-src-pos="5124..5125"></span><span md-src-pos="5124..5127"></span></code></pre>
+   <p md-src-pos="5130..5162"><span md-src-pos="5130..5134">Here</span>'<span md-src-pos="5135..5161">s a better way of doing it</span>:</p>
+   <pre class="code-fence" md-src-pos="5163..5775">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBHZXQgdXNlciBpbnB1dDogdGhlIHJvYnVzdCB2ZXJzaW9uCmRlZiBnZXRfbnVtX3YyKCk6CiAgICBpbnB1dF9vayA9IEZhbHNlICAjIGtlZXAgYXNraW5nIHRoZSB1c2VyIGZvciBpbnB1dCB1bnRpbCB0aGlzIGlzIFRydWUKICAgIHdoaWxlIG5vdCBpbnB1dF9vazoKICAgICAgICB0cnk6CiAgICAgICAgICAgIHVzZXJfaW5wdXQgPSBpbnB1dCgnaW5wdXQgYSBudW1iZXInKQogICAgICAgICAgICBhX2Zsb2F0ID0gZmxvYXQodXNlcl9pbnB1dCkKICAgICAgICAgICAgaW5wdXRfb2sgPSBUcnVlICAjIGlucHV0IGlzIGdvb2Qgc28gZXhpdCB0aGUgd2hpbGUgbG9vcCAKICAgICAgICBleGNlcHQgVmFsdWVFcnJvciBhcyBlcnI6CiAgICAgICAgICAgICMgIGNhdWdodCBhIFZhbHVlRXJyb3Igd2hpY2ggbWVhbnMgdGhlIHVzZXIgbXVzdCBoYXZlIGVudGVyZWQKICAgICAgICAgICAgIyAgdGV4dCB0aGF0IGNhbm5vdCBiZSBjb252ZXJ0ZWQgdG8gYSBmbG9hdCBudW1iZXIKICAgICAgICAgICAgcHJpbnQoZidZb3UgZW50ZXJlZCB7dXNlcl9pbnB1dH0gd2hpY2ggaXMgbm90IGEgbnVtYmVyLiBUcnkgYWdhaW4uLi4nKQogICAgcmV0dXJuIGFfZmxvYXQ=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="5163..5775"><span md-src-pos="5162..5172"></span><span md-src-pos="5172..5173"></span>
+<span md-src-pos="5173..5210"><span style="color: rgb(140, 140, 140);"># Get user input: the robust version</span></span>
+<span md-src-pos="5210..5228"><span style="color: rgb(0, 51, 179);">def</span> get_num_v2():</span>
+<span md-src-pos="5228..5302">    input_ok = <span style="color: rgb(0, 51, 179);">False</span>  <span style="color: rgb(140, 140, 140);"># keep asking the user for input until this is True</span></span>
+<span md-src-pos="5302..5326">    <span style="color: rgb(0, 51, 179);">while</span> <span style="color: rgb(0, 51, 179);">not</span> input_ok:</span>
+<span md-src-pos="5326..5339">        <span style="color: rgb(0, 51, 179);">try</span>:</span>
+<span md-src-pos="5339..5388">            user_input = input(<span style="color: rgb(6, 125, 23);">'input a number'</span>)</span>
+<span md-src-pos="5388..5428">            a_float = float(user_input)</span>
+<span md-src-pos="5428..5497">            input_ok = <span style="color: rgb(0, 51, 179);">True</span>  <span style="color: rgb(140, 140, 140);"># input is good so exit the while loop </span></span>
+<span md-src-pos="5497..5531">        <span style="color: rgb(0, 51, 179);">except</span> ValueError <span style="color: rgb(0, 51, 179);">as</span> err:</span>
+<span md-src-pos="5531..5605">            <span style="color: rgb(140, 140, 140);">#  caught a ValueError which means the user must have entered</span></span>
+<span md-src-pos="5605..5668">            <span style="color: rgb(140, 140, 140);">#  text that cannot be converted to a float number</span></span>
+<span md-src-pos="5668..5751">            print(<span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">You entered </span><span style="color: rgb(0, 55, 166);">{</span>user_input<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> which is not a number. Try again...</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="5751..5770">    <span style="color: rgb(0, 51, 179);">return</span> a_float</span>
+<span md-src-pos="5770..5771"></span>
+<span md-src-pos="5771..5772"></span><span md-src-pos="5771..5774"></span></code></pre>
+   <p md-src-pos="5777..5830"><span md-src-pos="5777..5830">Another example with a potential divide by zero error</span></p>
+   <pre class="code-fence" md-src-pos="5832..6491">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHJlY2lwcm9jYWwoYV9udW0pOgogICAgIiIiQW5zd2VyIHRoZSByZWNpcHJvY2FsIG9mIHRoZSBwYXJhbWV0ZXIgYV9udW0uCiAgICAKICAgIElmIHRoZSBwYXJhbWV0ZXIgaXMgemVybyB0aGVuIHJldHVybiB6ZXJvLgogICAgQWxsIG90aGVyIGluY29ycmVjdCBpbnB1dHMgd2lsbCByZXR1cm4gMjcKICAgICIiIgogICAgdHJ5OgogICAgICAgIGludmVyc2UgPSAxIC8gYV9udW0KICAgIGV4Y2VwdCBaZXJvRGl2aXNpb25FcnJvciBhcyB6X2VycjoKICAgICAgICBwcmludChmJ0NhdWdodCB0aGUgZXhjZXB0aW9uICAgIHt6X2Vycn0gICAgYW5kIHdpbGwgbm93IGRlYWwgd2l0aCBpdCcpCiAgICAgICAgIyBOb3JtYWxseSByZWNpcHJvY2FsIG9mIHplcm8gaXMgdW5kZWZpbmVkCiAgICAgICAgIyBUaGlzIGZ1bmN0aW9uIHdpbGwgcmV0dXJuIHplcm8KICAgICAgICBpbnZlcnNlID0gMAogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyB6X2VycjoKICAgICAgICBwcmludChmJ0NhdWdodCB0aGUgZXhjZXB0aW9uICAgIHt6X2Vycn0gICAgYW5kIHdpbGwgbm93IGRlYWwgd2l0aCBpdCcpCiAgICAgICAgIyBmb3IgYWxsIG90aGVyIGV4Y2VwdGlvbnMgcmV0dXJuIDI3CiAgICAgICAgaW52ZXJzZSA9IDI3CiAgICByZXR1cm4gaW52ZXJzZQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="5832..6491"><span md-src-pos="5831..5841"></span><span md-src-pos="5841..5842"></span>
+<span md-src-pos="5842..5865"><span style="color: rgb(0, 51, 179);">def</span> reciprocal(a_num):</span>
+<span md-src-pos="5865..5918">    """Answer the reciprocal of the parameter a_num.</span>
+<span md-src-pos="5918..5923">    </span>
+<span md-src-pos="5923..5970">    If the parameter is zero then return zero.</span>
+<span md-src-pos="5970..6016">    All other incorrect inputs will return 27</span>
+<span md-src-pos="6016..6024">    """</span>
+<span md-src-pos="6024..6033">    <span style="color: rgb(0, 51, 179);">try</span>:</span>
+<span md-src-pos="6033..6061">        inverse = <span style="color: rgb(23, 80, 235);">1</span> / a_num</span>
+<span md-src-pos="6061..6100">    <span style="color: rgb(0, 51, 179);">except</span> ZeroDivisionError <span style="color: rgb(0, 51, 179);">as</span> z_err:</span>
+<span md-src-pos="6100..6179">        print(<span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">Caught the exception    </span><span style="color: rgb(0, 55, 166);">{</span>z_err<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);">    and will now deal with it</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="6179..6230">        <span style="color: rgb(140, 140, 140);"># Normally reciprocal of zero is undefined</span></span>
+<span md-src-pos="6230..6271">        <span style="color: rgb(140, 140, 140);"># This function will return zero</span></span>
+<span md-src-pos="6271..6291">        inverse = <span style="color: rgb(23, 80, 235);">0</span></span>
+<span md-src-pos="6291..6322">    <span style="color: rgb(0, 51, 179);">except</span> Exception <span style="color: rgb(0, 51, 179);">as</span> z_err:</span>
+<span md-src-pos="6322..6401">        print(<span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">Caught the exception    </span><span style="color: rgb(0, 55, 166);">{</span>z_err<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);">    and will now deal with it</span><span style="color: rgb(6, 125, 23);">'</span>)</span>
+<span md-src-pos="6401..6446">        <span style="color: rgb(140, 140, 140);"># for all other exceptions return 27</span></span>
+<span md-src-pos="6446..6467">        inverse = <span style="color: rgb(23, 80, 235);">27</span></span>
+<span md-src-pos="6467..6486">    <span style="color: rgb(0, 51, 179);">return</span> inverse</span>
+<span md-src-pos="6486..6487"></span>
+<span md-src-pos="6487..6488"></span><span md-src-pos="6487..6490"></span></code></pre>
+   <p md-src-pos="6493..6654"><span md-src-pos="6493..6575">Your application does not have to deal with the exception as soon as it is raised,</span> <span md-src-pos="6576..6600">as long as the exception</span> <span md-src-pos="6601..6621">is caught somewhere,</span> <span md-src-pos="6622..6654">your application will be robust.</span></p>
+   <h2 id="classes" md-src-pos="6656..6666">Classes</h2>
+   <p md-src-pos="6668..6693"><span md-src-pos="6668..6693">Defining your own objects</span></p>
+   <p md-src-pos="6695..6954"><span md-src-pos="6695..6703">Numbers,</span> <span md-src-pos="6704..6710">lists,</span> <span md-src-pos="6711..6716">sets,</span> <span md-src-pos="6717..6756">strings are different types of objects.</span> <span md-src-pos="6757..6814">Each of these object types has many methods particular to</span> <span md-src-pos="6815..6881">themselves and the may treat the same operator symbol differently.</span> <span md-src-pos="6882..6905">For exmple the operator</span> <span md-src-pos="6906..6909">‘+’</span> <span md-src-pos="6910..6954">behaves differently for numbers and strings.</span></p>
+   <p md-src-pos="6956..7041"><span md-src-pos="6956..7041">You can create your own types of objects by defining a Class for each different type.</span></p>
+   <p md-src-pos="7043..7186"><span md-src-pos="7043..7137">Starting with a simple example lets define a Class called Door that manufactures door objects.</span> <span md-src-pos="7138..7186">Every door can be a different height and colour.</span></p>
+   <pre class="code-fence" md-src-pos="7188..8234">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBEZWZpbmUgYSBjbGFzcyB0aGF0IHJldHVybnMgZG9vciBvYmplY3RzCmNsYXNzIERvb3IxKCk6CiAgICBkZWYgX19pbml0X18oc2VsZiwgY29sb3I9J2JlaWdlJywgaGVpZ2h0PTIwMDAuMCk6CiAgICAgICAgc2VsZi5fX2NvbG9yID0gY29sb3IKICAgICAgICBzZWxmLl9faGVpZ2h0ID0gaGVpZ2h0CgogICAgZGVmIHNldF9jb2xvcihzZWxmLCBjb2xvcik6CiAgICAgICAgc2VsZi5fX2NvbG9yID0gY29sb3IKCiAgICBkZWYgc2V0X2hlaWdodChzZWxmLCBoZWlnaHQpOgogICAgICAgIHNlbGYuX19oZWlnaHQgPSBoZWlnaHQKCiAgICBkZWYgX19zdHJfXyhzZWxmKToKICAgICAgICAjIHRoaXMgaXMgYSBzcGVjaWFsIGR1bmRlciBmdW5jdGlvbgogICAgICAgICMgZ2l2ZW4gYSBkb29yIG9iamVjdCBpdCByZXR1cm5zIGEgc3RyaW5nCiAgICAgICAgcmV0dXJuIGYnVGhpcyBkb29yIGlzIGNvbG9yZWR7c2VsZi5fX2NvbG9yfSBkb29yIGFuZCBpcyB7c2VsZi5fX2hlaWdodH0gaGlnaCcKCgojIGFuZCBjcmVhdGUgYSBmZXcgZG9vcnMKZG9vcl8xID0gRG9vcjEoJ3JlZCcsIDIpCmRvb3JfMiA9IERvb3IxKCdibHVlJywgMi4yKQpwcmludChkb29yXzEsICdcbicsIGRvb3JfMikKIyBtYWtlIHRoZSByZWQgZG9vciBwb2xrYWRvdApkb29yXzEuc2V0X2NvbG9yKCdwb2xrYWRvdCcpCiMgYW5kIGNoZWNrIGl0IGhhcyBjaGFuZ2VkCnByaW50KGRvb3JfMSwgJ1xuJywgZG9vcl8yKQoKCiMgRG9vciBhdHRyaWJ1dGVzIGFuZCBtZXRob2RzIGJlZ2lubmluZyB3aXRoIGRvdWJsZSB1bmRlcnNjb3JlcyBhcmUgUFJJVkFURQojIHRoZXkgZXhpc3Qgb25seSB3aXRoIHRoZSBvYmplY3QgYW5kIGNhbm5vdCBiZSBhY2Nlc3NlZCBmcm9tIG91dHNpZGUgdGhlIG9iamVjdC4KIyBUaGVyZSBpcyBhIHdheSBhcm91bmQgdGhpcyByZXN0cmljdGlvbiwgYnV0IGl0IGlzIFZFUlkgQkFEIFBSQUNUSUNFIHRvIGRvIHNvIQoKIyBwcmludChkb29yXzEuX19oZWlnaHQpICAjIHRoaXMgY29kZSB3aWxsIHRocm93IGFuIGV4Y2VwdGlvbiEhIQ==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="7188..8234"><span md-src-pos="7187..7197"></span><span md-src-pos="7197..7198"></span>
+<span md-src-pos="7198..7241"><span style="color: rgb(140, 140, 140);"># Define a class that returns door objects</span></span>
+<span md-src-pos="7241..7256"><span style="color: rgb(0, 51, 179);">class</span> Door1():</span>
+<span md-src-pos="7256..7310">    <span style="color: rgb(0, 51, 179);">def</span> __init__(self, color=<span style="color: rgb(6, 125, 23);">'beige'</span>, height=<span style="color: rgb(23, 80, 235);">2000.0</span>):</span>
+<span md-src-pos="7310..7339">        self.__color = color</span>
+<span md-src-pos="7339..7370">        self.__height = height</span>
+<span md-src-pos="7370..7371"></span>
+<span md-src-pos="7371..7403">    <span style="color: rgb(0, 51, 179);">def</span> set_color(self, color):</span>
+<span md-src-pos="7403..7432">        self.__color = color</span>
+<span md-src-pos="7432..7433"></span>
+<span md-src-pos="7433..7467">    <span style="color: rgb(0, 51, 179);">def</span> set_height(self, height):</span>
+<span md-src-pos="7467..7498">        self.__height = height</span>
+<span md-src-pos="7498..7499"></span>
+<span md-src-pos="7499..7522">    <span style="color: rgb(0, 51, 179);">def</span> __str__(self):</span>
+<span md-src-pos="7522..7566">        <span style="color: rgb(140, 140, 140);"># this is a special dunder function</span></span>
+<span md-src-pos="7566..7616">        <span style="color: rgb(140, 140, 140);"># given a door object it returns a string</span></span>
+<span md-src-pos="7616..7702">        <span style="color: rgb(0, 51, 179);">return</span> <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">This door is colored</span><span style="color: rgb(0, 55, 166);">{</span>self.__color<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> door and is </span><span style="color: rgb(0, 55, 166);">{</span>self.__height<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> high</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="7702..7703"></span>
+<span md-src-pos="7703..7704"></span>
+<span md-src-pos="7704..7729"><span style="color: rgb(140, 140, 140);"># and create a few doors</span></span>
+<span md-src-pos="7729..7754">door_1 = Door1(<span style="color: rgb(6, 125, 23);">'red'</span>, <span style="color: rgb(23, 80, 235);">2</span>)</span>
+<span md-src-pos="7754..7782">door_2 = Door1(<span style="color: rgb(6, 125, 23);">'blue'</span>, <span style="color: rgb(23, 80, 235);">2.2</span>)</span>
+<span md-src-pos="7782..7810">print(door_1, <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, door_2)</span>
+<span md-src-pos="7810..7839"><span style="color: rgb(140, 140, 140);"># make the red door polkadot</span></span>
+<span md-src-pos="7839..7868">door_1.set_color(<span style="color: rgb(6, 125, 23);">'polkadot'</span>)</span>
+<span md-src-pos="7868..7895"><span style="color: rgb(140, 140, 140);"># and check it has changed</span></span>
+<span md-src-pos="7895..7923">print(door_1, <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, door_2)</span>
+<span md-src-pos="7923..7924"></span>
+<span md-src-pos="7924..7925"></span>
+<span md-src-pos="7925..8001"><span style="color: rgb(140, 140, 140);"># Door attributes and methods beginning with double underscores are PRIVATE</span></span>
+<span md-src-pos="8001..8083"><span style="color: rgb(140, 140, 140);"># they exist only with the object and cannot be accessed from outside the object.</span></span>
+<span md-src-pos="8083..8163"><span style="color: rgb(140, 140, 140);"># There is a way around this restriction, but it is VERY BAD PRACTICE to do so!</span></span>
+<span md-src-pos="8163..8164"></span>
+<span md-src-pos="8164..8229"><span style="color: rgb(140, 140, 140);"># print(door_1.__height)  # this code will throw an exception!!!</span></span>
+<span md-src-pos="8229..8230"></span>
+<span md-src-pos="8230..8231"></span><span md-src-pos="8230..8233"></span></code></pre>
+   <p md-src-pos="8236..8458"><span md-src-pos="8236..8327">We can improve the class Door so that doors have a width and thickness as well as a height.</span> <span md-src-pos="8328..8416">We might also decide that they have an inside face as well as an outside face which can,</span> <span md-src-pos="8417..8428">if we want,</span> <span md-src-pos="8429..8457">be painted different colours</span>:</p>
+   <pre class="code-fence" md-src-pos="8460..10420">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="IyBEZWZpbmUgYSBjbGFzcyB0aGF0IHJldHVybnMgZG9vciBvYmplY3RzIHdpdGggdHdvIGZhY2VzIGFuZCBlZGdlcwpjbGFzcyBEb29yMigpOgogICAgIyBpbnN0YW50aWF0ZSBhIGRvb3Igb2JqZWN0CiAgICBkZWYgX19pbml0X18oc2VsZiwgY29sb3I9J2JlaWdlJywgaGVpZ2h0PTIwMDAsIHdpZHRoPTkwMCwgdGhpY2tuZXNzPTM1KToKICAgICAgICBzZWxmLl9faW5zaWRlX2NvbG9yID0gY29sb3IKICAgICAgICBzZWxmLl9fb3V0c2lkZV9jb2xvciA9IGNvbG9yCiAgICAgICAgc2VsZi5fX2hlaWdodCA9IGhlaWdodAogICAgICAgIHNlbGYuX193aWR0aCA9IHdpZHRoCiAgICAgICAgc2VsZi5fX3RoaWNrbmVzcyA9IHRoaWNrbmVzcwoKICAgICMgc2V0IGF0dHJpYnV0ZSB2YWx1ZXMKICAgIGRlZiBzZXRfY29sb3Ioc2VsZiwgY29sb3IpOgogICAgICAgIHNlbGYuX19pbnNpZGVfY29sb3IgPSBjb2xvcgogICAgICAgIHNlbGYuX19pbnNpZGVfY29sb3IgPSBjb2xvcgoKICAgIGRlZiBzZXRfaW5zaWRlX2NvbG9yKHNlbGYsIGNvbG9yKToKICAgICAgICBzZWxmLl9faW5zaWRlX2NvbG9yID0gY29sb3IKCiAgICBkZWYgc2V0X291dHNpZGVfY29sb3Ioc2VsZiwgY29sb3IpOgogICAgICAgIHNlbGYuX19vdXRzaWRlX2NvbG9yID0gY29sb3IKCiAgICBkZWYgc2V0X2hlaWdodChzZWxmLCBoZWlnaHQpOgogICAgICAgIHNlbGYuX19oZWlnaHQgPSBoZWlnaHQKCiAgICBkZWYgc2V0X3dpZHRoKHNlbGYsIGhlaWdodCk6CiAgICAgICAgc2VsZi5fX2hlaWdodCA9IGhlaWdodAoKICAgIGRlZiBzZXRfdGhpY2tuZXNzKHNlbGYsIGhlaWdodCk6CiAgICAgICAgc2VsZi5fX2hlaWdodCA9IGhlaWdodAoKICAgICMgZ2V0IGF0dHJpYnV0ZSB2YWx1ZXMKICAgIGRlZiBnZXRfY29sb3Ioc2VsZik6CiAgICAgICAgcmV0dXJuIHNlbGYuX19pbnNpZGVfY29sb3IsIHNlbGYuX19vdXRzaWRlX2NvbG9yCgogICAgZGVmIGdldF9pbnNpZGVfY29sb3Ioc2VsZik6CiAgICAgICAgcmV0dXJuIHNlbGYuX19pbnNpZGVfY29sb3IKCiAgICBkZWYgZ2V0X291dHNpZGVfY29sb3Ioc2VsZik6CiAgICAgICAgcmV0dXJuIHNlbGYuX19vdXRzaWRlX2NvbG9yCgogICAgZGVmIGdldF9oZWlnaHQoc2VsZik6CiAgICAgICAgcmV0dXJuIHNlbGYuX19oZWlnaHQKCiAgICBkZWYgZ2V0X3dpZHRoKHNlbGYpOgogICAgICAgIHJldHVybiBzZWxmLl9fd2lkdGgKCiAgICBAcHJvcGVydHkgICMgY29udmVydCBtZXRob2QgdG8gYSBwcm9wZXJ0eQogICAgZGVmIGdldF90aGlja25lc3Moc2VsZik6CiAgICAgICAgcmV0dXJuIHNlbGYuX190aGlja25lc3MKCiAgICBkZWYgZ2V0X2FyZWEoc2VsZik6CiAgICAgICAgZmFjZV9hcmVhID0gc2VsZi5fX2hlaWdodCAqIHNlbGYuX193aWR0aCAqIDIKICAgICAgICBlZGdlX2FyZWEgPSAoc2VsZi5fX2hlaWdodCArIHNlbGYuX193aWR0aCkgKiAyICogc2VsZi5fX3RoaWNrbmVzcwogICAgICAgIHJldHVybiBmYWNlX2FyZWEgKyBlZGdlX2FyZWEKCiAgICBkZWYgX19zdHJfXyhzZWxmKToKICAgICAgICByZXR1cm4gZidUaGlzIGRvb3IgaXMgY29sb3JlZCB7c2VsZi5nZXRfaW5zaWRlX2NvbG9yKCl9IGluc2lkZSBhbmQge3NlbGYuX19vdXRzaWRlX2NvbG9yfSBvdXRzaWRlIGFuZCBhbmQgaGFzIGEgc3VyZmFjZSBhcmUgb2Yge3NlbGYuZ2V0X2FyZWEoKX0gc3F1YXJlIG1pbGxpbWV0ZXJzJwoKCiMgYW5kIGNyZWF0ZSBhIGZldyBkb29ycwpyZWRfZG9vciA9IERvb3IyKCdyZWQnLCAyKQpibHVlX2Rvb3IgPSBEb29yMignYmx1ZScsIDIuMikKcHJpbnQocmVkX2Rvb3IsICdcbicsIGJsdWVfZG9vcikKIyBtYWtlIHRoZSByZWQgZG9vciBzY2FybGV0CnJlZF9kb29yLnNldF9vdXRzaWRlX2NvbG9yKCdwb2xrYWRvdCcpCiMgYW5kIGNoZWNrIGl0IGhhcyBjaGFuZ2VkCnByaW50KHJlZF9kb29yLCAnXG4nLCBibHVlX2Rvb3Ip">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="8460..10420"><span md-src-pos="8459..8469"></span><span md-src-pos="8469..8470"></span>
+<span md-src-pos="8470..8538"><span style="color: rgb(140, 140, 140);"># Define a class that returns door objects with two faces and edges</span></span>
+<span md-src-pos="8538..8553"><span style="color: rgb(0, 51, 179);">class</span> Door2():</span>
+<span md-src-pos="8553..8585">    <span style="color: rgb(140, 140, 140);"># instantiate a door object</span></span>
+<span md-src-pos="8585..8662">    <span style="color: rgb(0, 51, 179);">def</span> __init__(self, color=<span style="color: rgb(6, 125, 23);">'beige'</span>, height=<span style="color: rgb(23, 80, 235);">2000</span>, width=<span style="color: rgb(23, 80, 235);">900</span>, thickness=<span style="color: rgb(23, 80, 235);">35</span>):</span>
+<span md-src-pos="8662..8698">        self.__inside_color = color</span>
+<span md-src-pos="8698..8735">        self.__outside_color = color</span>
+<span md-src-pos="8735..8766">        self.__height = height</span>
+<span md-src-pos="8766..8795">        self.__width = width</span>
+<span md-src-pos="8795..8832">        self.__thickness = thickness</span>
+<span md-src-pos="8832..8833"></span>
+<span md-src-pos="8833..8860">    <span style="color: rgb(140, 140, 140);"># set attribute values</span></span>
+<span md-src-pos="8860..8892">    <span style="color: rgb(0, 51, 179);">def</span> set_color(self, color):</span>
+<span md-src-pos="8892..8928">        self.__inside_color = color</span>
+<span md-src-pos="8928..8964">        self.__inside_color = color</span>
+<span md-src-pos="8964..8965"></span>
+<span md-src-pos="8965..9004">    <span style="color: rgb(0, 51, 179);">def</span> set_inside_color(self, color):</span>
+<span md-src-pos="9004..9040">        self.__inside_color = color</span>
+<span md-src-pos="9040..9041"></span>
+<span md-src-pos="9041..9081">    <span style="color: rgb(0, 51, 179);">def</span> set_outside_color(self, color):</span>
+<span md-src-pos="9081..9118">        self.__outside_color = color</span>
+<span md-src-pos="9118..9119"></span>
+<span md-src-pos="9119..9153">    <span style="color: rgb(0, 51, 179);">def</span> set_height(self, height):</span>
+<span md-src-pos="9153..9184">        self.__height = height</span>
+<span md-src-pos="9184..9185"></span>
+<span md-src-pos="9185..9218">    <span style="color: rgb(0, 51, 179);">def</span> set_width(self, height):</span>
+<span md-src-pos="9218..9249">        self.__height = height</span>
+<span md-src-pos="9249..9250"></span>
+<span md-src-pos="9250..9287">    <span style="color: rgb(0, 51, 179);">def</span> set_thickness(self, height):</span>
+<span md-src-pos="9287..9318">        self.__height = height</span>
+<span md-src-pos="9318..9319"></span>
+<span md-src-pos="9319..9346">    <span style="color: rgb(140, 140, 140);"># get attribute values</span></span>
+<span md-src-pos="9346..9371">    <span style="color: rgb(0, 51, 179);">def</span> get_color(self):</span>
+<span md-src-pos="9371..9428">        <span style="color: rgb(0, 51, 179);">return</span> self.__inside_color, self.__outside_color</span>
+<span md-src-pos="9428..9429"></span>
+<span md-src-pos="9429..9461">    <span style="color: rgb(0, 51, 179);">def</span> get_inside_color(self):</span>
+<span md-src-pos="9461..9496">        <span style="color: rgb(0, 51, 179);">return</span> self.__inside_color</span>
+<span md-src-pos="9496..9497"></span>
+<span md-src-pos="9497..9530">    <span style="color: rgb(0, 51, 179);">def</span> get_outside_color(self):</span>
+<span md-src-pos="9530..9566">        <span style="color: rgb(0, 51, 179);">return</span> self.__outside_color</span>
+<span md-src-pos="9566..9567"></span>
+<span md-src-pos="9567..9593">    <span style="color: rgb(0, 51, 179);">def</span> get_height(self):</span>
+<span md-src-pos="9593..9622">        <span style="color: rgb(0, 51, 179);">return</span> self.__height</span>
+<span md-src-pos="9622..9623"></span>
+<span md-src-pos="9623..9648">    <span style="color: rgb(0, 51, 179);">def</span> get_width(self):</span>
+<span md-src-pos="9648..9676">        <span style="color: rgb(0, 51, 179);">return</span> self.__width</span>
+<span md-src-pos="9676..9677"></span>
+<span md-src-pos="9677..9723">    @property  <span style="color: rgb(140, 140, 140);"># convert method to a property</span></span>
+<span md-src-pos="9723..9752">    <span style="color: rgb(0, 51, 179);">def</span> get_thickness(self):</span>
+<span md-src-pos="9752..9784">        <span style="color: rgb(0, 51, 179);">return</span> self.__thickness</span>
+<span md-src-pos="9784..9785"></span>
+<span md-src-pos="9785..9809">    <span style="color: rgb(0, 51, 179);">def</span> get_area(self):</span>
+<span md-src-pos="9809..9862">        face_area = self.__height * self.__width * <span style="color: rgb(23, 80, 235);">2</span></span>
+<span md-src-pos="9862..9936">        edge_area = (self.__height + self.__width) * <span style="color: rgb(23, 80, 235);">2</span> * self.__thickness</span>
+<span md-src-pos="9936..9973">        <span style="color: rgb(0, 51, 179);">return</span> face_area + edge_area</span>
+<span md-src-pos="9973..9974"></span>
+<span md-src-pos="9974..9997">    <span style="color: rgb(0, 51, 179);">def</span> __str__(self):</span>
+<span md-src-pos="9997..10170">        <span style="color: rgb(0, 51, 179);">return</span> <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">This door is colored </span><span style="color: rgb(0, 55, 166);">{</span>self.get_inside_color()<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> inside and </span><span style="color: rgb(0, 55, 166);">{</span>self.__outside_color<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> outside and and has a surface are of </span><span style="color: rgb(0, 55, 166);">{</span>self.get_area()<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);"> square millimeters</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="10170..10171"></span>
+<span md-src-pos="10171..10172"></span>
+<span md-src-pos="10172..10197"><span style="color: rgb(140, 140, 140);"># and create a few doors</span></span>
+<span md-src-pos="10197..10224">red_door = Door2(<span style="color: rgb(6, 125, 23);">'red'</span>, <span style="color: rgb(23, 80, 235);">2</span>)</span>
+<span md-src-pos="10224..10255">blue_door = Door2(<span style="color: rgb(6, 125, 23);">'blue'</span>, <span style="color: rgb(23, 80, 235);">2.2</span>)</span>
+<span md-src-pos="10255..10288">print(red_door, <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, blue_door)</span>
+<span md-src-pos="10288..10316"><span style="color: rgb(140, 140, 140);"># make the red door scarlet</span></span>
+<span md-src-pos="10316..10355">red_door.set_outside_color(<span style="color: rgb(6, 125, 23);">'polkadot'</span>)</span>
+<span md-src-pos="10355..10382"><span style="color: rgb(140, 140, 140);"># and check it has changed</span></span>
+<span md-src-pos="10382..10415">print(red_door, <span style="color: rgb(6, 125, 23);">'</span><span style="color: rgb(0, 55, 166);">\n</span><span style="color: rgb(6, 125, 23);">'</span>, blue_door)</span>
+<span md-src-pos="10415..10416"></span>
+<span md-src-pos="10416..10417"></span><span md-src-pos="10416..10419"></span></code></pre>
+   <h2 id="scripts-modules-and-packages" md-src-pos="10422..10454">Scripts, Modules and Packages</h2>
+   <p md-src-pos="10455..10500"><span md-src-pos="10455..10487">Save this code in a script named</span> '<span md-src-pos="10489..10499">module1.py</span>'</p>
+   <pre class="code-fence" md-src-pos="10501..10628">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIGYxKGFfc3RyID0gJycpOgogICAgcmV0dXJuIGYnVGhpcyBpcyBmdW5jdGlvbiBmMSBpbiBtb2R1bGUxIGJlaW5nIGNhbGxlZCB3aXRoIGl0cyBwYXJhbWV0ZXIgdmFsdWUgPSB7YV9zdHJ9Jw==">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="10501..10628"><span md-src-pos="10454..10464"></span><span md-src-pos="10464..10465"></span>
+<span md-src-pos="10465..10485"><span style="color: rgb(0, 51, 179);">def</span> f1(a_str = <span style="color: rgb(6, 125, 23);">''</span>):</span>
+<span md-src-pos="10485..10578">    <span style="color: rgb(0, 51, 179);">return</span> <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">This is function f1 in module1 being called with its parameter value = </span><span style="color: rgb(0, 55, 166);">{</span>a_str<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="10578..10579"></span><span md-src-pos="10578..10581"></span></code></pre>
+   <p md-src-pos="10630..10679"><span md-src-pos="10630..10666">and save this code in a script named</span> '<span md-src-pos="10668..10678">module2.py</span>'</p>
+   <pre class="code-fence" md-src-pos="10681..10929">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="aW1wb3J0IG1vZHVsZTEKZGVmIGYyKGFfc3RyID0gJ3NwYW0nKToKICAgIHJldHVybiBmJ1RoaXMgaXMgZnVuY3Rpb24gZjIgaW4gbW9kdWxlMiB3aXRoIGEgcGFyYW1ldGVyIHZhbHVlIG9mICJ7YV9zdHJ9IiBjYWxsaW5nIGZ1bmN0aW9uIGYxKCkgaW4gbW9kdWxlMSB3aXRoIGEgcGFyYW1ldGVyIHZhbHVlIG9mICJ7YV9zdHJ9Ii4gVGhlIHJlc3VsdCByZXR1cm5lZCBpczoge21vZHVsZTEuZjEoYV9zdHIpfSc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="10681..10929"><span md-src-pos="10634..10644"></span><span md-src-pos="10644..10645"></span>
+<span md-src-pos="10645..10660"><span style="color: rgb(0, 51, 179);">import</span> module1</span>
+<span md-src-pos="10660..10684"><span style="color: rgb(0, 51, 179);">def</span> f2(a_str = <span style="color: rgb(6, 125, 23);">'spam'</span>):</span>
+<span md-src-pos="10684..10879">    <span style="color: rgb(0, 51, 179);">return</span> <span style="color: rgb(6, 125, 23);">f'</span><span style="color: rgb(6, 125, 23);">This is function f2 in module2 with a parameter value of </span><span style="color: rgb(6, 125, 23);">"</span><span style="color: rgb(0, 55, 166);">{</span>a_str<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);">"</span><span style="color: rgb(6, 125, 23);"> calling function f1() in module1 with a parameter value of </span><span style="color: rgb(6, 125, 23);">"</span><span style="color: rgb(0, 55, 166);">{</span>a_str<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);">"</span><span style="color: rgb(6, 125, 23);">. The result returned is: </span><span style="color: rgb(0, 55, 166);">{</span>module1.f1(a_str)<span style="color: rgb(0, 55, 166);">}</span><span style="color: rgb(6, 125, 23);">'</span></span>
+<span md-src-pos="10879..10880"></span><span md-src-pos="10879..10882"></span></code></pre>
+   <h2 id="testing--debugging" md-src-pos="10934..10956">Testing &amp; Debugging</h2>
+   <pre class="code-fence" md-src-pos="10958..11096">
+    <div class="code-fence-highlighter-copy-button" data-fence-content="ZGVmIHNldmVuKGFueXRoaW5nKToKICAgIHJldHVybiA3CgoKYXNzZXJ0IHNldmVuKDcpID09IDcKYXNzZXJ0IHNldmVuKDE3KSA9PSA3CmFzc2VydCBzZXZlbig3MTcpID09IDgKYXNzZXJ0IHNldmVuKDEpID09IDc=">
+  <img class="code-fence-highlighter-copy-button-icon">
+
+    </div><code class="language-python" md-src-pos="10958..11096"><span md-src-pos="10911..10921"></span><span md-src-pos="10921..10922"></span>
+<span md-src-pos="10922..10943"><span style="color: rgb(0, 51, 179);">def</span> seven(anything):</span>
+<span md-src-pos="10943..10956">    <span style="color: rgb(0, 51, 179);">return</span> <span style="color: rgb(23, 80, 235);">7</span></span>
+<span md-src-pos="10956..10957"></span>
+<span md-src-pos="10957..10958"></span>
+<span md-src-pos="10958..10979"><span style="color: rgb(0, 51, 179);">assert</span> seven(<span style="color: rgb(23, 80, 235);">7</span>) == <span style="color: rgb(23, 80, 235);">7</span></span>
+<span md-src-pos="10979..11001"><span style="color: rgb(0, 51, 179);">assert</span> seven(<span style="color: rgb(23, 80, 235);">17</span>) == <span style="color: rgb(23, 80, 235);">7</span></span>
+<span md-src-pos="11001..11024"><span style="color: rgb(0, 51, 179);">assert</span> seven(<span style="color: rgb(23, 80, 235);">717</span>) == <span style="color: rgb(23, 80, 235);">8</span></span>
+<span md-src-pos="11024..11045"><span style="color: rgb(0, 51, 179);">assert</span> seven(<span style="color: rgb(23, 80, 235);">1</span>) == <span style="color: rgb(23, 80, 235);">7</span></span>
+<span md-src-pos="11045..11046"></span>
+<span md-src-pos="11046..11047"></span><span md-src-pos="11046..11049"></span></code></pre>
+   <h2 id="pypi-pip-and-virtual-environments" md-src-pos="11100..11137">PyPi, PIP and Virtual Environments</h2>
+   <p md-src-pos="11138..11274"><span md-src-pos="11138..11273">Virtual environments enable you to have lots of different python installations on your PC that are completely isolated from each other.</span></p>
+   <h3 id="creating-an-anaconda--virtual--environment" md-src-pos="11275..11321">Creating an Anaconda (virtual) Environment</h3>
+   <ol md-src-pos="11322..12001">
+    <li md-src-pos="11322..11349">Open Anaconda on your PC</li>
+    <li md-src-pos="11350..11420">Click on the 'Environments' tab on the left-hand side of the screen</li>
+    <li md-src-pos="11421..11478">Click on the 'create' icon at the bottom of the screen</li>
+    <li md-src-pos="11479..11614">Name your environment (with a python-friendly name of course), make sure the 'Python' box is selected, and click the 'create' button</li>
+    <li md-src-pos="11615..11715">Once it is created the packages installed in it are listed on the right-hand-side of the screen.</li>
+    <li md-src-pos="11716..11839">Using the search facility find and istall the package 'Flask' which is "A simple framework for complex web application "</li>
+    <li md-src-pos="11840..12001">With your current knowledge of Python plus a modicum of HTMl you can create yourself a great looking website to demonstrate your expertise as a web developer.</li>
+   </ol>
+   <h2 id="sql" md-src-pos="12005..12011">SQL</h2>
+   <p md-src-pos="12013..12142"><span md-src-pos="12013..12032">Try the examples at</span> <a href="https://sqlzoo.net/wiki/SQL_Tutorial" md-src-pos="12033..12083">sqlzoo.net</a> <span md-src-pos="12084..12087">and</span> <a href="https://www.w3schools.com/sql/default.asp" md-src-pos="12088..12142">W3schools</a></p>
+   <h2 id="version-control" md-src-pos="12144..12162">Version Control</h2>
+   <p md-src-pos="12164..12215"><span md-src-pos="12164..12198">Git and GitHub are my preferences,</span> <span md-src-pos="12199..12215">there are others</span></p>
+   <h2 id="try-compute-it--by-toxicode---one-of-my-favourites" md-src-pos="12218..12271">Try Compute-it! by toxicode - one of my favourites</h2>
+   <p md-src-pos="12272..12347"><a href="https://compute-it.toxicode.fr/" md-src-pos="12272..12330">compute-it.toxicode.fr/</a> <span md-src-pos="12331..12343">kids love it</span> :<span md-src-pos="12345..12346">-</span>)</p>
+  </div>
+ </body>
+</html>
