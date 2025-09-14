@@ -4,26 +4,31 @@
 
 ## Week 1: Getting Started
 
-What this module is about:
+This week you will start learning the programming language Python,
+AND
+you should start thinking about what your programming project will be.
 
-* What you will learn
-* What you need to do to succeed
-* What you will be able to do if you do all
-  the tasks that you need to do to succeed
+Your programming project can be about anything you want,
+which is both exciting and probably more than a little daunting.
+Nevertheless, by the end of week six,
+you will need to have written a detailed project proposal
+which you will deliver during weeks seven to twelve
 
-Tasks for this week:
+It may seem too early to think about this now, but it is important to start now
+so that you can refine your ideas for your project as we learn Python.
+
+### Tasks for this week:
 
 * Install Python on your computer
 * Create an account at Anaconda.com
-* Write a Python program (using IDLE)
+* Create an account at JetBrains.com
+* Create an account at GitHub.com
+* Write a Python program
 * Save your program to a file
 
-Dealing with:
+### Learning about Python:
 
 * Syntax errors and debugging
-
-Learning about Python:
-
 * Values
 * Variables
 * Functions
@@ -35,133 +40,152 @@ Learning about Python:
 * Operators
     * +, -, *, /, //, %
     * <, <=, ==, !=, >=, >
-    * and, or, not
-      * [ ], is, in
 
 ## Week 2: Functions
 
-What a function is
-Built-in functions
-Defining a function
+A function is a named block of code that performs a specific task.
 
 * Name
 * Parameters
 * {'hidden' internal code}
 * Return value
-* Saving and reusing functions
-    * import
-    * from
-    * as
-* Good programming style
-    * Testing – part I
-    * Informal testing
-    * The assert statement
-    * The unittest library
-    * The pytest library
 
-### Programming Practice #1
+A function is a **REUSABLE** block of code that performs a specific task.
+
+* Saving and reusing your own functions
+* Reusing functions from the Python standard library
+* Reusing functions from the python package index (pypi.org)
+
+Testing that your functions do what you say they do!
+
+* Informal testing
+* The assert statement
+* The unittest library
+* The pytest library
 
 ## Week 3: Conditional execution
 
-* Boolean logic
-    * The values True and False
-    * The operators and, or, and not
-    * Truth tables
+### Boolean logic
 
-* The conditional keywords
-    * if
-    * else
-    * elif
+* The values `True` and `False`
+* The operators `and`, `or`, and `not`
+* Truth tables
+
+### The conditional keywords
+
+* `if`
+* `else`
+* `elif`
 
 Testing & TDD (test driven development)
 
-### Programming Practice #2
-
 ## Week 4: Collections, Iteration, & Recursion
 
-* Collections
-* String, List, Tuple, Set, Frozenset, Dictionary, Queue, Deque, Stack, Tree, Graph, …
+### Collection Types
 
+* String
+* List
+* Tuple
+* Set
+* Frozenset
+* Dictionary
+* and more …
 
-* Ordered and unordered collections
-* Mutable & Immutable collections
+Collections can be
 
+* Ordered or Unordered
+* Mutable or Immutable
 
-* Iterating through collections
-    * for
-    * while
-    * break
-    * continue
+### Iteration
 
+Working through every item in a collection one item at a time.
 
-* Analysis of collections
-* Count, item lengths, adjacency
-* Mean, mode median, variation
+Python has three keywords for this:
 
+* `for`
+* `while`
+* `break`
+* `continue`
 
-* Recursion and functional programming
+### Analysis of collections
+
+Count, mean, mode, median, skew, and many statistical measures
+
+### Recursion
+
+Functions that call themselves.
+
 * Unfold, Fold, Map
 * Ana- and Cata- morphisms
 
-### Programming Practice #3
-
 ## Week 5: Files
 
-* A file is a stream of data
-* Create, read, update, delete (CRUD)
+Files are 'persistent'. That is, they continue to exist even after the computer storage
+device has been shut off and restarted sometime later.
 
-* Binary or text (but we will only use text files)
-* Characters, fields, records
+In general, a file is an ordered collection of binary bits,
+but as we will only be dealing with text files,
+we can consider them to be ordered collections of characters.
 
+Files can be:
 
-* File encodings
-    * ASCII
-    * Unicode
+* Created
+* Read
+* Updated
+* Deleted
 
-The Python Keyword: with
-Always prefer this statement for reading and writing files
+CRUD for short.
 
-Built-in functions:
-open()
-close()
-know about these, but for now, Do_Not_Use them
+The two built-in functions for files are:
 
-### Programming Practice #4
+* open()
+* close()
+
+For safety, it is good practice to use these only within the `with` statement.
 
 ## Week 6: Introducing your project
 
-* IDEs
-* Jupyter notebooks
-* Pandas, Numpy, MatPlotLib, Seaborn
+Be prepared to present your project proposal to the class.
 
+It does not have to be the final polished version,
+but it should be a good starting point, and it will be good for you to get feedback.
+
+This week we will also review some of the tools you will (probably) need to write your project.
+
+### Machine Learning
+ TODO
+
+### Natural Networks
+ TODO
+
+### IDEs
+
+* PyCharm (JetBrains)
+* Spyder
+* IDLE
+* Visual Studio Code
+
+### Jupyter notebooks
 
 * Mix code, text and graphics
 * Editable
 * Executable
-* Dynamic
-* A handy project diary
 * A readable document that makes your work look good
-* Machine learning
-* Regression analysis
-* Cluster analysis
 
-IDEs
-Spyder
-PyCharm
-Pandas
-A ‘data analysis and manipulation tool, built on Python’
-Numpy
-‘The fundamental package for scientific computing with Python’
-MatPlotLib
-A plotting library for Python and its numerical extension NumPy
-Seaborn
-A high-level interface for drawing attractive and informative statistical graphics
+### Python Libraries
 
-### Assignment – Your project proposal
+* Pandas
+  A ‘data analysis and manipulation tool, built on Python’
+* Numpy
+  ‘The fundamental package for scientific computing with Python’
+* MatPlotLib
+  A plotting library for Python and its numerical extension NumPy
+* Seaborn
+  A high-level interface for drawing attractive and informative statistical graphics
 
-## Week 7: Designing your project
+## Week 7: Reading Week: Designing your project
 
-Sources of real data:
+Getting your data:
 
 * gutenberg.org
 * corpusdata.org
@@ -169,35 +193,41 @@ Sources of real data:
 * Beautiful Soup library
 * kaggle.com
 
-Data cleansing
+### Using AI
+Two things that AI can be very helpful with:
+* Refining your project ideas
+* Helping you write your code
 
-Designing and creating your test data www.mockaroo.com
+Every software developer uses AI when working on a programming project, and so should you.
 
-## Week 8: The Application Development Lifecycle
+## Week 8: Agile Software Development
 
-Iterative development
-Requirements
-Analysis
-Design
-Build
-Test
-Evaluate
-Project Workshop – your project
-Planning your project
-Requirements, analysis, design
-Designing your tests
+The Agile Manifesto was written in 2001 by seventeen 
+independent-minded software practitioners. 
+While the participants didn’t often agree, 
+they did find consensus around four core values.
 
-Fail fast, learn fast, succeed early
-Short iterations
-Clear objectives and deliverables
-Categorise as: Must, Should, Maybe
-Test early and often
-Expose to critical review
-Recast, and reiterate
-Test Driven Development
-Requirements, analysis, design,
-Build test framework first
-Build application second
+
+### The Agile Manifesto
+
+https://agilemanifesto.org/ and https://agilealliance.org/
+
+"We are uncovering better ways of developing software by doing it 
+and helping others do it. Through this work we have come to value:
+
+
+
+* **Individuals and interactions** over processes and tools
+* **Working software** over comprehensive documentation
+* **Customer collaboration** over contract negotiation
+
+* **Responding to change** over following a plan
+
+That is, while there is value in the items on the right,
+we value the items on the left more."
+
+
+TODO = everything after this point...
 
 ## Week 9: Data, Databases, SQL
 
@@ -229,7 +259,7 @@ Wrap-up = 1 minute
 Tear-down = 1 minute
 Fail fast, learn fast, succeed early
 Short iterations
-Clear objectives and deliverables
+Clear goals and deliverables
 Categorise as: Must, Should, Maybe
 Test early and often
 Expose to critical review
@@ -237,53 +267,54 @@ Recast, and reiterate
 
 ## Week 11: Regular Expressions
 
-What a regular expression is
+What is a regular expression?
+
 The RE library
+
 Meta-characters
-. ^ $ * + ? { } [ ] \ | ( )
-. Any character except a newline
-[ ]  Character class
-^ Compliment of class
-\ Backslash
+`. ^ $ * + ? { } [ ] \ | ( )`
 
-* Zero or more times
+`.` Any character except a newline\
+`[ ]`  Character class\
+`^` Compliment of class\
+`\` Backslash\
+`*` Zero or more times\
+`+` One or more times\
+`?` Once or zero times\
+`{m, n}` At least m times and at most n times\
+`|` Logical OR\
+`^` At the beginning of a line\
+`$`    At the end of a line\
+`()`    Grouping\
+`\A` At the start of a string\
+`\Z` At the end of a string\
+`\B` At a word boundary\
+`\b` Inside a word\
+`(?= …)` Positive lookahead assertion\
+`(?! …)` Negative lookahead assertion\
 
-+ One or more times
-  ? Once or zero times
-  {m, n} At least m times and at most n times
-  | Logical OR
-  ^ At the beginning of a line
-  $    At the end of a line
-  ()    Grouping
-  \A At the start of a string
-  \Z At the end of a string
-  \B At a word boundary
-  \b Inside a word
-  (?= …) Positive lookahead assertion
-  (?! …) Negative lookahead assertion
+## Week 12: IT topics it’s good to know about, especially for interviews and impressing potential employers
 
-## Week 12: IT topics it’s good to know about, especially for interviews
-
-GIT & GitHub
-Scikit-learn
-TensorFlow
-ST
-NLTK
-Java, JavaScript, C, C++, C#, verylonglist
-Compilers and interpreters
-Compiler compilers
-ANTLR, GNU Bison, JavaCC
-Defining and building languages
-Cloud technologies and services
-IaaS, PaaS, SaaS
-IoT – internet of things
-Big data, Hadoop
-Machine learning & artificial intelligence
-Training, production, drift
-Limitations
-Chatbots
-Sentiment analysis
-Security – cyber, physical, social
-people are always the weakest link
-Opportunities & Jobs
+* GIT & GitHub
+* Scikit-learn
+* TensorFlow
+* ST
+* NLTK
+* Java, JavaScript, C, C++, C#, verylonglist
+* Compilers and interpreters
+* Compiler compilers
+* ANTLR, GNU Bison, JavaCC
+* Defining and building languages
+* Cloud technologies and services
+* IaaS, PaaS, SaaS
+* IoT – internet of things
+* Big data, Hadoop
+* Machine learning and artificial intelligence
+* Training, production, drift
+* Limitations
+* Chatbots
+* Sentiment analysis
+* Security – cyber, physical, social
+* people are always the weakest link
+* Opportunities & Jobs
 
