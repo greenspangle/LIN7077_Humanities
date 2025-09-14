@@ -1,12 +1,9 @@
-# LIN6209 Assignment #1
+# LIN7077 Assignment #1
 
-Design, build and deliver functions that comply with the descriptions below.
+Design, build, and deliver functions that comply with the descriptions below.
 
 All the python required to build these functions is covered in lectures 1–2.
 (So no `if` statements are to be used)
-
-**Remember:** The code you submit for your assignment **MUST** execute.
-If your code does not execute on MY PC, then you will score ZERO marks.
 
 ## all_ops_part1(int1, int2):
 
@@ -15,7 +12,7 @@ The parameters `int1` and `int2` are guaranteed to be non-zero integers.
 This function returns the tuple `( int1 + int2, int1 - int2, int1 * int2,
 int1 / int2, int1 // int2, int1 % int2)`
 
-Example test: `assert all_ops_part1(5, 2) == (7, -3, 10, 2.5, 2, 1)`
+Example test: `assert all_ops_part1(5, 2) == (7, 3, 10, 2.5, 2, 1)`
 
 ## all_ops_part2(int1, int2)
 
@@ -26,10 +23,10 @@ Example test: `assert all_ops_part2(5, 2) == (False, False, False, True, True) `
 
 ## lucky_number(a_num)
 
-The parameter `a_num` is guaranteed to be a number.
+The parameter `a_num` is guaranteed to be a denary (base 10) number.
 
 A lucky number is any number that contains the digit `7` as one of its
-(base 10) digits.
+digits.
 
 If the parameter `a_num` is a lucky number then answer boolean `True`.
 If not, then answer boolean `False`.
@@ -44,12 +41,12 @@ If not, then answer boolean `False`.
 * Once you have converted the function argument into a string, the first hint
   tells you the code you need for the innards of your function
 
-For example: `lucky_number(3 + 4) # evaluates to True`
+For example: `lucky_number(374) # evaluates to True`
 
 ## hms_to_s(hours, minutes, seconds)
 
-The parameters `hours`, `minutes`, and `seconds` are each guaranteed to be an
-integer number greater than or equal to zero.
+The parameters `hours`, `minutes`, and `seconds` are each guaranteed to be
+integer numbers greater than or equal to zero.
 
 Return a duration of `hours`, `minutes`, and `seconds` as the same duration
 expressed as a total number of `seconds`.
@@ -92,6 +89,7 @@ Answer the sum as a time in hours, minutes, and seconds with minutes and seconds
 both in the range 0–59 inclusive.
 
 **Hints:** \
+
 * In the previous two tasks, you created the functions:
     * `hms_to_s(hours, minutes, seconds)  \
       which converts any duration in hours, minutes, and seconds to seconds
@@ -102,7 +100,7 @@ both in the range 0–59 inclusive.
       to convert both of the input times to seconds
     * add together both of the times as seconds
     * use `s_to_hms(seconds)` \
-      to convert the total seconds back to hours, minutes and seconds
+      to convert the total seconds back to hours, minutes, and seconds
 
 Example test: `assert add_hms(0, 0, 3600, 0, 0, 61) == (1, 1, 1)`
 
@@ -113,7 +111,7 @@ All parameters are guaranteed to be positive integers.
 Add two pre-decimalisation amounts of UK currency and return the result in
 standard form with shillings < 20 and pennies < 12.
 
-Prior to decimalisation day on 15 February 1971, UK currency consisted of 
+Prior to decimalisation day on 15 February 1971, UK currency consisted of
 pounds, shillings and pence.
 Twelve pence made one shilling and twenty shillings made one pound.
 Prices were displayed as £5/10s/6d (pronounced as "five pounds ten and six").
@@ -123,15 +121,15 @@ See [Wikipedia £sd](https://en.wikipedia.org/wiki/%c2%a3sd) for more info and h
 Break the problem into two simpler parts and write two helper functions:
 
 * `old_uk_psp_to_p(pounds1, shillings1, pennies1) -> pennies`  
-  This converts any number of pounds, shillings and pence into the equivalent
+  This converts any number of pounds, shillings, and pence into the equivalent
   number of pennies.
 * `old_uk_p_to_psp(pennies) -> pounds, shillings, pennies`  
   This converts any number of pennies into the equivalent number of pounds,
-  shillings and pennies.
+  shillings, and pennies.
 
 Then use these two helper functions to
 write `add_old_uk(pounds1, shillings1, pennies1, pounds2, shillings2, pennies2)`
-in the same way as you did for adding hours, minutes and seconds together.
+in the same way as you did for adding hours, minutes, and seconds together.
 
 Example test: `assert add_old_uk(0,19,11,19,0,1) == (20,0,0)`
 

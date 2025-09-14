@@ -1,4 +1,4 @@
-# LIN6209 Selection (if) additional practice questions
+# LIN7077 Selection (if) additional practice questions
 
 ## thermostat(temperature)
 

@@ -1,4 +1,4 @@
-""" These are my answers to LIN6209 Assignment 1 (assessed)"""
+""" These are my answers to LIN7077 Assignment 1 (assessed)"""
 
 # define two constants for H:M:S calculations
 MINUTES_IN_HOUR: int = 60  # the number of minutes in every hour

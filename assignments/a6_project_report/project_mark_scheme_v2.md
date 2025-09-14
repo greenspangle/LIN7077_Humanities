@@ -1,4 +1,4 @@
-# LIN 6209 Project Mark Scheme
+# LIN 7077 Project Mark Scheme
 
 ### Python Fluency (40%)
 

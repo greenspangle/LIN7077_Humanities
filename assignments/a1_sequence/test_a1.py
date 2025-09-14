@@ -1,4 +1,4 @@
-"""LIN6209 Test script for Assignment 1
+"""LIN7077 Test script for Assignment 1
 
 1. Place this script in the same folder as your python script for assignment 1
 2. Replace 'a1_answers' with the name of your answer script.

@@ -1,4 +1,4 @@
-# W6 LIN 6209 Assignment.
+# W6 LIN 7077 Assignment.
 # Design, build and test the following functions.
 # Submit your python student_script with the filename 'w6_yourID.py'.
 # This is one version of the answers."""

@@ -1,4 +1,4 @@
-# LIN6209 Collections & Iteration Assignment (#3 assessed)
+# LIN7077 Collections & Iteration Assignment (#3 assessed)
 
 
 #  The functions count_a(), count_digits(), count_vowels(), count_consonants are all built to the same pattern.

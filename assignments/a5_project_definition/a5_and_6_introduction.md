@@ -1,4 +1,4 @@
-# LIN6209 Introduction to Assignments 5 & 6
+# LIN7077 Introduction to Assignments 5 & 6
 
 Your final two assignments are to specify and then to deliver a small software
 development project. These assignments are worth 10% and 50% of your final

@@ -1,86 +1,97 @@
 # Programming for the Humanities
+
 # Weekly Lesson Topics
 
-## Week—1: Getting Started
+## Week 1: Getting Started
+
+What this module is about:
+
+* What you will learn
+* What you need to do to succeed
+* What you will be able to do if you do all
+  the tasks that you need to do to succeed
+
+Tasks for this week:
 
 * Install Python on your computer
 * Create an account at Anaconda.com
+* Write a Python program (using IDLE)
+* Save your program to a file
 
+Dealing with:
 
-* Using Python and IDLE
-* Saving your work
-* Writing Python modules/scripts
 * Syntax errors and debugging
 
+Learning about Python:
 
 * Values
 * Variables
-* Using functions
+* Functions
 * Objects and object types
-  * Text: str()
-  * Integer numbers: int()
-  * Floating point numbers: float()
-  * Truth values: bool()
+    * Text: str()
+    * Integer numbers: int()
+    * Floating point numbers: float()
+    * Truth values: bool()
 * Operators
-  * +, -, *, /, //, %
-  * <, <=, ==, !=, >=, >
-  * and, or, not
-  * [ ], is, in
+    * +, -, *, /, //, %
+    * <, <=, ==, !=, >=, >
+    * and, or, not
+      * [ ], is, in
 
-## Week—2: Functions
+## Week 2: Functions
+
 What a function is
 Built-in functions
 Defining a function
-  * Name
-  * Parameters
-  * {'hidden' internal code}
-  * Return value
+
+* Name
+* Parameters
+* {'hidden' internal code}
+* Return value
 * Saving and reusing functions
-  * import
-  * from
-  * as
-* Good programming style 
-  * Testing – part I
-  * Informal testing
-  * The assert statement
-  * The unittest library
-  * The pytest library
+    * import
+    * from
+    * as
+* Good programming style
+    * Testing – part I
+    * Informal testing
+    * The assert statement
+    * The unittest library
+    * The pytest library
 
 ### Programming Practice #1
 
-## Week—3: Conditional execution
+## Week 3: Conditional execution
 
 * Boolean logic
-  * The values True and False
-  * The operators and, or, and not 
-  * Truth tables
+    * The values True and False
+    * The operators and, or, and not
+    * Truth tables
 
 * The conditional keywords
-  * if
-  * else
-  * elif
+    * if
+    * else
+    * elif
 
 Testing & TDD (test driven development)
 
-
 ### Programming Practice #2
 
-
-## Week—4: Collections, Iteration, & Recursion
+## Week 4: Collections, Iteration, & Recursion
 
 * Collections
 * String, List, Tuple, Set, Frozenset, Dictionary, Queue, Deque, Stack, Tree, Graph, …
 
 
 * Ordered and unordered collections
-* Mutable & Immutable collections 
+* Mutable & Immutable collections
 
 
 * Iterating through collections
-  * for
-  * while
-  * break
-  * continue
+    * for
+    * while
+    * break
+    * continue
 
 
 * Analysis of collections
@@ -92,10 +103,10 @@ Testing & TDD (test driven development)
 * Unfold, Fold, Map
 * Ana- and Cata- morphisms
 
-
 ### Programming Practice #3
 
-## Week—5: Files
+## Week 5: Files
+
 * A file is a stream of data
 * Create, read, update, delete (CRUD)
 
@@ -104,8 +115,8 @@ Testing & TDD (test driven development)
 
 
 * File encodings
-  * ASCII
-  * Unicode
+    * ASCII
+    * Unicode
 
 The Python Keyword: with
 Always prefer this statement for reading and writing files
@@ -113,13 +124,11 @@ Always prefer this statement for reading and writing files
 Built-in functions:
 open()
 close()
-know about these but for now, Do_Not_Use them
-
+know about these, but for now, Do_Not_Use them
 
 ### Programming Practice #4
 
-
-## Week—6: Introducing your project
+## Week 6: Introducing your project
 
 * IDEs
 * Jupyter notebooks
@@ -136,7 +145,6 @@ know about these but for now, Do_Not_Use them
 * Regression analysis
 * Cluster analysis
 
-
 IDEs
 Spyder
 PyCharm
@@ -149,25 +157,24 @@ A plotting library for Python and its numerical extension NumPy
 Seaborn
 A high-level interface for drawing attractive and informative statistical graphics
 
-
 ### Assignment – Your project proposal
 
-
-## Week—7: Designing your project
-
+## Week 7: Designing your project
 
 Sources of real data:
-* gutenberg.org 
+
+* gutenberg.org
 * corpusdata.org
-* talkbank.org 
-* Beautiful Soup library 
+* talkbank.org
+* Beautiful Soup library
 * kaggle.com
 
 Data cleansing
 
-Designing and creating your test data www.mockaroo.com 
+Designing and creating your test data www.mockaroo.com
 
-## Week—8: The Application Development Lifecycle
+## Week 8: The Application Development Lifecycle
+
 Iterative development
 Requirements
 Analysis
@@ -188,12 +195,12 @@ Test early and often
 Expose to critical review
 Recast, and reiterate
 Test Driven Development
-Requirements, analysis, design, 
+Requirements, analysis, design,
 Build test framework first
 Build application second
 
+## Week 9: Data, Databases, SQL
 
-## Week—9: Data, Databases, SQL
 Data
 Structured
 Unstructured
@@ -209,17 +216,17 @@ SQL
 DDL data definition language
 DML data manipulation language
 
+## Week 10: Project reviews and guidance
 
-## Week—10: Project reviews and guidance
 Ego-less software development
 Respectful software development
 
 Project proposal presentations
-Set-up 		= 2 minutes
-Presentation	= 3 minutes
-Q & A 		= 3 minutes
-Wrap-up 	= 1 minute
-Tear-down	= 1 minute
+Set-up = 2 minutes
+Presentation = 3 minutes
+Q & A = 3 minutes
+Wrap-up = 1 minute
+Tear-down = 1 minute
 Fail fast, learn fast, succeed early
 Short iterations
 Clear objectives and deliverables
@@ -228,34 +235,35 @@ Test early and often
 Expose to critical review
 Recast, and reiterate
 
-## Week—11: Regular Expressions
+## Week 11: Regular Expressions
+
 What a regular expression is
 The RE library
 Meta-characters
 . ^ $ * + ? { } [ ] \ | ( )
-.     Any character except a newline
+. Any character except a newline
 [ ]  Character class
-^    Compliment of class
-\    Backslash 
-*    Zero or more times
-+    One or more times
-?    Once or zero times
-{m, n}    At least m times and at most n times
-|    Logical OR
-^    At the beginning of a line
-$    At the end of a line
-()    Grouping
-\A   At the start of a string
-\Z   At the end of a string
-\B   At a word boundary
-\b   Inside a word
-(?= …) Positive lookahead assertion
-(?! …) Negative lookahead assertion
+^ Compliment of class
+\ Backslash
 
+* Zero or more times
 
++ One or more times
+  ? Once or zero times
+  {m, n} At least m times and at most n times
+  | Logical OR
+  ^ At the beginning of a line
+  $    At the end of a line
+  ()    Grouping
+  \A At the start of a string
+  \Z At the end of a string
+  \B At a word boundary
+  \b Inside a word
+  (?= …) Positive lookahead assertion
+  (?! …) Negative lookahead assertion
 
+## Week 12: IT topics it’s good to know about, especially for interviews
 
-## Week—12: IT topics it’s good to know about, especially for interviews
 GIT & GitHub
 Scikit-learn
 TensorFlow

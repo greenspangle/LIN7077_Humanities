@@ -1,4 +1,4 @@
-# LIN6209 additional Sequence questions for practice
+# LIN7077 additional Sequence questions for practice
 
 # paint(height, width, depth, coverage=15)
 

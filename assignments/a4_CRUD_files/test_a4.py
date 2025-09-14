@@ -1,4 +1,4 @@
-# LIN6209 Test 4th Assignment
+# LIN7077 Test 4th Assignment
 #############################################################################
 # Place this in the same folder as your python script
 # replace 'a4_answers' with the name of your answer script
@@ -158,7 +158,7 @@ class TestStringMethods(unittest.TestCase):
         import random  # set random.seed before every test
         seed_test_value = 1234
         default_filename = 'random_chars.txt'
-        default_len = 6209
+        default_len = 7077
         default_alphabet = '0123456789'
 
         # define two helper functions
@@ -261,7 +261,7 @@ class TestStringMethods(unittest.TestCase):
         # TEST SETUP
 
         default_filename = 'webpage.html'
-        default_a_str = 'LIN6209 - Coding for Linguists'
+        default_a_str = 'LIN7077 - Programming for the Humanities'
         a_str = default_a_str
         default_html = f"""
 <!DOCTYPE html>

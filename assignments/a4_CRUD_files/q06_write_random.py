@@ -2,12 +2,12 @@ import string
 
 
 def write_random(filename: str = 'random_chars.txt',
-                 size: int = 6209,
+                 size: int = 7077,
                  alphabet: str = string.digits) -> None:
     """Write `size` random characters from `alphabet` to a file named `filename`.
     The parameters are:
     * filename: a legal file name with a default value of `'random_chars.txt'`
-    * size: a positive integer with a default value of `6209`
+    * size: a positive integer with a default value of `7077`
     * alphabet: a collection of characters with a default value of `'0123456789'`
 
     **Hints:**

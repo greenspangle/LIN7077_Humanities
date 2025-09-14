@@ -1,8 +1,8 @@
-def write_html(a_str: str = 'LIN2609 - Coding for Linguists',
+def write_html(a_str: str = 'LIN2609 - Programming for the Humanities',
                filename: str = 'filename') -> None:
     """This function writes `a_str` into a well-formed HTML file named `filename`.
 
-    The default value of `a_str` is `'LIN2609 - Coding for Linguists'`.\
+    The default value of `a_str` is `'LIN2609 - Programming for the Humanities'`.\
     The default value of `filename` is `'webpage.html'`."""
 
     html_string_template = (

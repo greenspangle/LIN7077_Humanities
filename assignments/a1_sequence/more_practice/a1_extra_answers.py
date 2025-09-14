@@ -1,4 +1,4 @@
-""" These are my answers to LIN6209 Extra Questions 1 (NOT assessed)"""
+""" These are my answers to LIN7077 Extra Questions 1 (NOT assessed)"""
 
 from assignments.a1_sequence.a1_answers import *
 

@@ -1,4 +1,4 @@
-# LIN6209 2nd assignment
+# LIN7077 2nd assignment
 # my answers
 
 def signum(a_num):

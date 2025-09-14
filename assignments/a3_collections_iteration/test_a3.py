@@ -1,4 +1,4 @@
-# LIN6209 Test 3rd Assignment
+# LIN7077 Test 3rd Assignment
 
 # updated afternoon Tuesday 24 October 2023
 # Place this in the same folder as your python script

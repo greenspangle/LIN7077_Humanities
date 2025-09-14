@@ -1,4 +1,4 @@
-# LIN6209 Assignment #4
+# LIN7077 Assignment #4
 
 Design, build and deliver functions that comply with the descriptions below.
 
@@ -130,7 +130,7 @@ Write `size` random characters from `alphabet` to a file named `filename`.
 The parameters are:
 
 * filename: a legal file name with a default value of `'random_chars.txt'`
-* size: a positive integer with a default value of `6209`
+* size: a positive integer with a default value of `7077`
 * alphabet: a string of characters with a default value of `'0123456789'`
 
 **Hints:**

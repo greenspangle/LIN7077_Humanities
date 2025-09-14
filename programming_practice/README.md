@@ -1,2 +1,2 @@
-# LIN6209_25
-Coding for Linguists 2025
+# LIN7077_25
+Programming for the Humanities 2025

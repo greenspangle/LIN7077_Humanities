@@ -13,6 +13,6 @@ and from a diff location
 
 and again, from an absolute location#
 
-[idle more](C:\Users\green\OneDrive\AllTeaching\_QMUL\LIN6209_23\w1_getting_started\images\Picture3.png)
+[idle more](C:\Users\green\OneDrive\AllTeaching\_QMUL\LIN7077_23\w1_getting_started\images\Picture3.png)
 
 anddd mure text at end

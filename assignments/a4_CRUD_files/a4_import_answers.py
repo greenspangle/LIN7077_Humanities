@@ -1,4 +1,4 @@
-# LIN6209 Files (#4 assessed)
+# LIN7077 Files (#4 assessed)
 
 from q01_temperature_f_to_c import temperature_f_to_c as temperature_FtoC
 

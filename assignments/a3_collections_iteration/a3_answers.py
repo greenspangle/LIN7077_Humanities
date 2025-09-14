@@ -1,4 +1,4 @@
-# LIN6209 Assignment #3 - Collections & Iteration
+# LIN7077 Assignment #3 - Collections & Iteration
 
 
 # define some constants for collections of characters

@@ -1,4 +1,4 @@
-# LIN6209 Files (#4 assessed)
+# LIN7077 Files (#4 assessed)
 
 import string  # module contains various collections of ASCII characters
 import csv  # module for precessing comma seperated files
@@ -113,12 +113,12 @@ def read_ints_csv(filename):
 
 
 def write_random(filename='random_chars.txt',
-                 size=6209,
+                 size=7077,
                  alphabet=string.digits):
     """The parameters are:
         * filename: a legal file name with a default value of
           `'random_chars.txt'`
-        * size: a positive integer with a default value of `6209`
+        * size: a positive integer with a default value of `7077`
         * alphabet: a string of characters with a default value of
           `'0123456789'`
     Write `size` random characters from `alphabet` to a file named `filename`.
@@ -192,11 +192,11 @@ def deal(an_int):
     return hand_as_tuples
 
 
-def write_html(a_str='LIN6209 - Coding for Linguists',
+def write_html(a_str='LIN7077 - Programming for the Humanities',
                filename='webpage.html'):
     """This function writes `a_str` into a well-formed HTML file named `filename`.
 
-    The default value of `a_str` is `'LIN2609 - Coding for Linguists'`.\
+    The default value of `a_str` is `'LIN2609 - Programming for the Humanities'`.\
     The default value of `filename` is `'webpage.html'`."""
 
     html_string_template = '<!DOCTYPE html>' \

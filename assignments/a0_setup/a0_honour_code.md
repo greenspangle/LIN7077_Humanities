@@ -1,4 +1,4 @@
-# LIN6209 Assignment #0
+# LIN7077 Assignment #0
 
 This assignment is NOT assessed.
 Nevertheless, you must complete it else you will not be able to do
@@ -48,7 +48,7 @@ We will use both standard Python and Anaconda throughout this module.
 
 Use File Manager (Windows) or Finder (macOS) to create a top level folder for
 this course.
-Call it 'code' or 'lin6209' or whatever is meaningful to you.
+Call it 'code' or 'lin7077' or whatever is meaningful to you.
 Within that course folder perhaps create folders for each unit of work and/or
 assignment.
 

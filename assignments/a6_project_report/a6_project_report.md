@@ -1,4 +1,4 @@
-# LIN6209 Assignment 6 (50% of course assessment)
+# LIN7077 Assignment 6 (50% of course assessment)
 
 # Your Project and Project Report
 

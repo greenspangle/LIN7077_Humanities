@@ -1,4 +1,4 @@
-# LIN6209 Guidance for Assignments 1 to 4
+# LIN7077 Guidance for Assignments 1 to 4
 
 ## Understanding the problem statements
 

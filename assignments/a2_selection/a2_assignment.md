@@ -1,4 +1,4 @@
-# LIN6209 Assignment #2
+# LIN7077 Assignment #2
 
 Deliver functions that comply with the descriptions below and
 pass all the tests in `test_a2.py`.

@@ -84,7 +84,7 @@ times_3(7)
 times_3(77)
 times_3('77 sunset strip')
 
-first_last('LIN6209')
+first_last('LIN7077')
 first_last('Linguistics')
 ```
 

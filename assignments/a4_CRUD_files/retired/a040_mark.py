@@ -1,4 +1,4 @@
-# LIN6209 Test 5th Assignment
+# LIN7077 Test 5th Assignment
 
 from assignment_student_submissions.a4_submissions.attempt_20221207.a5_200411868_ import *
 

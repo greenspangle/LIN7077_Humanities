@@ -1,4 +1,4 @@
-# LIN6209 Files (#4 assessed)
+# LIN7077 Files (#4 assessed)
 
 # Useful to create these global constants?
 ALPHA_LC = 'abcdefghijklmnopqrstuvwxyz'
