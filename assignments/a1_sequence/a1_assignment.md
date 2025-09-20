@@ -1,4 +1,4 @@
-# LIN7077 Assignment #1
+# LIN7077 Homework #1
 
 Design, build, and deliver functions that comply with the descriptions below.
 

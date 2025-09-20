@@ -2,6 +2,8 @@
 
 # Weekly Lesson Topics
 
+Throughout this course you will make use of AI coding assistants.
+
 ## Week 1: Getting Started
 
 This week you will start learning the programming language Python,
@@ -11,8 +13,8 @@ you should start thinking about what your programming project will be.
 Your programming project can be about anything you want,
 which is both exciting and probably more than a little daunting.
 Nevertheless, by the end of week six,
-you will need to have written a detailed project proposal
-which you will deliver during weeks seven to twelve
+you will need to have written a proposal for the project
+you will build and deliver during weeks seven to twelve
 
 It may seem too early to think about this now, but it is important to start now
 so that you can refine your ideas for your project as we learn Python.
@@ -23,6 +25,11 @@ so that you can refine your ideas for your project as we learn Python.
 * Create an account at Anaconda.com
 * Create an account at JetBrains.com
 * Create an account at GitHub.com
+* Create an account at one, or more of:
+  * OpenAI ChatGPT
+  * Anthropic Claude
+  * Google Gemini
+  * Microsoft CoPilot
 * Write a Python program
 * Save your program to a file
 
@@ -65,17 +72,17 @@ Testing that your functions do what you say they do!
 
 ## Week 3: Conditional execution
 
-### Boolean logic
-
-* The values `True` and `False`
-* The operators `and`, `or`, and `not`
-* Truth tables
-
 ### The conditional keywords
 
 * `if`
 * `else`
 * `elif`
+
+### Boolean logic
+
+* The values `True` and `False`
+* The operators `and`, `or`, and `not`
+* Truth tables
 
 Testing & TDD (test driven development)
 
@@ -153,10 +160,12 @@ but it should be a good starting point, and it will be good for you to get feedb
 This week we will also review some of the tools you will (probably) need to write your project.
 
 ### Machine Learning
- TODO
+
+TODO
 
 ### Natural Networks
- TODO
+
+TODO
 
 ### IDEs
 
@@ -194,7 +203,9 @@ Getting your data:
 * kaggle.com
 
 ### Using AI
+
 Two things that AI can be very helpful with:
+
 * Refining your project ideas
 * Helping you write your code
 
@@ -202,20 +213,17 @@ Every software developer uses AI when working on a programming project, and so s
 
 ## Week 8: Agile Software Development
 
-The Agile Manifesto was written in 2001 by seventeen 
-independent-minded software practitioners. 
-While the participants didn’t often agree, 
+The Agile Manifesto was written in 2001 by seventeen
+independent-minded software practitioners.
+While the participants didn’t often agree,
 they did find consensus around four core values.
-
 
 ### The Agile Manifesto
 
 https://agilemanifesto.org/ and https://agilealliance.org/
 
-"We are uncovering better ways of developing software by doing it 
+"We are uncovering better ways of developing software by doing it
 and helping others do it. Through this work we have come to value:
-
-
 
 * **Individuals and interactions** over processes and tools
 * **Working software** over comprehensive documentation
@@ -225,7 +233,6 @@ and helping others do it. Through this work we have come to value:
 
 That is, while there is value in the items on the right,
 we value the items on the left more."
-
 
 TODO = everything after this point...
 

@@ -17,10 +17,6 @@ that ou really do understand what Python is doing.
 The pattern of our weekly lectures will be that the first half is learning
 and the second half is all practice.
 
-There is no assignment this week but do not let that lull you into a false 
-sense of security. There are six assignments for this module and the first five 
-are issued in weeks 2, 3, 4, 5. and 6.
-
 Today we will start by using Python interactively to establish some basics. 
 Then we will move to using Jupyter notebooks for exploring and practicing 
 Python.

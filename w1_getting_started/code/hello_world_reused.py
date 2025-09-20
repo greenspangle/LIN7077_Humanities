@@ -1,3 +1,3 @@
 import hello_world
 
-# more about this later
+# we will talk more about this later

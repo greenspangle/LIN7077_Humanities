@@ -1,4 +1,4 @@
-# LIN7077 Assignment #3
+# LIN7077 Homework #3
 
 Deliver functions that comply with the descriptions below and
 pass all the tests in `test_a3.py`.

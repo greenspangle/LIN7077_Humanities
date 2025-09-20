@@ -2,8 +2,8 @@
 
 # Module description
 
-This module introduces computer programming and computational modelling for
-applications in linguistics.
+This module introduces computer programming and computational modelling
+for applications in linguistics.
 
 There will be a strong focus on developing practical skills.
 
@@ -30,9 +30,10 @@ On completion of this module, students will be able to:
 
 Programming is a practical activity.
 
-Therefore, to become a decent programmer, you must practice.
+To become a fluent programmer, you must practice.
 
-Your physical presence and active participation in lectures is therefore essential.
+Your physical presence and active participation in lectures 
+and workshops is therefore essential.
 
 ## Learning Materials
 
@@ -50,43 +51,13 @@ There are no set books for this module, but a few I can recommend are:
 * www.realpython.com
 * www.freecodecamp.org/learn/
 * www.snakify.org/en/
+* www.anaconda.com
 
-And last but very far from least:
-
+And last, but very far from least:
 
 * Learning Python. Mark Lutz. O'Reilly Media
 
 ## Assessment
 
-* The programming activities set
+* Your programming activities you deliver 
 * A programming project of your own choice
-
-TODO - where should this be?
-
-~~Lecture and Assignment Schedule
-Week Topics
-1 Getting started with Python using interactive Python and IDLE.
-Saving and re-using your programs.
-Values, variables, functions, operators, input, and output.
-2*    Functions: designing, writing, testing, using, and re-using.
-Testing.
-3*    Conditional execution. Boolean Logic.
-Using an IDE (Integrated Development Environment): Spyder, PyCharm
-4*    Collections. Iterative and recursive execution.
-5*    CRUD: Creating, Reading, Updating and Deleting files.
-6*    Defining your project
-IDE’s, Pandas, Numpy and Jupyter notebooks.
-Charting and presenting data with Matplotlib and Seaborn
-Regression and Cluster analysis for machine learning
-7 Reading week
-8 The iterative application development lifecycle
-Testing and test-driven development
-Managing errors and exceptions.
-Project workshop
-9 Data, databases, and SQL.
-10 Projects: mid-point reviews and guidance.
-11 Regular Expressions.
-12 Python Futures
-More software libraries: ANTLR, ST, NLTK, ...
-Other programming languages, big data, artificial intelligence, chatbots and current trends.~~
-
